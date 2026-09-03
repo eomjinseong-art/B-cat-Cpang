@@ -17,7 +17,7 @@
       <a id="headerLink" href="#" target="_blank" rel="noopener" class="rounded-full bg-orange-500 px-3 py-2 text-xs font-bold text-white">오늘의 골드박스</a>
     </div>
   </header>
-  <main class="mx-auto max-w-5xl px-4 pb-28">
+  <main class="mx-auto max-w-5xl px-4 pb-40">
     <section class="py-8">
       <p class="mb-2 text-sm font-bold text-orange-600">집사님을 위한 오늘의 큐레이션</p>
       <h1 id="heroTitle" class="text-3xl font-black leading-tight sm:text-4xl">고양이의 하루를 더 편안하게</h1>
@@ -133,6 +133,12 @@
     $('modal').addEventListener('click', event => { if (event.target === $('modal')) closeModal(); });
     function escapeHtml(value) { return String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char])); }
   </script>
-  <a href="https://sumsumvill.blogspot.com/" target="_blank" rel="noopener" class="fixed inset-x-0 bottom-0 z-40 border-t border-orange-200 bg-orange-500 py-3 text-center text-sm font-bold text-white shadow-[0_-8px_24px_rgba(0,0,0,.12)]" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom))">숨숨마을 블로그 바로가기</a>
+  <div class="fixed inset-x-0 bottom-0 z-40">
+    <div class="flex border-t border-orange-100 bg-orange-50">
+      <a href="https://link.coupang.com/a/gKei5IuiwS" target="_blank" rel="noopener sponsored" class="flex-1 py-2 text-center text-[11px] font-semibold text-orange-700">로켓프레시</a>
+      <a href="https://link.coupang.com/a/gKenl0nyO4" target="_blank" rel="noopener sponsored" class="flex-1 border-l border-orange-100 py-2 text-center text-[11px] font-semibold text-orange-700">로켓와우</a>
+    </div>
+    <a href="https://sumsumvill.blogspot.com/" target="_blank" rel="noopener" class="block bg-orange-500 py-3 text-center text-sm font-bold text-white shadow-[0_-8px_24px_rgba(0,0,0,.12)]" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom))">숨숨마을 블로그 바로가기</a>
+  </div>
 </body>
 </html>
