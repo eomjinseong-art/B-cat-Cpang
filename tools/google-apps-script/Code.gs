@@ -1,191 +1,136 @@
+const SPREADSHEET_ID = '1hUNqA5ywL75YmRH-PwZ4K-_zSIpN75C8SFjgsQ9vtTg';
 const SHEET_NAME = '광고용';
 const OUTPUT_SHEET_NAME = '사이트용상품';
-const UNUSED_SHEETS = ['한국어', '블로그용'];
-const REQUIRED_HEADERS = [
-  'NO',
-  '쿠팡파트너스 링크',
-  '카테고리',
-  '상품명',
-  '상품 한줄설명',
-  '상품 이미지 URL',
-  '이미지 상태'
-];
+const FLAGS_URL = 'https://raw.githubusercontent.com/eomjinseong-art/B-cat-Cpang/main/data/sheet-flags.json';
+const MISSING_STATUS = '이미지 없음 - 링크 교체 필요';
+const DUPLICATE_STATUS = '중복 상품 - 다른 링크로 교체 필요';
+const OK_STATUS = '정상';
+const RED = '#FEE2E2';
+const WHITE = '#FFFFFF';
 
 function doGet(e) {
-  if (e && e.parameter && e.parameter.action === 'sync') {
-    return ContentService
-      .createTextOutput(JSON.stringify(resetAndSync()))
-      .setMimeType(ContentService.MimeType.JSON);
+  const action = e && e.parameter && e.parameter.action;
+  try {
+    if (action === 'mark' || action === 'markMissing') {
+      const missing = parseIds(e.parameter.missing || e.parameter.ids);
+      const duplicates = parseIds(e.parameter.duplicates);
+      const result = missing.length || duplicates.length
+        ? markSheetRows(missing, duplicates)
+        : markFromGithub();
+      return json(result);
+    }
+    if (action === 'sync') {
+      return json(syncProducts());
+    }
+  } catch (error) {
+    return json({ success: false, error: error.message });
   }
-
   return ContentService.createTextOutput(
-    'B-cat-Cpang Apps Script is ready. Use ?action=sync'
+    'B-Cat-Cpang Apps Script\n?action=mark - 이미지 없음/중복 행을 빨간색으로 표시\n?action=sync - 사이트용상품 정리'
   );
 }
 
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('사이트 상품 관리')
-    .addItem('상품 데이터 정리', 'resetAndSync')
-    .addItem('매일 자동 실행 설정', 'installDailyTrigger')
+    .addItem('이미지 없는 링크 빨간색 표시', 'markFromGithub')
+    .addItem('상품 데이터 정리', 'syncProducts')
     .addToUi();
 }
 
-function resetAndSync() {
-  const spreadsheet = SpreadsheetApp.getActive();
-
-  UNUSED_SHEETS.forEach(name => {
-    const sheet = spreadsheet.getSheetByName(name);
-    if (sheet && spreadsheet.getSheets().length > 1) {
-      spreadsheet.deleteSheet(sheet);
-    }
-  });
-
-  const result = syncProducts();
-  spreadsheet.toast(`${result.count}개 상품을 정리했습니다.`, '사이트 상품 관리');
+function markFromGithub() {
+  const response = UrlFetchApp.fetch(FLAGS_URL, { muteHttpExceptions: true, followRedirects: true });
+  if (response.getResponseCode() >= 400) {
+    throw new Error('sheet-flags.json을 불러오지 못했습니다.');
+  }
+  const flags = JSON.parse(response.getContentText());
+  const result = markSheetRows(flags.missing || [], flags.duplicates || []);
+  try {
+    SpreadsheetApp.getActive().toast(
+      `이미지 없음 ${result.missing}개, 중복 ${result.duplicates}개를 표시했습니다.`,
+      '사이트 상품 관리'
+    );
+  } catch (error) {}
   return result;
 }
 
-function syncProducts() {
-  const spreadsheet = SpreadsheetApp.getActive();
-  const source = spreadsheet.getSheetByName(SHEET_NAME);
+function markSheetRows(missingIds, duplicateIds) {
+  const sheet = getSpreadsheet().getSheetByName(SHEET_NAME);
+  if (!sheet) throw new Error(`'${SHEET_NAME}' 탭을 찾을 수 없습니다.`);
 
-  if (!source) {
-    throw new Error(`'${SHEET_NAME}' 탭을 찾을 수 없습니다.`);
+  const range = sheet.getDataRange();
+  const values = range.getDisplayValues();
+  if (values.length < 2) throw new Error('광고용 탭에 상품 데이터가 없습니다.');
+
+  const missing = new Set((missingIds || []).map(Number));
+  const duplicates = new Set((duplicateIds || []).map(Number));
+  const statusIndex = ensureStatusColumn(sheet, values[0]);
+  const lastColumn = Math.max(range.getNumColumns(), statusIndex + 1);
+  const backgrounds = [];
+  const statuses = [];
+
+  for (let i = 1; i < values.length; i++) {
+    const id = Number(String(values[i][0] || '').trim());
+    if (duplicates.has(id)) {
+      backgrounds.push(RED);
+      statuses.push(DUPLICATE_STATUS);
+    } else if (missing.has(id)) {
+      backgrounds.push(RED);
+      statuses.push(MISSING_STATUS);
+    } else {
+      backgrounds.push(WHITE);
+      statuses.push(OK_STATUS);
+    }
   }
 
-  const values = source.getDataRange().getDisplayValues();
-  if (values.length < 2) {
-    throw new Error('광고용 탭에 상품 데이터가 없습니다.');
-  }
-
-  const headers = values[0].map(value => value.trim());
-  const index = name => headers.findIndex(header => header === name);
-  const linkIndex = firstIndex(index, [
-    '쿠팡 파트너스 링크',
-    '쿠팡파트너스 링크',
-    '상품 링크'
-  ]);
-  const categoryIndex = firstIndex(index, ['상황 태그', '카테고리']);
-  const titleIndex = firstIndex(index, ['상품명', '실제 상품명']);
-  const descriptionIndex = firstIndex(index, ['상품 한줄설명', '상품 설명']);
-  const imageIndex = firstIndex(index, ['상품 이미지 URL', '이미지 URL']);
-
-  if ([linkIndex, categoryIndex, titleIndex, imageIndex].some(value => value < 0)) {
-    throw new Error(
-      '필수 열이 없습니다: 쿠팡 파트너스 링크, 카테고리, 상품명, 상품 이미지 URL'
-    );
-  }
-
-  const output = [REQUIRED_HEADERS];
-  const seen = new Set();
-
-  values.slice(1).forEach(row => {
-    const no = String(row[0] || '').trim();
-    const link = normalizeLink(row[linkIndex]);
-    if (!link || seen.has(link)) return;
-
-    seen.add(link);
-
-    const title = String(row[titleIndex] || '').trim() || `고양이 용품 추천 ${no}`;
-    const category = classifyCategory(
-      String(row[categoryIndex] || '').replace(/^#/, '').trim(),
-      title
-    );
-    const description =
-      descriptionIndex >= 0 && String(row[descriptionIndex] || '').trim()
-        ? String(row[descriptionIndex]).trim()
-        : categoryDescription(category);
-    const imageUrl = String(row[imageIndex] || '').trim();
-
-    output.push([
-      no,
-      link,
-      category,
-      title,
-      description,
-      imageUrl,
-      imageUrl ? checkImage(imageUrl) : 'GitHub Actions 수집 대기'
-    ]);
-  });
-
-  let target = spreadsheet.getSheetByName(OUTPUT_SHEET_NAME);
-  if (!target) target = spreadsheet.insertSheet(OUTPUT_SHEET_NAME);
-
-  target.clearContents();
-  target.getRange(1, 1, output.length, REQUIRED_HEADERS.length).setValues(output);
-  target.setFrozenRows(1);
-  target.autoResizeColumns(1, REQUIRED_HEADERS.length);
+  sheet.getRange(2, 1, backgrounds.length, lastColumn).setBackgrounds(
+    backgrounds.map(color => Array(lastColumn).fill(color))
+  );
+  sheet.getRange(2, statusIndex + 1, statuses.length, 1).setValues(statuses.map(value => [value]));
+  sheet.getRange(1, statusIndex + 1).setValue('이미지 상태');
+  sheet.setFrozenRows(1);
 
   return {
-    count: output.length - 1,
-    sheet: OUTPUT_SHEET_NAME
+    success: true,
+    missing: [...missing].length,
+    duplicates: [...duplicates].length,
+    rows: backgrounds.length
   };
 }
 
-function installDailyTrigger() {
-  ScriptApp.getProjectTriggers()
-    .filter(trigger => trigger.getHandlerFunction() === 'resetAndSync')
-    .forEach(trigger => ScriptApp.deleteTrigger(trigger));
-
-  ScriptApp.newTrigger('resetAndSync')
-    .timeBased()
-    .everyDays(1)
-    .atHour(3)
-    .create();
+function ensureStatusColumn(sheet, headers) {
+  const names = headers.map(value => String(value || '').trim());
+  const found = names.findIndex(name => name === '이미지 상태' || name === '상태');
+  if (found >= 0) return found;
+  const column = names.length + 1;
+  sheet.getRange(1, column).setValue('이미지 상태');
+  return column - 1;
 }
 
-function classifyCategory(value, title) {
-  if (value) return value;
-  if (/사료|키튼|로얄캐닌|습식|건식/.test(title)) return '고양이 사료';
-  if (/모래/.test(title)) return '고양이 모래';
-  if (/간식|츄르|트릿|캔|스낵/.test(title)) return '고양이 간식';
-  if (/스크래쳐|스크래처|스크래치|캣타워|하우스|숨숨집/.test(title)) {
-    return '스크래처 및 캣타워';
-  }
-  if (/화장실|배변|탈취|위생|리터락커/.test(title)) {
-    return '위생 및 화장실 용품';
-  }
-  if (/장난감|낚싯대|공|터널|캣닢/.test(title)) return '장난감';
-  return '기타';
+function syncProducts() {
+  const spreadsheet = getSpreadsheet();
+  const source = spreadsheet.getSheetByName(SHEET_NAME);
+  if (!source) throw new Error(`'${SHEET_NAME}' 탭을 찾을 수 없습니다.`);
+  return { success: true, sheet: SHEET_NAME };
 }
 
-function categoryDescription(category) {
-  const descriptions = {
-    '고양이 사료': '고양이의 건강한 식사를 위한 추천 사료입니다.',
-    '고양이 모래': '쾌적한 배변 환경을 위한 고양이 모래입니다.',
-    '고양이 간식': '맛있는 간식으로 건강한 보상 시간을 만들어 주세요.',
-    '스크래처 및 캣타워': '휴식과 발톱 관리를 돕는 공간입니다.',
-    '위생 및 화장실 용품': '쾌적한 위생과 배변 환경을 위한 용품입니다.',
-    장난감: '지루함을 덜어 주는 즐거운 놀이 용품입니다.',
-    기타: '고양이와 집사에게 유용한 생활 추천 용품입니다.'
-  };
-  return descriptions[category] || descriptions.기타;
-}
-
-function checkImage(url) {
-  if (!url) return '이미지 URL 없음';
-
+function getSpreadsheet() {
   try {
-    const response = UrlFetchApp.fetch(url, {
-      muteHttpExceptions: true,
-      followRedirects: true
-    });
-    const code = response.getResponseCode();
-    return code >= 200 && code < 400 ? '정상' : `접속 오류(${code})`;
+    return SpreadsheetApp.getActive() || SpreadsheetApp.openById(SPREADSHEET_ID);
   } catch (error) {
-    return '접속 실패';
+    return SpreadsheetApp.openById(SPREADSHEET_ID);
   }
 }
 
-function normalizeLink(value) {
-  return String(value || '').trim().replace(/\/+$/, '');
+function parseIds(value) {
+  return String(value || '')
+    .split(',')
+    .map(item => Number(item.trim()))
+    .filter(item => item > 0);
 }
 
-function firstIndex(index, names) {
-  for (const name of names) {
-    const value = index(name);
-    if (value >= 0) return value;
-  }
-  return -1;
+function json(payload) {
+  return ContentService
+    .createTextOutput(JSON.stringify(payload))
+    .setMimeType(ContentService.MimeType.JSON);
 }

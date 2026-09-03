@@ -6,37 +6,30 @@
     "product": {
       "title": "고양이 용품 추천 1",
       "coupangUrl": "https://link.coupang.com/a/gJPt9fCLwi",
-      "imageUrl": "./images/products/product-001.jpg"
+      "imageUrl": "./images/products/product-001.jpg",
+      "productId": "8438579557"
     }
   },
   {
     "id": 2,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
       "title": "코멧 고양이 캣닢 볼, 2개 - 기타 장난감",
       "coupangUrl": "https://link.coupang.com/a/gJPuZ1iDZc",
-      "imageUrl": "./images/products/product-002.jpg"
+      "imageUrl": "./images/products/product-002.jpg",
+      "productId": "6393462338"
     }
   },
   {
     "id": 3,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
       "title": "매일야옹 밀크하우스 일체형 스크래쳐 고양이집, 1개 - 스크래쳐",
       "coupangUrl": "https://link.coupang.com/a/gJPvBf9rmm",
-      "imageUrl": "./images/products/product-003.jpg"
-    }
-  },
-  {
-    "id": 4,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "매일야옹 밀크하우스 일체형 스크래쳐 고양이집, 1개 - 스크래쳐",
-      "coupangUrl": "https://link.coupang.com/a/gJPv9jafIa",
-      "imageUrl": "./images/products/product-004.jpg"
+      "imageUrl": "./images/products/product-003.jpg",
+      "productId": "6059896826"
     }
   },
   {
@@ -46,17 +39,19 @@
     "product": {
       "title": "고양이 용품 추천 5",
       "coupangUrl": "https://link.coupang.com/a/gJPwGPkLHU",
-      "imageUrl": "./images/products/product-005.jpg"
+      "imageUrl": "./images/products/product-005.jpg",
+      "productId": "335833200"
     }
   },
   {
     "id": 6,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
       "title": "모어테일 고양이 오뚝이 장난감 사운드 캣닢볼 혼자노는 움직이는 장난감, 그린, 1개",
       "coupangUrl": "https://link.coupang.com/a/gJPxdlJY0O",
-      "imageUrl": "./images/products/product-006.jpg"
+      "imageUrl": "./images/products/product-006.jpg",
+      "productId": "9575963370"
     }
   },
   {
@@ -66,7 +61,8 @@
     "product": {
       "title": "고양이 용품 추천 7",
       "coupangUrl": "https://link.coupang.com/a/gJPxNEpsqq",
-      "imageUrl": "./images/products/product-007.svg"
+      "imageUrl": "./images/products/product-007.svg",
+      "productId": "9699014359"
     }
   },
   {
@@ -76,7 +72,8 @@
     "product": {
       "title": "고양이 용품 추천 8",
       "coupangUrl": "https://link.coupang.com/a/gJPyhqAwp2",
-      "imageUrl": "./images/products/product-008.jpg"
+      "imageUrl": "./images/products/product-008.jpg",
+      "productId": "9522092119"
     }
   },
   {
@@ -86,17 +83,19 @@
     "product": {
       "title": "고양이 용품 추천 9",
       "coupangUrl": "https://link.coupang.com/a/gJPyIftR3k",
-      "imageUrl": "./images/products/product-009.jpg"
+      "imageUrl": "./images/products/product-009.jpg",
+      "productId": "187620492"
     }
   },
   {
     "id": 10,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 모래",
+    "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
       "title": "묘나리자 강력뭉침 프리미엄 두부모래 가는입자&벤토나이트 흡수분자 고양이 모래 2.8kg, 무향, 6개, 7L할인37%",
       "coupangUrl": "https://link.coupang.com/a/gJPzclr63E",
-      "imageUrl": "./images/products/product-010.jpg"
+      "imageUrl": "./images/products/product-010.jpg",
+      "productId": "8591304047"
     }
   },
   {
@@ -106,17 +105,19 @@
     "product": {
       "title": "고양이 용품 추천 11",
       "coupangUrl": "https://link.coupang.com/a/gJPzOMKZe8",
-      "imageUrl": "./images/products/product-011.jpg"
+      "imageUrl": "./images/products/product-011.jpg",
+      "productId": "8082859174"
     }
   },
   {
     "id": 12,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 사료",
+    "description": "고양이의 건강한 식사를 위한 추천 사료입니다.",
     "product": {
       "title": "보노네이처 고양이 유기농 ( 피부 & 요로방광 ) ( 피부 & 면역 ) 가수분해 전연령 기능성사료, 7kg, 1개, 닭",
       "coupangUrl": "https://link.coupang.com/a/gJPAn8nSxg",
-      "imageUrl": "./images/products/product-012.jpg"
+      "imageUrl": "./images/products/product-012.jpg",
+      "productId": "6113370508"
     }
   },
   {
@@ -126,7 +127,8 @@
     "product": {
       "title": "고양이 용품 추천 13",
       "coupangUrl": "https://link.coupang.com/a/gJPAUhp3yC",
-      "imageUrl": "./images/products/product-013.jpg"
+      "imageUrl": "./images/products/product-013.jpg",
+      "productId": "8364780976"
     }
   },
   {
@@ -136,7 +138,8 @@
     "product": {
       "title": "고양이 용품 추천 14",
       "coupangUrl": "https://link.coupang.com/a/gJPBmWatG0",
-      "imageUrl": "./images/products/product-014.jpg"
+      "imageUrl": "./images/products/product-014.jpg",
+      "productId": "8129337227"
     }
   },
   {
@@ -146,17 +149,8 @@
     "product": {
       "title": "고양이 용품 추천 15",
       "coupangUrl": "https://link.coupang.com/a/gJPBSY7RrU",
-      "imageUrl": "./images/products/product-015.jpg"
-    }
-  },
-  {
-    "id": 16,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 16",
-      "coupangUrl": "https://link.coupang.com/a/gJPCJKBBDg",
-      "imageUrl": "./images/products/product-016.jpg"
+      "imageUrl": "./images/products/product-015.jpg",
+      "productId": "8330933896"
     }
   },
   {
@@ -166,17 +160,8 @@
     "product": {
       "title": "고양이 용품 추천 17",
       "coupangUrl": "https://link.coupang.com/a/gJPDpckcbk",
-      "imageUrl": "./images/products/product-017.jpg"
-    }
-  },
-  {
-    "id": 18,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 18",
-      "coupangUrl": "https://link.coupang.com/a/gJPDUjvvhs",
-      "imageUrl": "./images/products/product-018.jpg"
+      "imageUrl": "./images/products/product-017.jpg",
+      "productId": "9581305110"
     }
   },
   {
@@ -186,7 +171,8 @@
     "product": {
       "title": "고양이 용품 추천 19",
       "coupangUrl": "https://link.coupang.com/a/gJPExSD1H2",
-      "imageUrl": "./images/products/product-019.jpg"
+      "imageUrl": "./images/products/product-019.jpg",
+      "productId": "8615130283"
     }
   },
   {
@@ -196,7 +182,8 @@
     "product": {
       "title": "고양이 용품 추천 20",
       "coupangUrl": "https://link.coupang.com/a/gJPE3oGE8a",
-      "imageUrl": "./images/products/product-020.svg"
+      "imageUrl": "./images/products/product-020.svg",
+      "productId": "9608653355"
     }
   },
   {
@@ -206,7 +193,8 @@
     "product": {
       "title": "고양이 용품 추천 21",
       "coupangUrl": "https://link.coupang.com/a/gJPFyTMytM",
-      "imageUrl": "./images/products/product-021.jpg"
+      "imageUrl": "./images/products/product-021.jpg",
+      "productId": "8796924127"
     }
   },
   {
@@ -216,7 +204,8 @@
     "product": {
       "title": "고양이 용품 추천 22",
       "coupangUrl": "https://link.coupang.com/a/gJPF6nIbIa",
-      "imageUrl": "./images/products/product-022.jpg"
+      "imageUrl": "./images/products/product-022.jpg",
+      "productId": "8816189380"
     }
   },
   {
@@ -226,7 +215,8 @@
     "product": {
       "title": "고양이 용품 추천 23",
       "coupangUrl": "https://link.coupang.com/a/gJPGBPnLaK",
-      "imageUrl": "./images/products/product-023.jpg"
+      "imageUrl": "./images/products/product-023.jpg",
+      "productId": "6653855148"
     }
   },
   {
@@ -236,27 +226,8 @@
     "product": {
       "title": "고양이 용품 추천 24",
       "coupangUrl": "https://link.coupang.com/a/gJPG4oVciG",
-      "imageUrl": "./images/products/product-024.svg"
-    }
-  },
-  {
-    "id": 25,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 25",
-      "coupangUrl": "https://link.coupang.com/a/gJPHCcHSii",
-      "imageUrl": "./images/products/product-025.jpg"
-    }
-  },
-  {
-    "id": 26,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 26",
-      "coupangUrl": "https://link.coupang.com/a/gJPIh7nx6W",
-      "imageUrl": "./images/products/product-026.jpg"
+      "imageUrl": "./images/products/product-024.svg",
+      "productId": "9172528025"
     }
   },
   {
@@ -266,17 +237,8 @@
     "product": {
       "title": "고양이 용품 추천 27",
       "coupangUrl": "https://link.coupang.com/a/gJPILXpUUS",
-      "imageUrl": "./images/products/product-027.jpg"
-    }
-  },
-  {
-    "id": 28,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 28",
-      "coupangUrl": "https://link.coupang.com/a/gJPJhrmREa",
-      "imageUrl": "./images/products/product-028.svg"
+      "imageUrl": "./images/products/product-027.jpg",
+      "productId": "9594595930"
     }
   },
   {
@@ -286,7 +248,8 @@
     "product": {
       "title": "고양이 용품 추천 29",
       "coupangUrl": "https://link.coupang.com/a/gJPJSYAQnI",
-      "imageUrl": "./images/products/product-029.jpg"
+      "imageUrl": "./images/products/product-029.jpg",
+      "productId": "8533612928"
     }
   },
   {
@@ -296,7 +259,8 @@
     "product": {
       "title": "고양이 용품 추천 30",
       "coupangUrl": "https://link.coupang.com/a/gJPKqZCsO4",
-      "imageUrl": "./images/products/product-030.jpg"
+      "imageUrl": "./images/products/product-030.jpg",
+      "productId": "8425193796"
     }
   },
   {
@@ -306,7 +270,8 @@
     "product": {
       "title": "고양이 용품 추천 31",
       "coupangUrl": "https://link.coupang.com/a/gJPKZkepeS",
-      "imageUrl": "./images/products/product-031.jpg"
+      "imageUrl": "./images/products/product-031.jpg",
+      "productId": "9440685729"
     }
   },
   {
@@ -316,7 +281,8 @@
     "product": {
       "title": "고양이 용품 추천 32",
       "coupangUrl": "https://link.coupang.com/a/gJPLAYgSyq",
-      "imageUrl": "./images/products/product-032.jpg"
+      "imageUrl": "./images/products/product-032.jpg",
+      "productId": "9539340953"
     }
   },
   {
@@ -326,7 +292,8 @@
     "product": {
       "title": "고양이 용품 추천 33",
       "coupangUrl": "https://link.coupang.com/a/gJPL53q6w0",
-      "imageUrl": "./images/products/product-033.jpg"
+      "imageUrl": "./images/products/product-033.jpg",
+      "productId": "5435923046"
     }
   },
   {
@@ -336,7 +303,8 @@
     "product": {
       "title": "고양이 용품 추천 34",
       "coupangUrl": "https://link.coupang.com/a/gJPMATsF3Y",
-      "imageUrl": "./images/products/product-034.jpg"
+      "imageUrl": "./images/products/product-034.jpg",
+      "productId": "6070980773"
     }
   },
   {
@@ -346,7 +314,8 @@
     "product": {
       "title": "고양이 용품 추천 35",
       "coupangUrl": "https://link.coupang.com/a/gJPNbyl1hY",
-      "imageUrl": "./images/products/product-035.jpg"
+      "imageUrl": "./images/products/product-035.jpg",
+      "productId": "8992098459"
     }
   },
   {
@@ -356,7 +325,8 @@
     "product": {
       "title": "고양이 용품 추천 36",
       "coupangUrl": "https://link.coupang.com/a/gJPN2M6cyy",
-      "imageUrl": "./images/products/product-036.jpg"
+      "imageUrl": "./images/products/product-036.jpg",
+      "productId": "9322941658"
     }
   },
   {
@@ -366,7 +336,8 @@
     "product": {
       "title": "고양이 용품 추천 37",
       "coupangUrl": "https://link.coupang.com/a/gJPOzNcNJQ",
-      "imageUrl": "./images/products/product-037.jpg"
+      "imageUrl": "./images/products/product-037.jpg",
+      "productId": "9490157318"
     }
   },
   {
@@ -376,7 +347,8 @@
     "product": {
       "title": "고양이 용품 추천 38",
       "coupangUrl": "https://link.coupang.com/a/gJPPbjnZka",
-      "imageUrl": "./images/products/product-038.jpg"
+      "imageUrl": "./images/products/product-038.jpg",
+      "productId": "9470218743"
     }
   },
   {
@@ -386,7 +358,8 @@
     "product": {
       "title": "고양이 용품 추천 39",
       "coupangUrl": "https://link.coupang.com/a/gJPPNIkTJI",
-      "imageUrl": "./images/products/product-039.jpg"
+      "imageUrl": "./images/products/product-039.jpg",
+      "productId": "8463452569"
     }
   },
   {
@@ -396,27 +369,8 @@
     "product": {
       "title": "고양이 용품 추천 40",
       "coupangUrl": "https://link.coupang.com/a/gJPQAPv1Ns",
-      "imageUrl": "./images/products/product-040.jpg"
-    }
-  },
-  {
-    "id": 41,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 41",
-      "coupangUrl": "https://link.coupang.com/a/gJPRjCJoqG",
-      "imageUrl": "./images/products/product-041.svg"
-    }
-  },
-  {
-    "id": 42,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 42",
-      "coupangUrl": "https://link.coupang.com/a/gJPR3KlaSq",
-      "imageUrl": "./images/products/product-042.jpg"
+      "imageUrl": "./images/products/product-040.jpg",
+      "productId": "6247467825"
     }
   },
   {
@@ -426,7 +380,8 @@
     "product": {
       "title": "고양이 용품 추천 43",
       "coupangUrl": "https://link.coupang.com/a/gJPSLMDznE",
-      "imageUrl": "./images/products/product-043.jpg"
+      "imageUrl": "./images/products/product-043.jpg",
+      "productId": "9647886731"
     }
   },
   {
@@ -436,7 +391,8 @@
     "product": {
       "title": "고양이 용품 추천 44",
       "coupangUrl": "https://link.coupang.com/a/gJPTGQijtI",
-      "imageUrl": "./images/products/product-044.jpg"
+      "imageUrl": "./images/products/product-044.jpg",
+      "productId": "8147116266"
     }
   },
   {
@@ -446,7 +402,8 @@
     "product": {
       "title": "고양이 용품 추천 45",
       "coupangUrl": "https://link.coupang.com/a/gJPUvbxvK8",
-      "imageUrl": "./images/products/product-045.jpg"
+      "imageUrl": "./images/products/product-045.jpg",
+      "productId": "6591244925"
     }
   },
   {
@@ -456,7 +413,8 @@
     "product": {
       "title": "고양이 용품 추천 46",
       "coupangUrl": "https://link.coupang.com/a/gJPVbHXOOi",
-      "imageUrl": "./images/products/product-046.jpg"
+      "imageUrl": "./images/products/product-046.jpg",
+      "productId": "9485257805"
     }
   },
   {
@@ -466,17 +424,8 @@
     "product": {
       "title": "고양이 용품 추천 47",
       "coupangUrl": "https://link.coupang.com/a/gJPWQaXlHE",
-      "imageUrl": "./images/products/product-047.jpg"
-    }
-  },
-  {
-    "id": 48,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 48",
-      "coupangUrl": "https://link.coupang.com/a/gJPXxxOh9o",
-      "imageUrl": "./images/products/product-048.jpg"
+      "imageUrl": "./images/products/product-047.jpg",
+      "productId": "9628207586"
     }
   },
   {
@@ -486,7 +435,8 @@
     "product": {
       "title": "고양이 용품 추천 49",
       "coupangUrl": "https://link.coupang.com/a/gJPYJzH3qC",
-      "imageUrl": "./images/products/product-049.jpg"
+      "imageUrl": "./images/products/product-049.jpg",
+      "productId": "9565808285"
     }
   },
   {
@@ -496,7 +446,8 @@
     "product": {
       "title": "고양이 용품 추천 50",
       "coupangUrl": "https://link.coupang.com/a/gJPZLeGn9M",
-      "imageUrl": "./images/products/product-050.jpg"
+      "imageUrl": "./images/products/product-050.jpg",
+      "productId": "5573592588"
     }
   },
   {
@@ -506,7 +457,8 @@
     "product": {
       "title": "고양이 용품 추천 51",
       "coupangUrl": "https://link.coupang.com/a/gJP0AfEBuC",
-      "imageUrl": "./images/products/product-051.jpg"
+      "imageUrl": "./images/products/product-051.jpg",
+      "productId": "7069751229"
     }
   },
   {
@@ -516,7 +468,8 @@
     "product": {
       "title": "고양이 용품 추천 52",
       "coupangUrl": "https://link.coupang.com/a/gJP1uHQjue",
-      "imageUrl": "./images/products/product-052.jpg"
+      "imageUrl": "./images/products/product-052.jpg",
+      "productId": "6253046928"
     }
   },
   {
@@ -526,17 +479,8 @@
     "product": {
       "title": "고양이 용품 추천 53",
       "coupangUrl": "https://link.coupang.com/a/gJP2f160Iu",
-      "imageUrl": "./images/products/product-053.jpg"
-    }
-  },
-  {
-    "id": 54,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 54",
-      "coupangUrl": "https://link.coupang.com/a/gJP204Y1ls",
-      "imageUrl": "./images/products/product-054.svg"
+      "imageUrl": "./images/products/product-053.jpg",
+      "productId": "8595233840"
     }
   },
   {
@@ -546,7 +490,8 @@
     "product": {
       "title": "고양이 용품 추천 55",
       "coupangUrl": "https://link.coupang.com/a/gJP3Idmp9U",
-      "imageUrl": "./images/products/product-055.jpg"
+      "imageUrl": "./images/products/product-055.jpg",
+      "productId": "7680105215"
     }
   },
   {
@@ -556,7 +501,8 @@
     "product": {
       "title": "고양이 용품 추천 56",
       "coupangUrl": "https://link.coupang.com/a/gJP4DVkDmK",
-      "imageUrl": "./images/products/product-056.jpg"
+      "imageUrl": "./images/products/product-056.jpg",
+      "productId": "9031800309"
     }
   },
   {
@@ -566,17 +512,8 @@
     "product": {
       "title": "고양이 용품 추천 57",
       "coupangUrl": "https://link.coupang.com/a/gJP5tnPXnU",
-      "imageUrl": "./images/products/product-057.jpg"
-    }
-  },
-  {
-    "id": 58,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 58",
-      "coupangUrl": "https://link.coupang.com/a/gJP59CWjVA",
-      "imageUrl": "./images/products/product-058.jpg"
+      "imageUrl": "./images/products/product-057.jpg",
+      "productId": "329281916"
     }
   },
   {
@@ -586,7 +523,8 @@
     "product": {
       "title": "고양이 용품 추천 59",
       "coupangUrl": "https://link.coupang.com/a/gJP6DDAVyu",
-      "imageUrl": "./images/products/product-059.jpg"
+      "imageUrl": "./images/products/product-059.jpg",
+      "productId": "9389953441"
     }
   },
   {
@@ -596,7 +534,8 @@
     "product": {
       "title": "고양이 용품 추천 60",
       "coupangUrl": "https://link.coupang.com/a/gJP7PNe14S",
-      "imageUrl": "./images/products/product-060.jpg"
+      "imageUrl": "./images/products/product-060.jpg",
+      "productId": "8783728498"
     }
   },
   {
@@ -606,17 +545,8 @@
     "product": {
       "title": "고양이 용품 추천 61",
       "coupangUrl": "https://link.coupang.com/a/gJP8NyQ8rI",
-      "imageUrl": "./images/products/product-061.jpg"
-    }
-  },
-  {
-    "id": 62,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 62",
-      "coupangUrl": "https://link.coupang.com/a/gJP9vsq8Em",
-      "imageUrl": "./images/products/product-062.jpg"
+      "imageUrl": "./images/products/product-061.jpg",
+      "productId": "6919164267"
     }
   },
   {
@@ -626,7 +556,8 @@
     "product": {
       "title": "고양이 용품 추천 63",
       "coupangUrl": "https://link.coupang.com/a/gJQbrOmgWi",
-      "imageUrl": "./images/products/product-063.jpg"
+      "imageUrl": "./images/products/product-063.jpg",
+      "productId": "8129324300"
     }
   },
   {
@@ -636,7 +567,8 @@
     "product": {
       "title": "고양이 용품 추천 64",
       "coupangUrl": "https://link.coupang.com/a/gJQb48JKZU",
-      "imageUrl": "./images/products/product-064.jpg"
+      "imageUrl": "./images/products/product-064.jpg",
+      "productId": "22436861"
     }
   },
   {
@@ -646,17 +578,8 @@
     "product": {
       "title": "고양이 용품 추천 65",
       "coupangUrl": "https://link.coupang.com/a/gJQdOyHlNQ",
-      "imageUrl": "./images/products/product-065.jpg"
-    }
-  },
-  {
-    "id": 66,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 66",
-      "coupangUrl": "https://link.coupang.com/a/gJQejDt36a",
-      "imageUrl": "./images/products/product-066.jpg"
+      "imageUrl": "./images/products/product-065.jpg",
+      "productId": "6074201879"
     }
   },
   {
@@ -666,7 +589,8 @@
     "product": {
       "title": "고양이 용품 추천 67",
       "coupangUrl": "https://link.coupang.com/a/gJQeLG07UW",
-      "imageUrl": "./images/products/product-067.jpg"
+      "imageUrl": "./images/products/product-067.jpg",
+      "productId": "8745172318"
     }
   },
   {
@@ -676,7 +600,8 @@
     "product": {
       "title": "고양이 용품 추천 68",
       "coupangUrl": "https://link.coupang.com/a/gJQfCZUNl6",
-      "imageUrl": "./images/products/product-068.jpg"
+      "imageUrl": "./images/products/product-068.jpg",
+      "productId": "7912980413"
     }
   },
   {
@@ -686,7 +611,8 @@
     "product": {
       "title": "고양이 용품 추천 69",
       "coupangUrl": "https://link.coupang.com/a/gJQgsPksa4",
-      "imageUrl": "./images/products/product-069.svg"
+      "imageUrl": "./images/products/product-069.svg",
+      "productId": "7912980214"
     }
   },
   {
@@ -696,7 +622,8 @@
     "product": {
       "title": "고양이 용품 추천 70",
       "coupangUrl": "https://link.coupang.com/a/gJQg9RxRVA",
-      "imageUrl": "./images/products/product-070.jpg"
+      "imageUrl": "./images/products/product-070.jpg",
+      "productId": "167301095"
     }
   },
   {
@@ -706,7 +633,8 @@
     "product": {
       "title": "고양이 용품 추천 71",
       "coupangUrl": "https://link.coupang.com/a/gJQicFujGm",
-      "imageUrl": "./images/products/product-071.jpg"
+      "imageUrl": "./images/products/product-071.jpg",
+      "productId": "7572200473"
     }
   },
   {
@@ -716,7 +644,8 @@
     "product": {
       "title": "고양이 용품 추천 72",
       "coupangUrl": "https://link.coupang.com/a/gJQiHdlZwO",
-      "imageUrl": "./images/products/product-072.jpg"
+      "imageUrl": "./images/products/product-072.jpg",
+      "productId": "8539317721"
     }
   },
   {
@@ -726,7 +655,8 @@
     "product": {
       "title": "고양이 용품 추천 73",
       "coupangUrl": "https://link.coupang.com/a/gJQjecM2b6",
-      "imageUrl": "./images/products/product-073.jpg"
+      "imageUrl": "./images/products/product-073.jpg",
+      "productId": "8461160534"
     }
   },
   {
@@ -736,7 +666,8 @@
     "product": {
       "title": "고양이 용품 추천 74",
       "coupangUrl": "https://link.coupang.com/a/gJQjPqeHca",
-      "imageUrl": "./images/products/product-074.jpg"
+      "imageUrl": "./images/products/product-074.jpg",
+      "productId": "7707021433"
     }
   },
   {
@@ -746,7 +677,8 @@
     "product": {
       "title": "고양이 용품 추천 75",
       "coupangUrl": "https://link.coupang.com/a/gJQko0CJfE",
-      "imageUrl": "./images/products/product-075.jpg"
+      "imageUrl": "./images/products/product-075.jpg",
+      "productId": "8933378075"
     }
   },
   {
@@ -756,7 +688,8 @@
     "product": {
       "title": "고양이 용품 추천 76",
       "coupangUrl": "https://link.coupang.com/a/gJQlaZ2QLI",
-      "imageUrl": "./images/products/product-076.jpg"
+      "imageUrl": "./images/products/product-076.jpg",
+      "productId": "7771545175"
     }
   },
   {
@@ -766,7 +699,8 @@
     "product": {
       "title": "고양이 용품 추천 77",
       "coupangUrl": "https://link.coupang.com/a/gJQl93Igsm",
-      "imageUrl": "./images/products/product-077.jpg"
+      "imageUrl": "./images/products/product-077.jpg",
+      "productId": "108739142"
     }
   },
   {
@@ -776,7 +710,8 @@
     "product": {
       "title": "고양이 용품 추천 78",
       "coupangUrl": "https://link.coupang.com/a/gJQmHn9DOu",
-      "imageUrl": "./images/products/product-078.jpg"
+      "imageUrl": "./images/products/product-078.jpg",
+      "productId": "9134108522"
     }
   },
   {
@@ -786,7 +721,8 @@
     "product": {
       "title": "고양이 용품 추천 79",
       "coupangUrl": "https://link.coupang.com/a/gJQnsaVFG8",
-      "imageUrl": "./images/products/product-079.jpg"
+      "imageUrl": "./images/products/product-079.jpg",
+      "productId": "8561188849"
     }
   },
   {
@@ -796,7 +732,8 @@
     "product": {
       "title": "고양이 용품 추천 80",
       "coupangUrl": "https://link.coupang.com/a/gJQnZZsWpE",
-      "imageUrl": "./images/products/product-080.jpg"
+      "imageUrl": "./images/products/product-080.jpg",
+      "productId": "9606581259"
     }
   },
   {
@@ -806,7 +743,8 @@
     "product": {
       "title": "고양이 용품 추천 81",
       "coupangUrl": "https://link.coupang.com/a/gJQovfOTAr",
-      "imageUrl": "./images/products/product-081.jpg"
+      "imageUrl": "./images/products/product-081.jpg",
+      "productId": "9619546952"
     }
   },
   {
@@ -816,7 +754,8 @@
     "product": {
       "title": "고양이 용품 추천 82",
       "coupangUrl": "https://link.coupang.com/a/gJQo215ngq",
-      "imageUrl": "./images/products/product-082.jpg"
+      "imageUrl": "./images/products/product-082.jpg",
+      "productId": "9183513959"
     }
   },
   {
@@ -826,7 +765,8 @@
     "product": {
       "title": "고양이 용품 추천 83",
       "coupangUrl": "https://link.coupang.com/a/gJQpzBpk1Q",
-      "imageUrl": "./images/products/product-083.jpg"
+      "imageUrl": "./images/products/product-083.jpg",
+      "productId": "9512191951"
     }
   },
   {
@@ -836,7 +776,8 @@
     "product": {
       "title": "고양이 용품 추천 84",
       "coupangUrl": "https://link.coupang.com/a/gJQqjyJeg0",
-      "imageUrl": "./images/products/product-084.svg"
+      "imageUrl": "./images/products/product-084.svg",
+      "productId": "9626304724"
     }
   },
   {
@@ -846,7 +787,8 @@
     "product": {
       "title": "고양이 용품 추천 85",
       "coupangUrl": "https://link.coupang.com/a/gJQrlZWWtw",
-      "imageUrl": "./images/products/product-085.jpg"
+      "imageUrl": "./images/products/product-085.jpg",
+      "productId": "9045952363"
     }
   },
   {
@@ -856,17 +798,8 @@
     "product": {
       "title": "고양이 용품 추천 86",
       "coupangUrl": "https://link.coupang.com/a/gJQr0RHDaK",
-      "imageUrl": "./images/products/product-086.svg"
-    }
-  },
-  {
-    "id": 87,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 87",
-      "coupangUrl": "https://link.coupang.com/a/gJQteZOw3M",
-      "imageUrl": "./images/products/product-087.jpg"
+      "imageUrl": "./images/products/product-086.svg",
+      "productId": "9607583714"
     }
   },
   {
@@ -876,7 +809,8 @@
     "product": {
       "title": "고양이 용품 추천 88",
       "coupangUrl": "https://link.coupang.com/a/gJQtNZ84Xs",
-      "imageUrl": "./images/products/product-088.jpg"
+      "imageUrl": "./images/products/product-088.jpg",
+      "productId": "3253287"
     }
   },
   {
@@ -886,17 +820,8 @@
     "product": {
       "title": "고양이 용품 추천 89",
       "coupangUrl": "https://link.coupang.com/a/gJQuvbrER2",
-      "imageUrl": "./images/products/product-089.jpg"
-    }
-  },
-  {
-    "id": 90,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 90",
-      "coupangUrl": "https://link.coupang.com/a/gJQu5EHqHk",
-      "imageUrl": "./images/products/product-090.jpg"
+      "imageUrl": "./images/products/product-089.jpg",
+      "productId": "9345899293"
     }
   },
   {
@@ -906,7 +831,8 @@
     "product": {
       "title": "고양이 용품 추천 91",
       "coupangUrl": "https://link.coupang.com/a/gJQvIEQdMW",
-      "imageUrl": "./images/products/product-091.jpg"
+      "imageUrl": "./images/products/product-091.jpg",
+      "productId": "8059292300"
     }
   },
   {
@@ -916,7 +842,8 @@
     "product": {
       "title": "고양이 용품 추천 92",
       "coupangUrl": "https://link.coupang.com/a/gJQwhhfJJs",
-      "imageUrl": "./images/products/product-092.jpg"
+      "imageUrl": "./images/products/product-092.jpg",
+      "productId": "9107722880"
     }
   },
   {
@@ -926,7 +853,8 @@
     "product": {
       "title": "고양이 용품 추천 93",
       "coupangUrl": "https://link.coupang.com/a/gJQw0AgaVU",
-      "imageUrl": "./images/products/product-093.jpg"
+      "imageUrl": "./images/products/product-093.jpg",
+      "productId": "6298067137"
     }
   },
   {
@@ -936,7 +864,8 @@
     "product": {
       "title": "고양이 용품 추천 94",
       "coupangUrl": "https://link.coupang.com/a/gJQx4zvSk8",
-      "imageUrl": "./images/products/product-094.jpg"
+      "imageUrl": "./images/products/product-094.jpg",
+      "productId": "7156630079"
     }
   },
   {
@@ -946,7 +875,8 @@
     "product": {
       "title": "고양이 용품 추천 95",
       "coupangUrl": "https://link.coupang.com/a/gJQyC2DMES",
-      "imageUrl": "./images/products/product-095.svg"
+      "imageUrl": "./images/products/product-095.svg",
+      "productId": "9616842181"
     }
   },
   {
@@ -956,7 +886,8 @@
     "product": {
       "title": "고양이 용품 추천 96",
       "coupangUrl": "https://link.coupang.com/a/gJQy99sPls",
-      "imageUrl": "./images/products/product-096.svg"
+      "imageUrl": "./images/products/product-096.svg",
+      "productId": "9670151730"
     }
   },
   {
@@ -966,7 +897,8 @@
     "product": {
       "title": "고양이 용품 추천 97",
       "coupangUrl": "https://link.coupang.com/a/gJQzNeUQeX",
-      "imageUrl": "./images/products/product-097.jpg"
+      "imageUrl": "./images/products/product-097.jpg",
+      "productId": "7156115759"
     }
   },
   {
@@ -976,7 +908,8 @@
     "product": {
       "title": "고양이 용품 추천 98",
       "coupangUrl": "https://link.coupang.com/a/gJQAnDUC7g",
-      "imageUrl": "./images/products/product-098.jpg"
+      "imageUrl": "./images/products/product-098.jpg",
+      "productId": "9516835088"
     }
   },
   {
@@ -986,7 +919,8 @@
     "product": {
       "title": "고양이 용품 추천 99",
       "coupangUrl": "https://link.coupang.com/a/gJQA6B7BJd",
-      "imageUrl": "./images/products/product-099.jpg"
+      "imageUrl": "./images/products/product-099.jpg",
+      "productId": "9124636034"
     }
   },
   {
@@ -996,7 +930,8 @@
     "product": {
       "title": "고양이 용품 추천 100",
       "coupangUrl": "https://link.coupang.com/a/gJQB02Ti0q",
-      "imageUrl": "./images/products/product-100.jpg"
+      "imageUrl": "./images/products/product-100.jpg",
+      "productId": "9138677066"
     }
   }
 ]

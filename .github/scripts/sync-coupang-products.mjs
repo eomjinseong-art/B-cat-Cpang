@@ -21,9 +21,19 @@ const titleIndex = firstIndex(index, ['상품명', '실제 상품명']);
 const imageIndex = firstIndex(index, ['상품 이미지 url', '이미지 url']);
 const descriptionIndex = firstIndex(index, ['상품 한줄설명', '상품 설명']);
 
+const catalogOnly = process.argv.includes('--catalog-only');
+const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbz2LjDNSCMzMrRu_nCXv36VHDaaHBFYXhGqeIZPB2DzxA1F9j8x_NrI09jYTizpPAkG/exec';
+const flagsPath = path.join(repo, 'data', 'sheet-flags.json');
 const failedPath = path.join(repo, 'data', 'scrape-failed.json');
 const existing = await loadExistingProducts();
 const failed = await loadFailedIds();
+
+if (catalogOnly) {
+  const current = [...existing.values()].sort((a, b) => a.id - b.id);
+  await finalizeCatalog(current);
+  process.exit(0);
+}
+
 const products = [];
 const seen = new Set();
 let scrapedCount = 0;
@@ -98,9 +108,117 @@ for (const row of rows.slice(1)) {
 
 await saveOutputs(products);
 await fs.writeFile(failedPath, `${JSON.stringify([...failed].sort((a, b) => a - b), null, 2)}\n`);
-const jpgCount = products.filter(item => item.product.imageUrl.endsWith('.jpg')).length;
-console.log(`상품 ${products.length}개 동기화 완료. 실제 사진 ${jpgCount}개, 임시 그림 ${products.length - jpgCount}개.`);
+const merged = new Map(existing);
+for (const item of products) merged.set(item.id, item);
+const finalized = await finalizeCatalog([...merged.values()].sort((a, b) => a.id - b.id));
+const jpgCount = finalized.filter(item => item.product.imageUrl.endsWith('.jpg')).length;
+console.log(`상품 ${finalized.length}개 동기화 완료. 실제 사진 ${jpgCount}개, 임시 그림 ${finalized.length - jpgCount}개.`);
 console.log(`시트 붙여넣기 파일: ${path.relative(repo, sheetExportPath)}`);
+
+async function finalizeCatalog(list) {
+  const classified = list.map(item => {
+    const category = classifyCategory('', item.product.title);
+    return {
+      ...item,
+      category,
+      description: categoryDescription(category)
+    };
+  });
+
+  for (const item of classified) {
+    if (item.product.productId) continue;
+    item.product.productId = await resolveProductId(item.product.coupangUrl);
+    await sleep(120);
+  }
+
+  const { kept, duplicates } = dedupeProducts(classified);
+  const missing = kept
+    .filter(item => !item.product.imageUrl.endsWith('.jpg'))
+    .map(item => item.id);
+  await saveSiteProducts(kept, missing, duplicates);
+  await notifyGoogleSheet(missing, duplicates);
+  console.log(`중복 ${duplicates.length}개 삭제, 이미지 없음 ${missing.length}개 표시`);
+  return kept;
+}
+
+function dedupeProducts(list) {
+  const kept = [];
+  const duplicates = [];
+  const seenProduct = new Map();
+  const seenTitle = new Map();
+
+  for (const item of list) {
+    const productId = item.product.productId || '';
+    const title = item.product.title || '';
+    const titleKey = /^고양이 용품 추천 /.test(title) ? '' : title;
+    const prev = (productId && seenProduct.get(productId)) || (titleKey && seenTitle.get(titleKey));
+    if (!prev) {
+      kept.push(item);
+      if (productId) seenProduct.set(productId, item);
+      if (titleKey) seenTitle.set(titleKey, item);
+      continue;
+    }
+    const prevHasPhoto = prev.product.imageUrl.endsWith('.jpg');
+    const currHasPhoto = item.product.imageUrl.endsWith('.jpg');
+    if (!prevHasPhoto && currHasPhoto) {
+      duplicates.push(prev.id);
+      const index = kept.indexOf(prev);
+      if (index >= 0) kept[index] = item;
+      if (productId) seenProduct.set(productId, item);
+      if (titleKey) seenTitle.set(titleKey, item);
+    } else {
+      duplicates.push(item.id);
+    }
+  }
+  return { kept, duplicates };
+}
+
+async function saveSiteProducts(list, missing, duplicates) {
+  const siteProducts = list.map(({ id, category, description, product }) => ({
+    id,
+    category,
+    description,
+    product: {
+      title: product.title,
+      coupangUrl: product.coupangUrl,
+      imageUrl: product.imageUrl,
+      productId: product.productId || ''
+    }
+  }));
+  await fs.writeFile(productsPath, `${JSON.stringify(siteProducts, null, 2)}\n`);
+  await fs.writeFile(flagsPath, `${JSON.stringify({ missing, duplicates }, null, 2)}\n`);
+  const duplicateSet = new Set(duplicates);
+  const missingSet = new Set(missing);
+  const csvLines = [
+    ['NO', '쿠팡 파트너스 링크', '상황 태그', '상품명', '상품 한줄설명', '상품 이미지 URL', '이미지 상태']
+      .map(csvCell).join(','),
+    ...list.map(item => [
+      item.id,
+      item.product.coupangUrl,
+      item.category,
+      item.product.title,
+      item.description,
+      item.product.sourceImageUrl || '',
+      duplicateSet.has(item.id)
+        ? '중복 상품 - 다른 링크로 교체 필요'
+        : missingSet.has(item.id)
+          ? '이미지 없음 - 링크 교체 필요'
+          : '정상'
+    ].map(csvCell).join(','))
+  ];
+  await fs.writeFile(sheetExportPath, `\ufeff${csvLines.join('\n')}\n`);
+}
+
+async function notifyGoogleSheet(missing, duplicates) {
+  const url = `${appsScriptUrl}?action=mark&missing=${missing.join(',')}&duplicates=${duplicates.join(',')}`;
+  try {
+    const response = await fetch(url, { redirect: 'follow', signal: AbortSignal.timeout(30000) });
+    const text = await response.text();
+    console.log(`구글 시트 표시 결과: ${text.slice(0, 300)}`);
+  } catch (error) {
+    console.warn(`구글 시트 표시 실패: ${error.message}`);
+  }
+}
 
 async function scrapeProduct(id, link) {
   try {

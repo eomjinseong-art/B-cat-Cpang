@@ -17,13 +17,18 @@
       <a id="headerLink" href="#" target="_blank" rel="noopener" class="rounded-full bg-orange-500 px-3 py-2 text-xs font-bold text-white">오늘의 골드박스</a>
     </div>
   </header>
-  <main class="mx-auto max-w-5xl px-4 pb-12">
+  <main class="mx-auto max-w-5xl px-4 pb-28">
     <section class="py-8">
       <p class="mb-2 text-sm font-bold text-orange-600">집사님을 위한 오늘의 큐레이션</p>
       <h1 id="heroTitle" class="text-3xl font-black leading-tight sm:text-4xl">고양이의 하루를 더 편안하게</h1>
       <p id="heroDescription" class="mt-3 max-w-xl text-sm leading-6 text-stone-500">검증된 고양이 용품을 한눈에 살펴보세요.</p>
     </section>
-    <nav id="categoryNav" class="mb-5 flex gap-2 overflow-x-auto pb-2"></nav>
+    <nav class="sticky top-[3.75rem] z-10 -mx-4 mb-5 border-b border-amber-100 bg-amber-50/95 px-4 py-2 backdrop-blur">
+      <div class="flex items-center gap-2">
+        <button type="button" id="categoryAll" data-category="전체" class="shrink-0 rounded-full px-4 py-2 text-xs font-bold">전체</button>
+        <div id="categoryScroll" class="flex min-w-0 flex-1 gap-2 overflow-x-auto pb-1"></div>
+      </div>
+    </nav>
     <div id="status" class="rounded-xl bg-white p-8 text-center text-sm text-stone-400">상품을 불러오는 중입니다.</div>
     <section id="productGrid" class="hidden grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4"></section>
   </main>
@@ -37,6 +42,7 @@
     </article>
   </div>
   <script>
+    const CATEGORIES = ['고양이 사료', '고양이 모래', '고양이 간식', '스크래처 및 캣타워', '위생 및 화장실 용품', '장난감', '그루밍', '기타'];
     const state = { products: [], category: '전체' };
     const $ = id => document.getElementById(id);
     fetch('./data/config.json').then(response => response.json()).then(config => {
@@ -49,26 +55,63 @@
       if (!response.ok) throw new Error('상품 데이터 응답 오류');
       return response.json();
     }).then(products => {
-      state.products = products;
+      state.products = uniqueProducts(products);
       renderCategories();
       renderProducts();
     }).catch(error => {
       $('status').textContent = '상품을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
       console.error(error);
     });
+    function uniqueProducts(list) {
+      const seen = new Set();
+      return list.filter(item => {
+        const title = item.product?.title || '';
+        const key = item.product?.productId
+          || (!/^고양이 용품 추천 /.test(title) && title)
+          || item.product?.coupangUrl;
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+    function buttonClass(category) {
+      return `shrink-0 rounded-full px-4 py-2 text-xs font-bold ${category === state.category ? 'bg-stone-900 text-white' : 'bg-white text-stone-500'}`;
+    }
     function renderCategories() {
-      const categories = ['전체', '고양이 사료', '고양이 모래', '고양이 간식', '스크래처 및 캣타워', '위생 및 화장실 용품', '장난감', '기타'];
-      $('categoryNav').innerHTML = categories.map(category => `<button data-category="${escapeHtml(category)}" class="shrink-0 rounded-full px-4 py-2 text-xs font-bold ${category === state.category ? 'bg-stone-900 text-white' : 'bg-white text-stone-500'}">${escapeHtml(category)}</button>`).join('');
-      $('categoryNav').querySelectorAll('button').forEach(button => button.addEventListener('click', () => {
-        state.category = button.dataset.category;
-        renderCategories();
-        renderProducts();
-      }));
+      $('categoryAll').className = buttonClass('전체');
+      $('categoryScroll').innerHTML = CATEGORIES.map(category =>
+        `<button type="button" data-category="${escapeHtml(category)}" class="${buttonClass(category)}">${escapeHtml(category)}</button>`
+      ).join('');
+      $('categoryAll').onclick = () => selectCategory('전체');
+      $('categoryScroll').querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => selectCategory(button.dataset.category));
+      });
+    }
+    function selectCategory(category) {
+      state.category = category;
+      renderCategories();
+      renderProducts();
+      $('productGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function visibleProducts() {
+      const filtered = state.category === '전체'
+        ? state.products
+        : state.products.filter(item => item.category === state.category);
+      return filtered.slice().sort((a, b) => {
+        const aPhoto = a.product.imageUrl.endsWith('.jpg') ? 0 : 1;
+        const bPhoto = b.product.imageUrl.endsWith('.jpg') ? 0 : 1;
+        return aPhoto - bPhoto || a.id - b.id;
+      });
     }
     function renderProducts() {
-      const products = state.category === '전체' ? state.products : state.products.filter(item => item.category === state.category);
+      const products = visibleProducts();
       $('status').classList.toggle('hidden', products.length > 0);
       $('productGrid').classList.toggle('hidden', products.length === 0);
+      $('status').textContent = products.length
+        ? ''
+        : state.category === '전체'
+          ? '상품을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'
+          : `${state.category} 상품이 없습니다.`;
       $('productGrid').innerHTML = products.map(item => `<a href="${escapeHtml(item.product.coupangUrl)}" target="_blank" rel="noopener sponsored" class="overflow-hidden rounded-2xl border border-amber-100 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"><img src="${escapeHtml(item.product.imageUrl)}" alt="${escapeHtml(item.product.title)}" class="h-40 w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='./images/products/product-${String(item.id).padStart(3, '0')}.svg'"><div class="p-3"><span class="text-[11px] font-bold text-orange-600">#${escapeHtml(item.category || '추천')}</span><h2 class="mt-1 line-clamp-2 text-sm font-bold">${escapeHtml(item.product.title)}</h2><p class="mt-2 line-clamp-2 text-xs leading-5 text-stone-500">${escapeHtml(item.product.description || '고양이와 집사를 위한 추천 용품')}</p></div></a>`).join('');
     }
     function openModal(item) {
@@ -85,5 +128,6 @@
     $('modal').addEventListener('click', event => { if (event.target === $('modal')) closeModal(); });
     function escapeHtml(value) { return String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char])); }
   </script>
+  <a href="https://sumsumvill.blogspot.com/" target="_blank" rel="noopener" class="fixed inset-x-0 bottom-0 z-40 border-t border-orange-200 bg-orange-500 py-3 text-center text-sm font-bold text-white shadow-[0_-8px_24px_rgba(0,0,0,.12)]" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom))">블로그 바로가기</a>
 </body>
 </html>
