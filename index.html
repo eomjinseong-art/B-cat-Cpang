@@ -22,6 +22,7 @@
       <p class="mb-2 text-sm font-bold text-orange-600">집사님을 위한 오늘의 큐레이션</p>
       <h1 id="heroTitle" class="text-3xl font-black leading-tight sm:text-4xl">고양이의 하루를 더 편안하게</h1>
       <p id="heroDescription" class="mt-3 max-w-xl text-sm leading-6 text-stone-500">검증된 고양이 용품을 한눈에 살펴보세요.</p>
+      <p class="mt-3 max-w-xl text-[11px] leading-5 text-stone-400">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
     </section>
     <nav class="sticky top-[3.75rem] z-10 -mx-4 mb-5 border-b border-amber-100 bg-amber-50/95 px-4 py-2 backdrop-blur">
       <div class="flex items-center gap-2">
@@ -55,7 +56,9 @@
       if (!response.ok) throw new Error('상품 데이터 응답 오류');
       return response.json();
     }).then(products => {
-      state.products = uniqueProducts(products);
+      state.products = uniqueProducts(products).filter(item =>
+        item.product?.imageUrl?.endsWith('.jpg') && !/^고양이 용품 추천 /.test(item.product.title || '')
+      );
       renderCategories();
       renderProducts();
     }).catch(error => {
@@ -79,7 +82,9 @@
     }
     function renderCategories() {
       $('categoryAll').className = buttonClass('전체');
-      $('categoryScroll').innerHTML = CATEGORIES.map(category =>
+      const used = new Set(state.products.map(item => item.category));
+      const visible = CATEGORIES.filter(category => used.has(category));
+      $('categoryScroll').innerHTML = visible.map(category =>
         `<button type="button" data-category="${escapeHtml(category)}" class="${buttonClass(category)}">${escapeHtml(category)}</button>`
       ).join('');
       $('categoryAll').onclick = () => selectCategory('전체');
@@ -110,16 +115,16 @@
       $('status').textContent = products.length
         ? ''
         : state.category === '전체'
-          ? '상품을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'
+          ? '표시할 상품이 없습니다.'
           : `${state.category} 상품이 없습니다.`;
-      $('productGrid').innerHTML = products.map(item => `<a href="${escapeHtml(item.product.coupangUrl)}" target="_blank" rel="noopener sponsored" class="overflow-hidden rounded-2xl border border-amber-100 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"><img src="${escapeHtml(item.product.imageUrl)}" alt="${escapeHtml(item.product.title)}" class="h-40 w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='./images/products/product-${String(item.id).padStart(3, '0')}.svg'"><div class="p-3"><span class="text-[11px] font-bold text-orange-600">#${escapeHtml(item.category || '추천')}</span><h2 class="mt-1 line-clamp-2 text-sm font-bold">${escapeHtml(item.product.title)}</h2><p class="mt-2 line-clamp-2 text-xs leading-5 text-stone-500">${escapeHtml(item.product.description || '고양이와 집사를 위한 추천 용품')}</p></div></a>`).join('');
+      $('productGrid').innerHTML = products.map(item => `<a href="${escapeHtml(item.product.coupangUrl)}" target="_blank" rel="noopener sponsored" class="overflow-hidden rounded-2xl border border-amber-100 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"><img src="${escapeHtml(item.product.imageUrl)}" alt="${escapeHtml(item.product.title)}" class="h-40 w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='./images/products/product-${String(item.id).padStart(3, '0')}.svg'"><div class="p-3"><span class="text-[11px] font-bold text-orange-600">#${escapeHtml(item.category || '추천')}</span><h2 class="mt-1 line-clamp-2 text-sm font-bold">${escapeHtml(item.product.title)}</h2><p class="mt-2 line-clamp-2 text-xs leading-5 text-stone-500">${escapeHtml(item.description || item.product.description || '고양이와 집사를 위한 추천 용품')}</p></div></a>`).join('');
     }
     function openModal(item) {
       $('modalCategory').textContent = `#${item.category || '추천'}`;
       $('modalImage').src = item.product.imageUrl;
       $('modalImage').alt = item.product.title;
       $('modalTitle').textContent = item.product.title;
-      $('modalDescription').textContent = item.product.description || '고양이와 집사를 위한 추천 용품입니다.';
+      $('modalDescription').textContent = item.description || item.product.description || '고양이와 집사를 위한 추천 용품입니다.';
       $('modalLink').href = item.product.coupangUrl;
       $('modal').classList.replace('hidden', 'flex');
     }

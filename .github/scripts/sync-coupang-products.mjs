@@ -45,24 +45,27 @@ for (const row of rows.slice(1)) {
   seen.add(link);
 
   const previous = existing.get(id);
-  let title = (row[titleIndex] || '').trim() || previous?.product?.title || '';
+  const linkChanged = !previous || previous.product.coupangUrl !== link;
+  let title = (row[titleIndex] || '').trim() || (linkChanged ? '' : previous?.product?.title) || '';
+  let productId = linkChanged ? '' : previous?.product?.productId || '';
   let remoteImageUrl = (row[imageIndex] || '').trim();
   const sheetCategory = (row[categoryIndex] || '').replace(/^#/, '').trim();
   const sheetDescription = (row[descriptionIndex] || '').trim();
   const jpgPath = path.join(imageDir, `product-${String(id).padStart(3, '0')}.jpg`);
   const hasJpg = await fileExists(jpgPath);
-  const needsTitle = !title || isFallbackTitle(title, id) || isWeakTitle(title);
+  const needsTitle = linkChanged || !title || isFallbackTitle(title, id) || isWeakTitle(title);
   const needsImage = !hasJpg;
 
   let didScrape = false;
-  if ((needsImage || (needsTitle && !hasJpg)) && !failed.has(id)) {
+  if (needsImage || needsTitle) {
     if (maxProducts && scrapedCount >= maxProducts) break;
     scrapedCount += 1;
     didScrape = true;
-    const scraped = await scrapeProduct(id, link);
+    const scraped = await scrapeProduct(id, link, productId);
     if (scraped.title && !isBlockedTitle(scraped.title) && !isWeakTitle(scraped.title)) title = scraped.title;
-    if (scraped.imageUrl) remoteImageUrl = scraped.imageUrl;
-    else failed.add(id);
+    if (needsImage && scraped.imageUrl) remoteImageUrl = scraped.imageUrl;
+    else if (needsImage) failed.add(id);
+    if (scraped.productId) productId = scraped.productId;
   }
 
   if (!title || isBlockedTitle(title)) {
@@ -96,11 +99,12 @@ for (const row of rows.slice(1)) {
       title,
       coupangUrl: link,
       imageUrl,
+      productId,
       sourceImageUrl: remoteImageUrl.startsWith('http') ? remoteImageUrl : ''
     }
   });
 
-  await saveOutputs(products);
+  if (didScrape || products.length % 15 === 0) await saveOutputs(products);
   const status = imageUrl.endsWith('.jpg') ? '사진' : '임시그림';
   console.log(`[${products.length}] ${id} ${status} ${title}`);
   if (didScrape) await sleep(delayMs);
@@ -108,20 +112,24 @@ for (const row of rows.slice(1)) {
 
 await saveOutputs(products);
 await fs.writeFile(failedPath, `${JSON.stringify([...failed].sort((a, b) => a - b), null, 2)}\n`);
-const merged = new Map(existing);
-for (const item of products) merged.set(item.id, item);
-const finalized = await finalizeCatalog([...merged.values()].sort((a, b) => a.id - b.id));
+const finalized = await finalizeCatalog(products.sort((a, b) => a.id - b.id));
 const jpgCount = finalized.filter(item => item.product.imageUrl.endsWith('.jpg')).length;
 console.log(`상품 ${finalized.length}개 동기화 완료. 실제 사진 ${jpgCount}개, 임시 그림 ${finalized.length - jpgCount}개.`);
 console.log(`시트 붙여넣기 파일: ${path.relative(repo, sheetExportPath)}`);
 
 async function finalizeCatalog(list) {
   const classified = list.map(item => {
-    const category = classifyCategory('', item.product.title);
+    const rawTitle = item.product.title;
+    const category = classifyCategory('', rawTitle);
+    const title = displayTitle(rawTitle, item.id, category);
     return {
       ...item,
       category,
-      description: categoryDescription(category)
+      description: categoryDescription(category),
+      product: {
+        ...item.product,
+        title
+      }
     };
   });
 
@@ -150,7 +158,7 @@ function dedupeProducts(list) {
   for (const item of list) {
     const productId = item.product.productId || '';
     const title = item.product.title || '';
-    const titleKey = /^고양이 용품 추천 /.test(title) ? '' : title;
+    const titleKey = isFallbackTitle(title, item.id) || isJunkTitle(title) ? '' : title;
     const prev = (productId && seenProduct.get(productId)) || (titleKey && seenTitle.get(titleKey));
     if (!prev) {
       kept.push(item);
@@ -174,6 +182,18 @@ function dedupeProducts(list) {
 }
 
 async function saveSiteProducts(list, missing, duplicates) {
+  let previousFlags = { missing: [], duplicates: [] };
+  try {
+    previousFlags = JSON.parse(await fs.readFile(flagsPath, 'utf8'));
+  } catch {}
+  const keptIds = new Set(list.map(item => item.id));
+  const mergedDuplicates = [...new Set([...(previousFlags.duplicates || []), ...duplicates])]
+    .filter(id => !keptIds.has(id))
+    .sort((a, b) => a - b);
+  const mergedMissing = [...new Set([
+    ...missing,
+    ...(previousFlags.missing || []).filter(id => !list.some(item => item.id === id && item.product.imageUrl.endsWith('.jpg')))
+  ])].sort((a, b) => a - b);
   const siteProducts = list.map(({ id, category, description, product }) => ({
     id,
     category,
@@ -185,10 +205,10 @@ async function saveSiteProducts(list, missing, duplicates) {
       productId: product.productId || ''
     }
   }));
-  await fs.writeFile(productsPath, `${JSON.stringify(siteProducts, null, 2)}\n`);
-  await fs.writeFile(flagsPath, `${JSON.stringify({ missing, duplicates }, null, 2)}\n`);
-  const duplicateSet = new Set(duplicates);
-  const missingSet = new Set(missing);
+  await writeFileRetry(productsPath, `${JSON.stringify(siteProducts, null, 2)}\n`);
+  await writeFileRetry(flagsPath, `${JSON.stringify({ missing: mergedMissing, duplicates: mergedDuplicates }, null, 2)}\n`);
+  const duplicateSet = new Set(mergedDuplicates);
+  const missingSet = new Set(mergedMissing);
   const csvLines = [
     ['NO', '쿠팡 파트너스 링크', '상황 태그', '상품명', '상품 한줄설명', '상품 이미지 URL', '이미지 상태']
       .map(csvCell).join(','),
@@ -220,20 +240,20 @@ async function notifyGoogleSheet(missing, duplicates) {
   }
 }
 
-async function scrapeProduct(id, link) {
+async function scrapeProduct(id, link, knownProductId = '') {
   try {
-    const productId = await resolveProductId(link);
+    const productId = knownProductId || await resolveProductId(link);
     if (!productId) {
       console.warn(`상품 ${id}: 쿠팡 상품번호를 찾지 못했습니다.`);
-      return { title: '', imageUrl: '' };
+      return { title: '', imageUrl: '', productId: '' };
     }
     const html = await fetchText(`https://search.naver.com/search.naver?query=${encodeURIComponent(`${productId} 쿠팡`)}`);
     const parsed = parseNaverResult(html, productId);
     console.log(`상품 ${id} productId=${productId} 제목=${parsed.title || '-'} 이미지=${parsed.imageUrl ? '있음' : '없음'}`);
-    return parsed;
+    return { ...parsed, productId };
   } catch (error) {
     console.warn(`상품 ${id} 수집 실패: ${error.message}`);
-    return { title: '', imageUrl: '' };
+    return { title: '', imageUrl: '', productId: knownProductId || '' };
   }
 }
 
@@ -279,18 +299,27 @@ function parseNaverResult(html, productId) {
     if (direct) imageUrl = decodeURIComponent(direct[0]).split('&')[0];
   }
 
-  const chunks = decoded.split(`products/${productId}`);
-  const skip = /네이버|검색|새 창|쿠팡!|로그인|열림|더보기|블로그|카페|뉴스|Access Denied|http|쿠스피|추세|가격 데이터|총 중량|주원료|대상연령|식품 기능|도착 보장|광고|판매자|리뷰|찜하기|장바구니/i;
-  const weak = /^(고양이 용품|쇼핑|쿠팡|상품|추천|인기)$/;
-  const all = [];
-  for (const chunk of chunks.slice(1, 6)) {
-    const candidates = [...chunk.matchAll(/>([^<]{6,120})</g)]
+  const skip = /네이버|검색|새 창|쿠팡!|로그인|열림|더보기|블로그|카페|뉴스|Access Denied|http|쿠스피|추세|가격 데이터|총 중량|주원료|대상연령|식품 기능|도착 보장|광고|판매자|리뷰|찜하기|장바구니|메뉴 영역|본문 영역|웨일|Keep에|포셀|실시간 데이터|순위 보드|데이터가 없습니다|놓치지 마세요|최저가 알림|브라우저를 업데이트|태그 하나로|오늘의 경험|이번 달 참여|추가적립|멤버십|개인정보|법적고지|정보를 가져오는|죄송합니다|참여$|가격비교|쿠프라이스|쇼핑몰 마케팅|카테고리 실시간|리뷰 증가|순위 상승|오늘 순위/i;
+  const scored = [];
+  const chunks = decoded.includes(`products/${productId}`)
+    ? decoded.split(`products/${productId}`).slice(1, 8)
+    : [decoded];
+  for (const chunk of chunks) {
+    const candidates = [...chunk.matchAll(/>([^<]{8,140})</g)]
       .map(match => match[1].replace(/\s+/g, ' ').trim())
-      .map(text => text.replace(/할인\d[\s\S]*$/, '').replace(/내일\([^)]*\)[\s\S]*$/, '').trim())
-      .filter(text => text.length >= 10 && text.length <= 80 && /[가-힣]{2,}/.test(text) && !skip.test(text) && !weak.test(text) && !/Keep에 저장|공유하기|링크 복사/.test(text));
-    all.push(...candidates);
+      .map(text => text.replace(/할인\d[\s\S]*$/, '').replace(/내일\([^)]*\)[\s\S]*$/, '').trim());
+    for (const text of candidates) {
+      if (text.length < 8 || text.length > 90 || !/[가-힣]{2,}/.test(text) || skip.test(text)) continue;
+      let score = 0;
+      if (/고양이|캣닢|캣타워|스크래|모래|사료|츄르|화장실|장난감|그루밍|배변/.test(text)) score += 6;
+      if (/,\s*\d+\s*개/.test(text)) score += 4;
+      if (text.length >= 16) score += 2;
+      if (/가격비교|최저가 \d/.test(text)) score -= 4;
+      if (score > 0) scored.push({ text, score });
+    }
   }
-  return { title: all[0] || '', imageUrl };
+  scored.sort((a, b) => b.score - a.score || b.text.length - a.text.length);
+  return { title: scored[0]?.text || '', imageUrl };
 }
 
 async function downloadImage(imageUrl, jpgPath, id) {
@@ -337,10 +366,11 @@ async function saveOutputs(list) {
     product: {
       title: product.title,
       coupangUrl: product.coupangUrl,
-      imageUrl: product.imageUrl
+      imageUrl: product.imageUrl,
+      productId: product.productId || ''
     }
   }));
-  await fs.writeFile(productsPath, `${JSON.stringify(siteProducts, null, 2)}\n`);
+  await writeFileRetry(productsPath, `${JSON.stringify(siteProducts, null, 2)}\n`);
   const csvLines = [
     ['NO', '쿠팡 파트너스 링크', '상황 태그', '상품명', '상품 한줄설명', '상품 이미지 URL', '이미지 상태']
       .map(csvCell).join(','),
@@ -385,7 +415,38 @@ function isFallbackTitle(value, id) {
 
 function isWeakTitle(value) {
   return /^(고양이 용품|쇼핑|쿠팡|상품|캣타워\/스크래쳐)$/.test(value || '')
-    || /쿠스피|가격 데이터|총 중량|주원료|도착 보장|^Keep에/.test(value || '');
+    || /쿠스피|가격 데이터|총 중량|주원료|도착 보장|^Keep에/.test(value || '')
+    || isJunkTitle(value);
+}
+
+function isJunkTitle(value) {
+  return /지식iN|오일필터|현대모비스|그랜드스타렉스|르노코리아|글래스런|모래요 여러분|궁금한 것은|순정부품/.test(value || '');
+}
+
+function displayTitle(raw, id, category) {
+  const cleaned = sanitizeTitle(raw);
+  if (cleaned && !isJunkTitle(cleaned) && !isWeakTitle(cleaned)) return cleaned;
+  if (category && category !== '기타') return `${category} 추천`;
+  return `고양이 용품 추천 ${id}`;
+}
+
+function sanitizeTitle(title) {
+  return String(title || '')
+    .replace(/[\u0000-\u001f]/g, '')
+    .replace(/^\]+/, '')
+    .replace(/^추천이런건 어때요\?\s*;\s*/, '')
+    .replace(/\s*상품 정보[—\-].*$/, '')
+    .replace(/\s*\(\s*\d{1,3}(?:,\d{3})*원[^)]*\)\s*\d*$/g, '')
+    .replace(/\s*\d{1,3}(?:,\d{3})*원.*$/g, '')
+    .replace(/무료배송|로켓배송|쿠폰할인/g, '')
+    .replace(/(\d개)할인/g, '$1')
+    .replace(/할인\d+%/g, '')
+    .replace(/\(1개당.*$/g, '')
+    .replace(/\d+%[\d,]*(?:\(10g당.*)?$/g, '')
+    .replace(/(\S)\d{1,3}(?:,\d{3})+$/g, '$1')
+    .replace(/(\d(?:\.\d)?L)\d[\d,]*/g, '$1')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
 }
 
 function csvCell(value) {
@@ -394,6 +455,20 @@ function csvCell(value) {
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function writeFileRetry(filePath, contents, attempts = 8) {
+  let lastError;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      await fs.writeFile(filePath, contents);
+      return;
+    } catch (error) {
+      lastError = error;
+      await sleep(500 * (i + 1));
+    }
+  }
+  throw lastError;
 }
 
 function firstIndex(indexer, names) {
@@ -445,17 +520,18 @@ async function fileExists(filePath) {
 }
 
 function classifyCategory(value, title) {
-  if (value) return value;
-  const text = title.toLowerCase();
-  if (/사료|키튼|로얄캐닌|습식|건식|식품/.test(text)) return '고양이 사료';
-  if (/모래|벤토나이트|실리카겔|두부/.test(text)) return '고양이 모래';
-  if (/간식|츄르|트릿|캔|스낵|비스킷|젤리/.test(text)) return '고양이 간식';
+  if (value && value !== '기타') return value;
+  const text = `${value} ${title}`.toLowerCase();
+  if (/간식|츄르|트릿|스낵|비스킷|젤리/.test(text)) return '고양이 간식';
+  if (/급식기|급수기|급수식기/.test(text)) return '기타';
+  if (/사료|키튼|로얄캐닌|건식사료/.test(text)) return '고양이 사료';
   if (/스크래쳐|스크래처|스크래치|캣타워|하우스|숨숨집|방석|쿠션/.test(text)) {
     return '스크래처 및 캣타워';
   }
-  if (/화장실|배변|탈취|위생|리터락커|분변통|매트|트레이/.test(text)) {
+  if (/화장실|배변|탈취|위생|리터락커|분변통|매트|트레이|배변 봉투/.test(text)) {
     return '위생 및 화장실 용품';
   }
+  if (/모래|벤토나이트|실리카겔|두부/.test(text)) return '고양이 모래';
   if (/장난감|낚싯대|공|터널|캣닢|볼링|인형/.test(text)) return '장난감';
   if (/브러시|빗|샴푸|발톱|그루밍|목욕|티슈/.test(text)) return '그루밍';
   return '기타';

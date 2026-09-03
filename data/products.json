@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 1",
+      "title": "내추럴리펀 리터제로 호환 리필 에어씰 배변 봉투, 4개, 민트",
       "coupangUrl": "https://link.coupang.com/a/gJPt9fCLwi",
       "imageUrl": "./images/products/product-001.jpg",
       "productId": "8438579557"
@@ -33,11 +33,22 @@
     }
   },
   {
-    "id": 5,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 4,
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 5",
+      "title": "라온프리미엄 고양이 화장실 + 모래삽 세트 - 화장실",
+      "coupangUrl": "https://link.coupang.com/a/gKb8I7nqns",
+      "imageUrl": "./images/products/product-004.jpg",
+      "productId": "1960841560"
+    }
+  },
+  {
+    "id": 5,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
+    "product": {
+      "title": "등나무로 엮은 사계절 고양이 바구니 원형 고양이 굴 고양이 침대 고양이 깔개 고양이 쿠션 놀리기 방망이. 고양이와 소형 애완동물에 적합하다, 1개, 카키색",
       "coupangUrl": "https://link.coupang.com/a/gJPwGPkLHU",
       "imageUrl": "./images/products/product-005.jpg",
       "productId": "335833200"
@@ -56,21 +67,21 @@
   },
   {
     "id": 7,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "그루밍",
+    "description": "고양이의 위생과 털 관리를 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 7",
-      "coupangUrl": "https://link.coupang.com/a/gJPxNEpsqq",
-      "imageUrl": "./images/products/product-007.svg",
-      "productId": "9699014359"
+      "title": "에티펫 반려동물용 눈귀입 깨끗 아쿠아티슈 80p, 300g, 3개 - 눈물지우개",
+      "coupangUrl": "https://link.coupang.com/a/gKc7tRPt9M",
+      "imageUrl": "./images/products/product-007.jpg",
+      "productId": "9072525139"
     }
   },
   {
     "id": 8,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 8",
+      "title": "퀸스푼 고양이 간식 츄 스푼있는대용량 3가지맛, 15g, 90개, 혼합",
       "coupangUrl": "https://link.coupang.com/a/gJPyhqAwp2",
       "imageUrl": "./images/products/product-008.jpg",
       "productId": "9522092119"
@@ -81,7 +92,7 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 9",
+      "title": "뉴트리플랜 모이스트루 참치와 닭고기 캣, 80g - 80g",
       "coupangUrl": "https://link.coupang.com/a/gJPyIftR3k",
       "imageUrl": "./images/products/product-009.jpg",
       "productId": "187620492"
@@ -92,7 +103,7 @@
     "category": "고양이 모래",
     "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "묘나리자 강력뭉침 프리미엄 두부모래 가는입자&벤토나이트 흡수분자 고양이 모래 2.8kg, 무향, 6개, 7L할인37%",
+      "title": "묘나리자 강력뭉침 프리미엄 두부모래 가는입자&벤토나이트 흡수분자 고양이 모래 2.8kg, 무향, 6개, 7L",
       "coupangUrl": "https://link.coupang.com/a/gJPzclr63E",
       "imageUrl": "./images/products/product-010.jpg",
       "productId": "8591304047"
@@ -100,10 +111,10 @@
   },
   {
     "id": 11,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 11",
+      "title": "펫리서치 짜먹는 고양이 간식 츄",
       "coupangUrl": "https://link.coupang.com/a/gJPzOMKZe8",
       "imageUrl": "./images/products/product-011.jpg",
       "productId": "8082859174"
@@ -122,10 +133,10 @@
   },
   {
     "id": 13,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 13",
+      "title": "소심한호랑이 고양이 심쿵발판 - 화장실매트",
       "coupangUrl": "https://link.coupang.com/a/gJPAUhp3yC",
       "imageUrl": "./images/products/product-013.jpg",
       "productId": "8364780976"
@@ -133,10 +144,10 @@
   },
   {
     "id": 14,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 모래",
+    "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "고양이 용품 추천 14",
+      "title": "뽀시래기 헤일리클럽 국내생산 응고형 고양이모래 먼지 없는 벤토나이트 중간입자, 무향, 2개, 7kg",
       "coupangUrl": "https://link.coupang.com/a/gJPBmWatG0",
       "imageUrl": "./images/products/product-014.jpg",
       "productId": "8129337227"
@@ -144,32 +155,54 @@
   },
   {
     "id": 15,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 15",
+      "title": "티유 사막화방지 벌집구조 고양이 화장실 모래매트 - 화장실매트",
       "coupangUrl": "https://link.coupang.com/a/gJPBSY7RrU",
       "imageUrl": "./images/products/product-015.jpg",
       "productId": "8330933896"
     }
   },
   {
-    "id": 17,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 16,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 17",
+      "title": "8LOME 접이식 강아지 고양이 이동장 켄넬 기내반입 케이지 캔넬방석 포함 Full Set, 1세트, 화이트그레이",
+      "coupangUrl": "https://link.coupang.com/a/gKcfAqn8AS",
+      "imageUrl": "./images/products/product-016.jpg",
+      "productId": "8363963826"
+    }
+  },
+  {
+    "id": 17,
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
+    "product": {
+      "title": "고양이 자동 야광 로프 낚싯대 장난감 반려묘 스트레스해소, 1개, 그레이",
       "coupangUrl": "https://link.coupang.com/a/gJPDpckcbk",
       "imageUrl": "./images/products/product-017.jpg",
       "productId": "9581305110"
     }
   },
   {
-    "id": 19,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 18,
+    "category": "그루밍",
+    "description": "고양이의 위생과 털 관리를 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 19",
+      "title": "리스펫 반려동물 LED 다보여 발톱깎이 4.3 x 15 cm, 핑크, 1개 - 발톱깎이",
+      "coupangUrl": "https://link.coupang.com/a/gKc287oa4W",
+      "imageUrl": "./images/products/product-018.jpg",
+      "productId": "8425193796"
+    }
+  },
+  {
+    "id": 19,
+    "category": "고양이 사료",
+    "description": "고양이의 건강한 식사를 위한 추천 사료입니다.",
+    "product": {
+      "title": "캐츠랑 전연령 고양이 건식사료 - 건식사료",
       "coupangUrl": "https://link.coupang.com/a/gJPExSD1H2",
       "imageUrl": "./images/products/product-019.jpg",
       "productId": "8615130283"
@@ -177,21 +210,21 @@
   },
   {
     "id": 20,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 20",
-      "coupangUrl": "https://link.coupang.com/a/gJPE3oGE8a",
-      "imageUrl": "./images/products/product-020.svg",
-      "productId": "9608653355"
+      "title": "탐사 베이직 대용량 고양이 화장실 + 모래삽 세트 2026년 상품 정보 |",
+      "coupangUrl": "https://link.coupang.com/a/gKb78tHEo8",
+      "imageUrl": "./images/products/product-020.jpg",
+      "productId": "7164892839"
     }
   },
   {
     "id": 21,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 21",
+      "title": "키루에 대형 캣타워 원목 대형 고양이 점프대 튼튼한 다기능 직조 캣타워, 밀도판, 1개",
       "coupangUrl": "https://link.coupang.com/a/gJPFyTMytM",
       "imageUrl": "./images/products/product-021.jpg",
       "productId": "8796924127"
@@ -199,10 +232,10 @@
   },
   {
     "id": 22,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 22",
+      "title": "믹스MICS 반려동물 원형 마약 방석 쿠션 펫하우스 펫방석 강아지 고양이 극세사 강아지집 고양이집 애견 애묘 마카롱, 인디핑크, 1개",
       "coupangUrl": "https://link.coupang.com/a/gJPF6nIbIa",
       "imageUrl": "./images/products/product-022.jpg",
       "productId": "8816189380"
@@ -210,10 +243,10 @@
   },
   {
     "id": 23,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 23",
+      "title": "펫팀 고양이 캣그라스 간식 - 캣닢/캣글라스",
       "coupangUrl": "https://link.coupang.com/a/gJPGBPnLaK",
       "imageUrl": "./images/products/product-023.jpg",
       "productId": "6653855148"
@@ -221,46 +254,68 @@
   },
   {
     "id": 24,
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
+    "product": {
+      "title": "딩동펫 고양이 샌드플라워 대용량 화장실, 크림, 1개",
+      "coupangUrl": "https://link.coupang.com/a/gKb9kqMjNA",
+      "imageUrl": "./images/products/product-024.jpg",
+      "productId": "8856311462"
+    }
+  },
+  {
+    "id": 25,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 24",
-      "coupangUrl": "https://link.coupang.com/a/gJPG4oVciG",
-      "imageUrl": "./images/products/product-024.svg",
-      "productId": "9172528025"
+      "title": "퍼피허그 Bubble 투명 우주선 강아지 백팩 산책가방 이동 가방 고양이 애견 기내용 컨넬 배낭, 1개, 그레이27&,900",
+      "coupangUrl": "https://link.coupang.com/a/gKcgAk0vZs",
+      "imageUrl": "./images/products/product-025.jpg",
+      "productId": "245133941"
+    }
+  },
+  {
+    "id": 26,
+    "category": "기타",
+    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "product": {
+      "title": "뽀빠이형 애완동물 강아지 이동가방 고양이 가방 초경량 가성비 좋은 방수기능 갗춘 백팩, 블랙, 1박스55(,190",
+      "coupangUrl": "https://link.coupang.com/a/gKchrnEdAO",
+      "imageUrl": "./images/products/product-026.jpg",
+      "productId": "8705087050"
     }
   },
   {
     "id": 27,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 27",
+      "title": "마이굿즈 고양이 낚시대 장난감 초밀착 고정 혼자노는 날아다니는 새 인형 사냥놀이 세트, 1세트, 브라운 버드",
       "coupangUrl": "https://link.coupang.com/a/gJPILXpUUS",
       "imageUrl": "./images/products/product-027.jpg",
       "productId": "9594595930"
     }
   },
   {
-    "id": 29,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 28,
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 29",
-      "coupangUrl": "https://link.coupang.com/a/gJPJSYAQnI",
-      "imageUrl": "./images/products/product-029.jpg",
-      "productId": "8533612928"
+      "title": "고양이 사발 미끄럼 방지 초대형 반폐쇄 서랍형 고양이 화장실 - 화장실",
+      "coupangUrl": "https://link.coupang.com/a/gKcazMuijs",
+      "imageUrl": "./images/products/product-028.jpg",
+      "productId": "9661395230"
     }
   },
   {
-    "id": 30,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 29,
+    "category": "고양이 모래",
+    "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "고양이 용품 추천 30",
-      "coupangUrl": "https://link.coupang.com/a/gJPKqZCsO4",
-      "imageUrl": "./images/products/product-030.jpg",
-      "productId": "8425193796"
+      "title": "암앤헤머 클럼프앤씰 슬라이드 멀티캣 응고형 고양이 모래, 6.35kg, 1개, 숲향",
+      "coupangUrl": "https://link.coupang.com/a/gJPJSYAQnI",
+      "imageUrl": "./images/products/product-029.jpg",
+      "productId": "8533612928"
     }
   },
   {
@@ -268,7 +323,7 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 31",
+      "title": "펫츠몬 고양이 플라잉 롱 와이어 멀티고정 깃털 낚시대, 랜덤발송, 1개",
       "coupangUrl": "https://link.coupang.com/a/gJPKZkepeS",
       "imageUrl": "./images/products/product-031.jpg",
       "productId": "9440685729"
@@ -276,10 +331,10 @@
   },
   {
     "id": 32,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 32",
+      "title": "픽커리 잘라쓰는 고양이 스크래쳐 부착형 붙이는 스크래처 대형 - 스크래쳐",
       "coupangUrl": "https://link.coupang.com/a/gJPLAYgSyq",
       "imageUrl": "./images/products/product-032.jpg",
       "productId": "9539340953"
@@ -287,10 +342,10 @@
   },
   {
     "id": 33,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 33",
+      "title": "닥터페트라 반려묘 양치고민엔 캣즐 고양이껌 고양이간식, 7g, 30개, 혼합맛(닭고기/연어/참치)",
       "coupangUrl": "https://link.coupang.com/a/gJPL53q6w0",
       "imageUrl": "./images/products/product-033.jpg",
       "productId": "5435923046"
@@ -298,10 +353,10 @@
   },
   {
     "id": 34,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 34",
+      "title": "동원뉴트리플랜 고양이 간식 습식캔",
       "coupangUrl": "https://link.coupang.com/a/gJPMATsF3Y",
       "imageUrl": "./images/products/product-034.jpg",
       "productId": "6070980773"
@@ -309,10 +364,10 @@
   },
   {
     "id": 35,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 35",
+      "title": "New World 캣타워 고양이 스크래쳐 안정적인 구조로 튼튼하고 견고함 다층 구조로 놀이터 링트리 등....",
       "coupangUrl": "https://link.coupang.com/a/gJPNbyl1hY",
       "imageUrl": "./images/products/product-035.jpg",
       "productId": "8992098459"
@@ -320,10 +375,10 @@
   },
   {
     "id": 36,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 36",
+      "title": "고양이 꼬리잡기 자동 장난감 움직이는 사냥 놀이, 푸른색, 1개 - 서킷/사냥놀이",
       "coupangUrl": "https://link.coupang.com/a/gJPN2M6cyy",
       "imageUrl": "./images/products/product-036.jpg",
       "productId": "9322941658"
@@ -331,10 +386,10 @@
   },
   {
     "id": 37,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 37",
+      "title": "묘메이트 고양이 자동 장난감 새소리 4단 속도조절 사냥놀이, 1개, 파스텔 블루, mewmate-001 - 최저가 ....",
       "coupangUrl": "https://link.coupang.com/a/gJPOzNcNJQ",
       "imageUrl": "./images/products/product-037.jpg",
       "productId": "9490157318"
@@ -342,10 +397,10 @@
   },
   {
     "id": 38,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 38",
+      "title": "고양이 영양 간식 먹거리 그루머스 아임캣 겉은바삭 속은촉촉 70g 4종류맛 세트구성 [그다이마잇], 4세트, 16개",
       "coupangUrl": "https://link.coupang.com/a/gJPPbjnZka",
       "imageUrl": "./images/products/product-038.jpg",
       "productId": "9470218743"
@@ -353,10 +408,10 @@
   },
   {
     "id": 39,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 39",
+      "title": "닥터뉴토 고양이 강아지 동결건조 간식 유산균 트릿 (구내염/구취/치석제거 도움), 5개, 55g, 치킨",
       "coupangUrl": "https://link.coupang.com/a/gJPPNIkTJI",
       "imageUrl": "./images/products/product-039.jpg",
       "productId": "8463452569"
@@ -364,21 +419,43 @@
   },
   {
     "id": 40,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "그루밍",
+    "description": "고양이의 위생과 털 관리를 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 40",
+      "title": "꼬물이네샵 반려동물 안아픈 저자극 원터치 원버튼 빗 슬리커 애견브러쉬 눈곱빗 세트, 1개, 화이트 눈곱 빗",
       "coupangUrl": "https://link.coupang.com/a/gJPQAPv1Ns",
       "imageUrl": "./images/products/product-040.jpg",
       "productId": "6247467825"
     }
   },
   {
-    "id": 43,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 41,
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 43",
+      "title": "페밀리아 고양이 스텐 화장실 대형 스테인리스 오픈형 평판형, 1개, 진그레이",
+      "coupangUrl": "https://link.coupang.com/a/gKcbotScJU",
+      "imageUrl": "./images/products/product-041.jpg",
+      "productId": "7179112712"
+    }
+  },
+  {
+    "id": 42,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
+    "product": {
+      "title": "펫츠몬 고양이 더 커져 눕기편한 원형 스크래쳐 리필, 크라프트 화이트, 2개",
+      "coupangUrl": "https://link.coupang.com/a/gKciCdN4xw",
+      "imageUrl": "./images/products/product-042.jpg",
+      "productId": "8896551529"
+    }
+  },
+  {
+    "id": 43,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
+    "product": {
+      "title": "LemonU사이잘삼 원단 고양이 스크래쳐 하우스 장난감공 포함 바닥 미끄럼방지 61*41*9cm, 1개, 단색",
       "coupangUrl": "https://link.coupang.com/a/gJPSLMDznE",
       "imageUrl": "./images/products/product-043.jpg",
       "productId": "9647886731"
@@ -389,7 +466,7 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 44",
+      "title": "파스텔펫 반려동물 포인트 반자동 급수식기",
       "coupangUrl": "https://link.coupang.com/a/gJPTGQijtI",
       "imageUrl": "./images/products/product-044.jpg",
       "productId": "8147116266"
@@ -397,10 +474,10 @@
   },
   {
     "id": 45,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 45",
+      "title": "LXU 고양이 마따따비 스틱 라피아 잎 개다래 나무 치석제거 덴탈 츄 장난감 3개세트, 3개, 옐로우",
       "coupangUrl": "https://link.coupang.com/a/gJPUvbxvK8",
       "imageUrl": "./images/products/product-045.jpg",
       "productId": "6591244925"
@@ -408,10 +485,10 @@
   },
   {
     "id": 46,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 46",
+      "title": "치와와 고양이 터널 숨숨집 쿨매트 대형 - 침대/쇼파",
       "coupangUrl": "https://link.coupang.com/a/gJPVbHXOOi",
       "imageUrl": "./images/products/product-046.jpg",
       "productId": "9485257805"
@@ -419,21 +496,32 @@
   },
   {
     "id": 47,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 47",
-      "coupangUrl": "https://link.coupang.com/a/gJPWQaXlHE",
+      "title": "레토 고양이 숨숨집 하우스형 수직 스크래처 80cm, 1개, 화이트",
+      "coupangUrl": "https://link.coupang.com/a/gKcjkYKyNU",
       "imageUrl": "./images/products/product-047.jpg",
-      "productId": "9628207586"
+      "productId": "8527423362"
+    }
+  },
+  {
+    "id": 48,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
+    "product": {
+      "title": "오드펫하우스 고양이스크래쳐 고양이스크래처 원형스크래쳐 고양이장난감 고양이스크레쳐 스크....",
+      "coupangUrl": "https://link.coupang.com/a/gKckGT3zuS",
+      "imageUrl": "./images/products/product-048.jpg",
+      "productId": "9002362379"
     }
   },
   {
     "id": 49,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 49",
+      "title": "루메이크 소리나는 고양이 장난감 날아다니는 새 사냥 놀이, 오렌지, 1개 - 낚싯대/막대",
       "coupangUrl": "https://link.coupang.com/a/gJPYJzH3qC",
       "imageUrl": "./images/products/product-049.jpg",
       "productId": "9565808285"
@@ -444,7 +532,7 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 50",
+      "title": "마약박스 스크레쳐",
       "coupangUrl": "https://link.coupang.com/a/gJPZLeGn9M",
       "imageUrl": "./images/products/product-050.jpg",
       "productId": "5573592588"
@@ -455,7 +543,7 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 51",
+      "title": "탈출 NO! 고양이 가슴줄 하네스 벌과 고양이 프린트 단계 조절 가능 실내외 산책용, 1개, 노란색-120cm",
       "coupangUrl": "https://link.coupang.com/a/gJP0AfEBuC",
       "imageUrl": "./images/products/product-051.jpg",
       "productId": "7069751229"
@@ -463,10 +551,10 @@
   },
   {
     "id": 52,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 52",
+      "title": "CABULE 고양이 스크래처 사이잘삼 스크래쳐 원목 고양이장난감 소파스크래쳐 고양이용품, 1개, 흰색",
       "coupangUrl": "https://link.coupang.com/a/gJP1uHQjue",
       "imageUrl": "./images/products/product-052.jpg",
       "productId": "6253046928"
@@ -477,18 +565,29 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 53",
+      "title": "웰케어 락토믹스 생유산균 투약보조제 약효보호제 강아지 2.2g 100개입, 220g, 장건강/유산균, 10개",
       "coupangUrl": "https://link.coupang.com/a/gJP2f160Iu",
       "imageUrl": "./images/products/product-053.jpg",
       "productId": "8595233840"
     }
   },
   {
-    "id": 55,
+    "id": 54,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 55",
+      "title": "LABEKA 무선 고양이정수기 3.5리터 모션 센서 및 저소음 펌프 탑재 3가지 작동 모드, 1세트, 하얀색, CP0020B-2",
+      "coupangUrl": "https://link.coupang.com/a/gKcdl0rDsy",
+      "imageUrl": "./images/products/product-054.jpg",
+      "productId": "9558320665"
+    }
+  },
+  {
+    "id": 55,
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
+    "product": {
+      "title": "닥터뉴토 프레시케어 강아지 고양이 구강 유산균 동결건조 연어 트릿 (구내염/구취/치석제거 도움), 5개, 45g",
       "coupangUrl": "https://link.coupang.com/a/gJP3Idmp9U",
       "imageUrl": "./images/products/product-055.jpg",
       "productId": "7680105215"
@@ -496,10 +595,10 @@
   },
   {
     "id": 56,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 56",
+      "title": "딩동펫 고양이 사이잘 우드 볼 공굴리기 스크래쳐 캣츠고양이 - 스크래쳐",
       "coupangUrl": "https://link.coupang.com/a/gJP4DVkDmK",
       "imageUrl": "./images/products/product-056.jpg",
       "productId": "9031800309"
@@ -507,21 +606,32 @@
   },
   {
     "id": 57,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 57",
+      "title": "펫토리아 고양이 스트레스 해소 캣닢 스프레이, 1개, 50ml",
       "coupangUrl": "https://link.coupang.com/a/gJP5tnPXnU",
       "imageUrl": "./images/products/product-057.jpg",
       "productId": "329281916"
     }
   },
   {
-    "id": 59,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 58,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 59",
+      "title": "DUIT 올데이보드 고양이 스크래쳐 - 스크래쳐",
+      "coupangUrl": "https://link.coupang.com/a/gKclo94TQq",
+      "imageUrl": "./images/products/product-058.jpg",
+      "productId": "6839813259"
+    }
+  },
+  {
+    "id": 59,
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
+    "product": {
+      "title": "케메이 저소음 강아지 고양이 와이드 클리퍼 발바닥 미용기 이발기 부분 위생, 1개, PG-5002",
       "coupangUrl": "https://link.coupang.com/a/gJP6DDAVyu",
       "imageUrl": "./images/products/product-059.jpg",
       "productId": "9389953441"
@@ -532,7 +642,7 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 60",
+      "title": "리스펫랩 반려동물 뿌리는 치약 구강청결제",
       "coupangUrl": "https://link.coupang.com/a/gJP7PNe14S",
       "imageUrl": "./images/products/product-060.jpg",
       "productId": "8783728498"
@@ -540,21 +650,32 @@
   },
   {
     "id": 61,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 모래",
+    "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "고양이 용품 추천 61",
+      "title": "CUTEPOL 카사바 모래 캣 리터 먼지없는 응고형 고양이모래 극세입자, 2.5kg, 4개, 마시멜로 향",
       "coupangUrl": "https://link.coupang.com/a/gJP8NyQ8rI",
       "imageUrl": "./images/products/product-061.jpg",
       "productId": "6919164267"
     }
   },
   {
-    "id": 63,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 62,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 63",
+      "title": "TaiStar 다묘용 고양이 타워튼튼 스크래치 포스트우주캡슐 놀이 공간T856-012, 나무색, 1개 - 캣타워/캣....",
+      "coupangUrl": "https://link.coupang.com/a/gKc9fqquNE",
+      "imageUrl": "./images/products/product-062.jpg",
+      "productId": "9071887199"
+    }
+  },
+  {
+    "id": 63,
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
+    "product": {
+      "title": "[고양이 장난감] 앤트앤비 펫볼 움직이는 자동 장난감 캣토이, 1개, 레드, 딸기",
       "coupangUrl": "https://link.coupang.com/a/gJQbrOmgWi",
       "imageUrl": "./images/products/product-063.jpg",
       "productId": "8129324300"
@@ -562,10 +683,10 @@
   },
   {
     "id": 64,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 64",
+      "title": "삼육오일 고양이 벅벅 고강도 둥지 원형 스크래쳐, 화이트, 2개",
       "coupangUrl": "https://link.coupang.com/a/gJQb48JKZU",
       "imageUrl": "./images/products/product-064.jpg",
       "productId": "22436861"
@@ -573,21 +694,32 @@
   },
   {
     "id": 65,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 사료",
+    "description": "고양이의 건강한 식사를 위한 추천 사료입니다.",
     "product": {
-      "title": "고양이 용품 추천 65",
+      "title": "우성사료 전연령 넥스탑 패밀리캣 건식사료, 닭, 20kg, 4개",
       "coupangUrl": "https://link.coupang.com/a/gJQdOyHlNQ",
       "imageUrl": "./images/products/product-065.jpg",
       "productId": "6074201879"
     }
   },
   {
-    "id": 67,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 66,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 67",
+      "title": "고양이 사냥놀이 장난감 퍼즐볼 스크래처, 1개, 원형 그린",
+      "coupangUrl": "https://link.coupang.com/a/gKcoATE9K0",
+      "imageUrl": "./images/products/product-066.jpg",
+      "productId": "9294140740"
+    }
+  },
+  {
+    "id": 67,
+    "category": "고양이 사료",
+    "description": "고양이의 건강한 식사를 위한 추천 사료입니다.",
+    "product": {
+      "title": "수출용 팝캣 5kg 전연령 고양이사료 닭고기&참치 대용량고양이사료 - 건식사료",
       "coupangUrl": "https://link.coupang.com/a/gJQeLG07UW",
       "imageUrl": "./images/products/product-067.jpg",
       "productId": "8745172318"
@@ -595,10 +727,10 @@
   },
   {
     "id": 68,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 사료",
+    "description": "고양이의 건강한 식사를 위한 추천 사료입니다.",
     "product": {
-      "title": "고양이 용품 추천 68",
+      "title": "펠리코 냠냠캣 플러스 20kg 고양이사료 길고양이 길냥이 대용량 -비닐포장, 1개, 냠냠캣 플러스 20kg-비닐포장",
       "coupangUrl": "https://link.coupang.com/a/gJQfCZUNl6",
       "imageUrl": "./images/products/product-068.jpg",
       "productId": "7912980413"
@@ -606,21 +738,21 @@
   },
   {
     "id": 69,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 69",
-      "coupangUrl": "https://link.coupang.com/a/gJQgsPksa4",
-      "imageUrl": "./images/products/product-069.svg",
-      "productId": "7912980214"
+      "title": "댕냥픽 강아지 셀프 발톱 갈이 댕크래쳐 다듬기 노즈워크 스크래쳐, 1개, 블랙할인",
+      "coupangUrl": "https://link.coupang.com/a/gKc4j4iBEW",
+      "imageUrl": "./images/products/product-069.jpg",
+      "productId": "9616133353"
     }
   },
   {
     "id": 70,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 사료",
+    "description": "고양이의 건강한 식사를 위한 추천 사료입니다.",
     "product": {
-      "title": "고양이 용품 추천 70",
+      "title": "로얄캐닌 인도어 고양이사료, 400g, 2개",
       "coupangUrl": "https://link.coupang.com/a/gJQg9RxRVA",
       "imageUrl": "./images/products/product-070.jpg",
       "productId": "167301095"
@@ -628,10 +760,10 @@
   },
   {
     "id": 71,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 모래",
+    "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "고양이 용품 추천 71",
+      "title": "고양이두부모래 1.5mm 극세사입자, 8L - 8L",
       "coupangUrl": "https://link.coupang.com/a/gJQicFujGm",
       "imageUrl": "./images/products/product-071.jpg",
       "productId": "7572200473"
@@ -639,10 +771,10 @@
   },
   {
     "id": 72,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 모래",
+    "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "고양이 용품 추천 72",
+      "title": "2025 NEW 에버크린 엑스트라 클럼프 벤토나이트 고양이 모래, 8.5kg, 2개, 은은한 향",
       "coupangUrl": "https://link.coupang.com/a/gJQiHdlZwO",
       "imageUrl": "./images/products/product-072.jpg",
       "productId": "8539317721"
@@ -650,10 +782,10 @@
   },
   {
     "id": 73,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 모래",
+    "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "고양이 용품 추천 73",
+      "title": "묘나리자 강력뭉침 프리미엄 두부모래 가는입자&벤토나이트 흡수분자 고양이 모래 2.8kg, 무향, 3개, 7L",
       "coupangUrl": "https://link.coupang.com/a/gJQjecM2b6",
       "imageUrl": "./images/products/product-073.jpg",
       "productId": "8461160534"
@@ -661,10 +793,10 @@
   },
   {
     "id": 74,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 모래",
+    "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "고양이 용품 추천 74",
+      "title": "CUTEPOL 두부 카사바 혼합 고양이모래 1.6mm 초극세 입자 응고형 캣 리터, 금찬화 향, 6개, 2.5kg",
       "coupangUrl": "https://link.coupang.com/a/gJQjPqeHca",
       "imageUrl": "./images/products/product-074.jpg",
       "productId": "7707021433"
@@ -672,10 +804,10 @@
   },
   {
     "id": 75,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 75",
+      "title": "안심벤토그립 2박스 세트 36kg 대용량 다묘가정 벤토나이트 고양이모래 고양이화장실모래 가는입자, 18kg, 2개, 무향",
       "coupangUrl": "https://link.coupang.com/a/gJQko0CJfE",
       "imageUrl": "./images/products/product-075.jpg",
       "productId": "8933378075"
@@ -683,10 +815,10 @@
   },
   {
     "id": 76,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 모래",
+    "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "고양이 용품 추천 76",
+      "title": "고양이 모래 추천",
       "coupangUrl": "https://link.coupang.com/a/gJQlaZ2QLI",
       "imageUrl": "./images/products/product-076.jpg",
       "productId": "7771545175"
@@ -694,10 +826,10 @@
   },
   {
     "id": 77,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 77",
+      "title": "딩동펫 고양이 공룡알 숨숨 하우스",
       "coupangUrl": "https://link.coupang.com/a/gJQl93Igsm",
       "imageUrl": "./images/products/product-077.jpg",
       "productId": "108739142"
@@ -705,10 +837,10 @@
   },
   {
     "id": 78,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 78",
+      "title": "PAWZ Road 3단 소형 캣타워 고양이 하우스 낮은 플랫폼 숨숨집 기둥형 스크래쳐 패브릭 68cm, 1개, 베이지",
       "coupangUrl": "https://link.coupang.com/a/gJQmHn9DOu",
       "imageUrl": "./images/products/product-078.jpg",
       "productId": "9134108522"
@@ -716,10 +848,10 @@
   },
   {
     "id": 79,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 79",
+      "title": "MAAH 고양이 초대형 듀얼 도넛 숨숨집 - 하우스",
       "coupangUrl": "https://link.coupang.com/a/gJQnsaVFG8",
       "imageUrl": "./images/products/product-079.jpg",
       "productId": "8561188849"
@@ -727,10 +859,10 @@
   },
   {
     "id": 80,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 80",
+      "title": "Veralool 튼튼한 고양이 숨숨집 터널 대형 캣 하우스 원형 펠트 터널집 고양이 장난감 60*30cm, 1개, 그레이",
       "coupangUrl": "https://link.coupang.com/a/gJQnZZsWpE",
       "imageUrl": "./images/products/product-080.jpg",
       "productId": "9606581259"
@@ -738,21 +870,21 @@
   },
   {
     "id": 81,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 81",
-      "coupangUrl": "https://link.coupang.com/a/gJQovfOTAr",
+      "title": "펫츠몬 고양이 움직이는 4단 공놀이 장난감 + 트랙볼 랜덤발송 4p 세트, 화이트, 1세트 - 서킷/사냥....",
+      "coupangUrl": "https://link.coupang.com/a/gKcpbYwCJg",
       "imageUrl": "./images/products/product-081.jpg",
-      "productId": "9619546952"
+      "productId": "7390377550"
     }
   },
   {
     "id": 82,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 82",
+      "title": "프라홈 반려동물 골덴 침낭 동굴 하우스 쿠션 숨숨집 털제거장갑 - 쿠션하우스",
       "coupangUrl": "https://link.coupang.com/a/gJQo215ngq",
       "imageUrl": "./images/products/product-082.jpg",
       "productId": "9183513959"
@@ -760,10 +892,10 @@
   },
   {
     "id": 83,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 83",
+      "title": "먼지없는 고양이 숨숨집 다면 스크래쳐 하우스형 - 스크래쳐",
       "coupangUrl": "https://link.coupang.com/a/gJQpzBpk1Q",
       "imageUrl": "./images/products/product-083.jpg",
       "productId": "9512191951"
@@ -771,21 +903,21 @@
   },
   {
     "id": 84,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 84",
-      "coupangUrl": "https://link.coupang.com/a/gJQqjyJeg0",
-      "imageUrl": "./images/products/product-084.svg",
-      "productId": "9626304724"
+      "title": "그린홈 대형 항균 고양이 후드형 화장실+모래삽. UV살균등 냄새제거, 회색, 1개, 사각형 디자인 문 2 개짜리",
+      "coupangUrl": "https://link.coupang.com/a/gKb9V1d5C8",
+      "imageUrl": "./images/products/product-084.jpg",
+      "productId": "4670432036"
     }
   },
   {
     "id": 85,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 85",
+      "title": "고양이 계단 하우스 4단 숨숨집 펠트 스크래쳐 소파 침대 오르기 보조계단, 5개, 블루핑크BluePink",
       "coupangUrl": "https://link.coupang.com/a/gJQrlZWWtw",
       "imageUrl": "./images/products/product-085.jpg",
       "productId": "9045952363"
@@ -796,10 +928,21 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 86",
-      "coupangUrl": "https://link.coupang.com/a/gJQr0RHDaK",
-      "imageUrl": "./images/products/product-086.svg",
-      "productId": "9607583714"
+      "title": "대장균 99.99% 제거 필터 무소음 도그케어 자동 급수기 강아지 고양이 반려동물 정수기, 정수기 DF03, 1개27E,000",
+      "coupangUrl": "https://link.coupang.com/a/gKccqt3BJI",
+      "imageUrl": "./images/products/product-086.jpg",
+      "productId": "8863959610"
+    }
+  },
+  {
+    "id": 87,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
+    "product": {
+      "title": "가능한 확장 가능한 고양이 / 강아지 이동가방 반려동물 이동가방 삼면통풍 이동가방 이너쿠션, 1개, 그레이",
+      "coupangUrl": "https://link.coupang.com/a/gKcf64Pig0",
+      "imageUrl": "./images/products/product-087.jpg",
+      "productId": "5523976102"
     }
   },
   {
@@ -807,29 +950,40 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 88",
-      "coupangUrl": "https://link.coupang.com/a/gJQtNZ84Xs",
+      "title": "딩동펫 움직이는 파닥피쉬, 청어, 2개 - 서킷/사냥놀이",
+      "coupangUrl": "https://link.coupang.com/a/gKcp4SLTG0",
       "imageUrl": "./images/products/product-088.jpg",
-      "productId": "3253287"
+      "productId": "8595981876"
     }
   },
   {
     "id": 89,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 89",
+      "title": "이나바 챠오츄르 파우치 참치 종합셋트 56g x 10개(10종), 1개",
       "coupangUrl": "https://link.coupang.com/a/gJQuvbrER2",
       "imageUrl": "./images/products/product-089.jpg",
       "productId": "9345899293"
     }
   },
   {
-    "id": 91,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "id": 90,
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 91",
+      "title": "펫인 대형 원목 스크래쳐 캣폴 캣타워 - 캣타워/캣폴",
+      "coupangUrl": "https://link.coupang.com/a/gKdafWnnMG",
+      "imageUrl": "./images/products/product-090.jpg",
+      "productId": "8032437692"
+    }
+  },
+  {
+    "id": 91,
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
+    "product": {
+      "title": "원더푸드 짜먹는 고양이 간식 60p - 파우치",
       "coupangUrl": "https://link.coupang.com/a/gJQvIEQdMW",
       "imageUrl": "./images/products/product-091.jpg",
       "productId": "8059292300"
@@ -837,10 +991,10 @@
   },
   {
     "id": 92,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 92",
+      "title": "스마트리빙 [꼼냥] 고양이 간식 템테이션 6종 콤보 세트 스낵, 닭고기 해산물 우유 연어 참치 헤어볼, 1개, 75g",
       "coupangUrl": "https://link.coupang.com/a/gJQwhhfJJs",
       "imageUrl": "./images/products/product-092.jpg",
       "productId": "9107722880"
@@ -848,10 +1002,10 @@
   },
   {
     "id": 93,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "고양이 간식",
+    "description": "맛있는 간식으로 건강한 보상 시간을 만들어 주세요.",
     "product": {
-      "title": "고양이 용품 추천 93",
+      "title": "마코펫 고양이 촉촉한 닭가슴살 코코데이 간식, 순살, 30개",
       "coupangUrl": "https://link.coupang.com/a/gJQw0AgaVU",
       "imageUrl": "./images/products/product-093.jpg",
       "productId": "6298067137"
@@ -862,7 +1016,7 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 94",
+      "title": "엠티링크 2IN1 강아지 고양이 반자동 급식기 노즈워크 먹이퍼즐 장난감 다용도 지능개발 밥그릇, 1세트, 세트C, 1.5L쿠폰",
       "coupangUrl": "https://link.coupang.com/a/gJQx4zvSk8",
       "imageUrl": "./images/products/product-094.jpg",
       "productId": "7156630079"
@@ -873,21 +1027,21 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 95",
-      "coupangUrl": "https://link.coupang.com/a/gJQyC2DMES",
-      "imageUrl": "./images/products/product-095.svg",
-      "productId": "9616842181"
+      "title": "oneisall 강아지 자동급수기 고양이 정수기 스테인리스 2L 수위창 쉬운세척 식기세척기호환, 1개, Sliver",
+      "coupangUrl": "https://link.coupang.com/a/gKccWOX9Bk",
+      "imageUrl": "./images/products/product-095.jpg",
+      "productId": "1093541330"
     }
   },
   {
     "id": 96,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "위생 및 화장실 용품",
+    "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 96",
-      "coupangUrl": "https://link.coupang.com/a/gJQy99sPls",
-      "imageUrl": "./images/products/product-096.svg",
-      "productId": "9670151730"
+      "title": "맘애쏙 도톰 탈취율 99.9% 냄새잡는 반려동물 물티슈 저자극 안심 강아지 고양이 펫티슈, 6개, 70개입",
+      "coupangUrl": "https://link.coupang.com/a/gKc53Zg8po",
+      "imageUrl": "./images/products/product-096.jpg",
+      "productId": "2352774108"
     }
   },
   {
@@ -895,7 +1049,7 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 97",
+      "title": "[자동급식기 물병일체형] 고양이 강아지 자동급식기 물통 일체형 펫급수기 대용량 사료배급기, Gray, 1개, 3.3L",
       "coupangUrl": "https://link.coupang.com/a/gJQzNeUQeX",
       "imageUrl": "./images/products/product-097.jpg",
       "productId": "7156115759"
@@ -906,7 +1060,7 @@
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 98",
+      "title": "HULULU 대용량 4L 타이머 설정 건식사료 전용 강아지 고양이반려동물 자동 급식기, 1개, 화이트",
       "coupangUrl": "https://link.coupang.com/a/gJQAnDUC7g",
       "imageUrl": "./images/products/product-098.jpg",
       "productId": "9516835088"
@@ -914,24 +1068,24 @@
   },
   {
     "id": 99,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 99",
-      "coupangUrl": "https://link.coupang.com/a/gJQA6B7BJd",
+      "title": "네꼬모리 더블캣라운지 고양이 특대형 복층 스크래쳐, 혼합색상, 1개",
+      "coupangUrl": "https://link.coupang.com/a/gKcl5nsYY8",
       "imageUrl": "./images/products/product-099.jpg",
-      "productId": "9124636034"
+      "productId": "8955292940"
     }
   },
   {
     "id": 100,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "스크래처 및 캣타워",
+    "description": "휴식과 발톱 관리를 돕는 공간입니다.",
     "product": {
-      "title": "고양이 용품 추천 100",
-      "coupangUrl": "https://link.coupang.com/a/gJQB02Ti0q",
+      "title": "우아지오 고양이 DIY 스크래쳐 삼줄 밧줄 사이잘 - 스크래쳐",
+      "coupangUrl": "https://link.coupang.com/a/gKcjYpvVXE",
       "imageUrl": "./images/products/product-100.jpg",
-      "productId": "9138677066"
+      "productId": "8853545216"
     }
   }
 ]

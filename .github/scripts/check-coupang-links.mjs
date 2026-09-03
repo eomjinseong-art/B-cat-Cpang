@@ -17,11 +17,14 @@ const failures = [];
 for (const [link, title] of links) {
   try {
     const response = await fetch(link, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; CoupangLinkMonitor/1.0)' },
-      redirect: 'follow',
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36' },
+      redirect: 'manual',
       signal: AbortSignal.timeout(15000)
     });
-    if (response.status >= 400) {
+    const location = response.headers.get('location') || '';
+    const ok = response.status < 400
+      || (response.status >= 300 && response.status < 400 && /coupang\.com/i.test(location));
+    if (!ok) {
       failures.push(`${response.status} | ${title} | ${link}`);
     }
   } catch (error) {
