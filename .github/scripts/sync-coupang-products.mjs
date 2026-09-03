@@ -18,7 +18,7 @@ let browser;
 let page;
 try {
   const { chromium } = await import('playwright');
-  browser = await chromium.launch({ headless: true });
+  browser = await chromium.launch({ headless: process.env.HEADLESS !== 'false' });
   page = await browser.newPage();
 } catch (error) {
   console.warn(`Playwright를 사용할 수 없어 시트 데이터만 동기화합니다: ${error.message}`);
@@ -43,23 +43,32 @@ try {
     } catch (error) {
       console.warn(`상품 ${id} 자동 조회 실패: ${error.message}`);
     }
-    const localImage = `./images/products/product-${String(id).padStart(3, '0')}.svg`;
+    const imageFile = `product-${String(id).padStart(3, '0')}`;
+    const jpgPath = path.join(imageDir, `${imageFile}.jpg`);
+    const hasExistingImage = await fileExists(jpgPath);
+    const localImage = hasExistingImage ? `./images/products/${imageFile}.jpg` : `./images/products/${imageFile}.svg`;
     if (!title || /access denied|error/i.test(title)) title = `고양이 용품 추천 ${id}`;
     if (!imageUrl) imageUrl = localImage;
     if (imageUrl && !imageUrl.startsWith('./')) {
       try {
-        const imageResponse = await fetch(imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl, {
-          headers: { 'User-Agent': 'Mozilla/5.0', Referer: 'https://www.coupang.com/' }
-        });
-        if (imageResponse.ok) {
-          await fs.writeFile(path.join(imageDir, `product-${String(id).padStart(3, '0')}.jpg`), Buffer.from(await imageResponse.arrayBuffer()));
-          imageUrl = `./images/products/product-${String(id).padStart(3, '0')}.jpg`;
+        const imageResponse = page
+        ? await page.request.get(imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl, {
+          headers: { Referer: 'https://www.coupang.com/' }
+        })
+        : await fetch(imageUrl);
+        const imageOk = typeof imageResponse.ok === 'function' ? imageResponse.ok() : imageResponse.ok;
+        if (imageOk) {
+        const imageBody = typeof imageResponse.body === 'function'
+          ? await imageResponse.body()
+          : Buffer.from(await imageResponse.arrayBuffer());
+        await fs.writeFile(path.join(imageDir, `product-${String(id).padStart(3, '0')}.jpg`), imageBody);
+        imageUrl = `./images/products/product-${String(id).padStart(3, '0')}.jpg`;
         }
       } catch (error) {
         console.warn(`상품 ${id} 이미지 저장 실패: ${error.message}`);
       }
     }
-    if (imageUrl === localImage) {
+    if (imageUrl === localImage && localImage.endsWith('.svg')) {
       await fs.writeFile(path.join(imageDir, `product-${String(id).padStart(3, '0')}.svg`), fallbackImage(id));
     }
     products.push({
@@ -117,6 +126,15 @@ function parseCsv(input) {
 function fallbackImage(id) {
   const hue = (id * 37) % 360;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="hsl(${hue},75%,88%)"/><stop offset="1" stop-color="hsl(${(hue + 35) % 360},80%,65%)"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><circle cx="400" cy="300" r="150" fill="#fff" opacity=".45"/><path d="M315 270l-35-95 85 50 35-12 35 12 85-50-35 95c0 75-40 115-85 115s-85-40-85-115z" fill="#6b4f3b"/><circle cx="360" cy="285" r="10" fill="#fff"/><circle cx="440" cy="285" r="10" fill="#fff"/><path d="M390 320q10 10 20 0M270 325l-75-10m75 35l-75 15m530-40l75-10m-75 35l75 15" stroke="#6b4f3b" stroke-width="7" fill="none"/><text x="400" y="535" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="bold" fill="#5b4030">CAT GOODS ${id}</text></svg>`;
+}
+
+async function fileExists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function classifyCategory(value, title) {
