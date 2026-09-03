@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "category": "화장실·모래",
-    "description": "쾌적한 배변 환경을 위한 필수 용품입니다.",
+    "category": "기타",
+    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
-      "title": "뉴리터원 고양이분변통 리터락커 호환 리필봉투 4개입 - 기타 화장실용품",
+      "title": "고양이 용품 추천 1",
       "coupangUrl": "https://link.coupang.com/a/gJPt9fCLwi",
       "imageUrl": "./images/products/product-001.jpg"
     }
   },
   {
     "id": 2,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 2",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 3",
@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 4",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 5",
@@ -51,7 +51,7 @@
   },
   {
     "id": 6,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 6",
@@ -61,7 +61,7 @@
   },
   {
     "id": 7,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 7",
@@ -71,7 +71,7 @@
   },
   {
     "id": 8,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 8",
@@ -81,7 +81,7 @@
   },
   {
     "id": 9,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 9",
@@ -91,7 +91,7 @@
   },
   {
     "id": 10,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 10",
@@ -101,7 +101,7 @@
   },
   {
     "id": 11,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 11",
@@ -111,7 +111,7 @@
   },
   {
     "id": 12,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 12",
@@ -121,7 +121,7 @@
   },
   {
     "id": 13,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 13",
@@ -131,7 +131,7 @@
   },
   {
     "id": 14,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 14",
@@ -141,7 +141,7 @@
   },
   {
     "id": 15,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 15",
@@ -151,7 +151,7 @@
   },
   {
     "id": 16,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 16",
@@ -161,7 +161,7 @@
   },
   {
     "id": 17,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 17",
@@ -171,7 +171,7 @@
   },
   {
     "id": 18,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 18",
@@ -181,7 +181,7 @@
   },
   {
     "id": 19,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 19",
@@ -191,7 +191,7 @@
   },
   {
     "id": 20,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 20",
@@ -201,7 +201,7 @@
   },
   {
     "id": 21,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 21",
@@ -211,7 +211,7 @@
   },
   {
     "id": 22,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 22",
@@ -221,7 +221,7 @@
   },
   {
     "id": 23,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 23",
@@ -231,7 +231,7 @@
   },
   {
     "id": 24,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 24",
@@ -241,7 +241,7 @@
   },
   {
     "id": 25,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 25",
@@ -251,7 +251,7 @@
   },
   {
     "id": 26,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 26",
@@ -261,7 +261,7 @@
   },
   {
     "id": 27,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 27",
@@ -271,7 +271,7 @@
   },
   {
     "id": 28,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 28",
@@ -281,7 +281,7 @@
   },
   {
     "id": 29,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 29",
@@ -291,7 +291,7 @@
   },
   {
     "id": 30,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 30",
@@ -301,7 +301,7 @@
   },
   {
     "id": 31,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 31",
@@ -311,7 +311,7 @@
   },
   {
     "id": 32,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 32",
@@ -321,7 +321,7 @@
   },
   {
     "id": 33,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 33",
@@ -331,7 +331,7 @@
   },
   {
     "id": 34,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 34",
@@ -341,7 +341,7 @@
   },
   {
     "id": 35,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 35",
@@ -351,7 +351,7 @@
   },
   {
     "id": 36,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 36",
@@ -361,7 +361,7 @@
   },
   {
     "id": 37,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 37",
@@ -371,7 +371,7 @@
   },
   {
     "id": 38,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 38",
@@ -381,7 +381,7 @@
   },
   {
     "id": 39,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 39",
@@ -391,7 +391,7 @@
   },
   {
     "id": 40,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 40",
@@ -401,7 +401,7 @@
   },
   {
     "id": 41,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 41",
@@ -411,7 +411,7 @@
   },
   {
     "id": 42,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 42",
@@ -421,7 +421,7 @@
   },
   {
     "id": 43,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 43",
@@ -431,7 +431,7 @@
   },
   {
     "id": 44,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 44",
@@ -441,7 +441,7 @@
   },
   {
     "id": 45,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 45",
@@ -451,7 +451,7 @@
   },
   {
     "id": 46,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 46",
@@ -461,7 +461,7 @@
   },
   {
     "id": 47,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 47",
@@ -471,7 +471,7 @@
   },
   {
     "id": 48,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 48",
@@ -481,7 +481,7 @@
   },
   {
     "id": 49,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 49",
@@ -491,7 +491,7 @@
   },
   {
     "id": 50,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 50",
@@ -501,7 +501,7 @@
   },
   {
     "id": 51,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 51",
@@ -511,7 +511,7 @@
   },
   {
     "id": 52,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 52",
@@ -521,7 +521,7 @@
   },
   {
     "id": 53,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 53",
@@ -531,7 +531,7 @@
   },
   {
     "id": 54,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 54",
@@ -541,7 +541,7 @@
   },
   {
     "id": 55,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 55",
@@ -551,7 +551,7 @@
   },
   {
     "id": 56,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 56",
@@ -561,7 +561,7 @@
   },
   {
     "id": 57,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 57",
@@ -571,7 +571,7 @@
   },
   {
     "id": 58,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 58",
@@ -581,7 +581,7 @@
   },
   {
     "id": 59,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 59",
@@ -591,7 +591,7 @@
   },
   {
     "id": 60,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 60",
@@ -601,7 +601,7 @@
   },
   {
     "id": 61,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 61",
@@ -611,7 +611,7 @@
   },
   {
     "id": 62,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 62",
@@ -621,7 +621,7 @@
   },
   {
     "id": 63,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 63",
@@ -631,7 +631,7 @@
   },
   {
     "id": 64,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 64",
@@ -641,7 +641,7 @@
   },
   {
     "id": 65,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 65",
@@ -651,7 +651,7 @@
   },
   {
     "id": 66,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 66",
@@ -661,7 +661,7 @@
   },
   {
     "id": 67,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 67",
@@ -671,7 +671,7 @@
   },
   {
     "id": 68,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 68",
@@ -681,7 +681,7 @@
   },
   {
     "id": 69,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 69",
@@ -691,7 +691,7 @@
   },
   {
     "id": 70,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 70",
@@ -701,7 +701,7 @@
   },
   {
     "id": 71,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 71",
@@ -711,7 +711,7 @@
   },
   {
     "id": 72,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 72",
@@ -721,7 +721,7 @@
   },
   {
     "id": 73,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 73",
@@ -731,7 +731,7 @@
   },
   {
     "id": 74,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 74",
@@ -741,7 +741,7 @@
   },
   {
     "id": 75,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 75",
@@ -751,7 +751,7 @@
   },
   {
     "id": 76,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 76",
@@ -761,7 +761,7 @@
   },
   {
     "id": 77,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 77",
@@ -771,7 +771,7 @@
   },
   {
     "id": 78,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 78",
@@ -781,7 +781,7 @@
   },
   {
     "id": 79,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 79",
@@ -791,7 +791,7 @@
   },
   {
     "id": 80,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 80",
@@ -801,7 +801,7 @@
   },
   {
     "id": 81,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 81",
@@ -811,7 +811,7 @@
   },
   {
     "id": 82,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 82",
@@ -821,7 +821,7 @@
   },
   {
     "id": 83,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 83",
@@ -831,7 +831,7 @@
   },
   {
     "id": 84,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 84",
@@ -841,7 +841,7 @@
   },
   {
     "id": 85,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 85",
@@ -851,7 +851,7 @@
   },
   {
     "id": 86,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 86",
@@ -861,7 +861,7 @@
   },
   {
     "id": 87,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 87",
@@ -871,7 +871,7 @@
   },
   {
     "id": 88,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 88",
@@ -881,7 +881,7 @@
   },
   {
     "id": 89,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 89",
@@ -891,7 +891,7 @@
   },
   {
     "id": 90,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 90",
@@ -901,7 +901,7 @@
   },
   {
     "id": 91,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 91",
@@ -911,7 +911,7 @@
   },
   {
     "id": 92,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 92",
@@ -921,7 +921,7 @@
   },
   {
     "id": 93,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 93",
@@ -931,7 +931,7 @@
   },
   {
     "id": 94,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 94",
@@ -941,7 +941,7 @@
   },
   {
     "id": 95,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 95",
@@ -951,7 +951,7 @@
   },
   {
     "id": 96,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 96",
@@ -961,7 +961,7 @@
   },
   {
     "id": 97,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 97",
@@ -971,7 +971,7 @@
   },
   {
     "id": 98,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 98",
@@ -981,7 +981,7 @@
   },
   {
     "id": 99,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 99",
@@ -991,7 +991,7 @@
   },
   {
     "id": 100,
-    "category": "생활용품",
+    "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
     "product": {
       "title": "고양이 용품 추천 100",
