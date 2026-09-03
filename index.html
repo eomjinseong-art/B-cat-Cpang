@@ -13,7 +13,7 @@
 <body class="bg-amber-50 text-stone-800" style="font-family:'Gowun Dodum', sans-serif">
   <header class="sticky top-0 z-20 border-b border-amber-100 bg-white/95 backdrop-blur">
     <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-      <a href="./" class="text-xl font-black text-orange-600" style="font-family:'Jua', sans-serif">숨숨마을 <span class="text-sm font-medium text-stone-400">CAT GOODS</span></a>
+      <a href="./" class="text-2xl font-black text-orange-600" style="font-family:'Jua', sans-serif">숨숨마을 <span class="text-base font-medium text-stone-400">CAT GOODS</span></a>
       <a id="headerLink" href="#" target="_blank" rel="noopener" class="rounded-full bg-orange-500 px-3 py-2 text-xs font-bold text-white">오늘의 골드박스</a>
     </div>
   </header>
@@ -69,8 +69,7 @@
       const products = state.category === '전체' ? state.products : state.products.filter(item => item.category === state.category);
       $('status').classList.toggle('hidden', products.length > 0);
       $('productGrid').classList.toggle('hidden', products.length === 0);
-      $('productGrid').innerHTML = products.map(item => `<button class="overflow-hidden rounded-2xl border border-amber-100 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md" data-id="${item.id}"><img src="${escapeHtml(item.product.imageUrl)}" alt="${escapeHtml(item.product.title)}" class="h-40 w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='./images/products/product-${String(item.id).padStart(3, '0')}.svg'"><div class="p-3"><span class="text-[11px] font-bold text-orange-600">#${escapeHtml(item.category || '추천')}</span><h2 class="mt-1 line-clamp-2 text-sm font-bold">${escapeHtml(item.product.title)}</h2><p class="mt-2 line-clamp-2 text-xs leading-5 text-stone-500">${escapeHtml(item.product.description || '고양이와 집사를 위한 추천 용품')}</p></div></button>`).join('');
-      $('productGrid').querySelectorAll('[data-id]').forEach(card => card.addEventListener('click', () => openModal(state.products.find(item => item.id === Number(card.dataset.id)))));
+      $('productGrid').innerHTML = products.map(item => `<a href="${escapeHtml(item.product.coupangUrl)}" target="_blank" rel="noopener sponsored" class="overflow-hidden rounded-2xl border border-amber-100 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"><img src="${escapeHtml(item.product.imageUrl)}" alt="${escapeHtml(item.product.title)}" class="h-40 w-full object-cover" loading="lazy" onerror="this.onerror=null;this.src='./images/products/product-${String(item.id).padStart(3, '0')}.svg'"><div class="p-3"><span class="text-[11px] font-bold text-orange-600">#${escapeHtml(item.category || '추천')}</span><h2 class="mt-1 line-clamp-2 text-sm font-bold">${escapeHtml(item.product.title)}</h2><p class="mt-2 line-clamp-2 text-xs leading-5 text-stone-500">${escapeHtml(item.product.description || '고양이와 집사를 위한 추천 용품')}</p></div></a>`).join('');
     }
     function openModal(item) {
       $('modalCategory').textContent = `#${item.category || '추천'}`;

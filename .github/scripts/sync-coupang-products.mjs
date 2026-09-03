@@ -35,8 +35,14 @@ try {
     try {
       if (page) {
         await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 30000 });
-        await page.waitForTimeout(500);
-        const pageTitle = (await page.title()).replace(/\s*\|\s*쿠팡\s*$/, '').trim();
+        await page.waitForTimeout(1200);
+        let pageTitle = (await page.title()).replace(/\s*\|\s*쿠팡\s*$/, '').trim();
+        if (/access denied/i.test(pageTitle)) {
+          await page.waitForTimeout(5000);
+          await page.reload({ waitUntil: 'domcontentloaded', timeout: 30000 });
+          await page.waitForTimeout(1200);
+          pageTitle = (await page.title()).replace(/\s*\|\s*쿠팡\s*$/, '').trim();
+        }
         if (pageTitle && !/access denied|error|쿠팡이 추천하는/i.test(pageTitle)) title = pageTitle;
         imageUrl = await page.evaluate(() => document.querySelector('meta[property="og:image"]')?.getAttribute('content') || '') || imageUrl;
       }
@@ -81,6 +87,7 @@ try {
         imageUrl: imageUrl.startsWith('./') ? imageUrl : imageUrl
       }
     });
+    if (page && !page.isClosed()) await page.waitForTimeout(1200);
   }
 } finally {
   if (browser) await browser.close();
