@@ -1,7 +1,16 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+
 const repo = process.cwd();
 const sheetUrl = 'https://docs.google.com/spreadsheets/d/1hUNqA5ywL75YmRH-PwZ4K-_zSIpN75C8SFjgsQ9vtTg/gviz/tq?tqx=out:csv&sheet=%EA%B4%91%EA%B3%A0%EC%9A%A9';
+const imageDir = path.join(repo, 'images', 'products');
+const productsPath = path.join(repo, 'data', 'products.json');
+const sheetExportPath = path.join(repo, 'data', 'sheet-update.csv');
+const maxProducts = Number(process.env.MAX_PRODUCTS || 0);
+const delayMs = Number(process.env.DELAY_MS || 1200);
+
+await fs.mkdir(imageDir, { recursive: true });
+
 const csv = await (await fetch(sheetUrl)).text();
 const rows = parseCsv(csv);
 const headers = rows[0].map(value => value.trim().toLowerCase());
@@ -10,116 +19,264 @@ const linkIndex = firstIndex(index, ['쿠팡 파트너스 링크', '쿠팡파트
 const categoryIndex = firstIndex(index, ['상황 태그', '카테고리']);
 const titleIndex = firstIndex(index, ['상품명', '실제 상품명']);
 const imageIndex = firstIndex(index, ['상품 이미지 url', '이미지 url']);
+const descriptionIndex = firstIndex(index, ['상품 한줄설명', '상품 설명']);
+
+const failedPath = path.join(repo, 'data', 'scrape-failed.json');
+const existing = await loadExistingProducts();
+const failed = await loadFailedIds();
 const products = [];
 const seen = new Set();
-const imageDir = path.join(repo, 'images', 'products');
-await fs.mkdir(imageDir, { recursive: true });
-let browser;
-let page;
-try {
-  const { chromium } = await import('playwright');
-  browser = await chromium.launch({
-    headless: process.env.HEADLESS !== 'false',
-    args: ['--disable-blink-features=AutomationControlled']
-  });
-  page = await browser.newPage({
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131 Safari/537.36'
-  });
-} catch (error) {
-  console.warn(`Playwright를 사용할 수 없어 시트 데이터만 동기화합니다: ${error.message}`);
-}
+let scrapedCount = 0;
 
-try {
-  for (const row of rows.slice(1)) {
-    const id = Number(row[0]);
-    const link = (row[linkIndex] || '').trim().replace(/\/+$/, '');
-    if (!id || !link || seen.has(link)) continue;
-    seen.add(link);
-    let title = (row[titleIndex] || '').trim();
-    let imageUrl = (row[imageIndex] || '').trim();
-    try {
-      if (!page || page.isClosed()) {
-        const { chromium } = await import('playwright');
-        browser = await chromium.launch({ headless: process.env.HEADLESS !== 'false' });
-        page = await browser.newPage({ userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131 Safari/537.36' });
-      }
-      if (page) {
-        await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 15000 });
-        await page.waitForTimeout(1200);
-        let pageTitle = (await page.title()).replace(/\s*\|\s*쿠팡\s*$/, '').trim();
-        if (/access denied/i.test(pageTitle)) {
-          await page.waitForTimeout(5000);
-          await page.reload({ waitUntil: 'domcontentloaded', timeout: 15000 });
-          await page.waitForTimeout(1200);
-          pageTitle = (await page.title()).replace(/\s*\|\s*쿠팡\s*$/, '').trim();
-        }
-        if (pageTitle && !/access denied|error|쿠팡이 추천하는/i.test(pageTitle)) title = pageTitle;
-        imageUrl = await page.evaluate(() => {
-          const metaImage = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
-          const twitterImage = document.querySelector('meta[name="twitter:image"]')?.getAttribute('content');
-          const productImage = [...document.images].map(image => image.currentSrc || image.src)
-            .find(src => /coupangcdn|thumbnail/i.test(src));
-          return metaImage || twitterImage || productImage || '';
-        }) || imageUrl;
-      }
-    } catch (error) {
-      console.warn(`상품 ${id} 자동 조회 실패: ${error.message}`);
-      if (page && page.isClosed()) {
-        page = null;
-        if (browser) await browser.close().catch(() => {});
-        browser = null;
-      }
-    }
-    const imageFile = `product-${String(id).padStart(3, '0')}`;
-    const jpgPath = path.join(imageDir, `${imageFile}.jpg`);
-    const hasExistingImage = await fileExists(jpgPath);
-    const localImage = hasExistingImage ? `./images/products/${imageFile}.jpg` : `./images/products/${imageFile}.svg`;
-    if (!title || /access denied|error/i.test(title)) title = `고양이 용품 추천 ${id}`;
-    if (!imageUrl) imageUrl = localImage;
-    if (imageUrl && !imageUrl.startsWith('./')) {
-      try {
-        const absoluteImageUrl = imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl;
-        const imageResponse = page
-          ? await page.request.get(absoluteImageUrl, {
-            headers: { Referer: 'https://www.coupang.com/' }
-            , timeout: 15000
-          })
-          : await fetch(absoluteImageUrl);
-        const imageOk = typeof imageResponse.ok === 'function' ? imageResponse.ok() : imageResponse.ok;
-        if (imageOk) {
-        const imageBody = typeof imageResponse.body === 'function'
-          ? await imageResponse.body()
-          : Buffer.from(await imageResponse.arrayBuffer());
-        await fs.writeFile(path.join(imageDir, `product-${String(id).padStart(3, '0')}.jpg`), imageBody);
-        imageUrl = `./images/products/product-${String(id).padStart(3, '0')}.jpg`;
-        } else {
-        imageUrl = absoluteImageUrl;
-        }
-      } catch (error) {
-        console.warn(`상품 ${id} 이미지 저장 실패: ${error.message}`);
-      }
-    }
-    if (imageUrl === localImage && localImage.endsWith('.svg')) {
-      await fs.writeFile(path.join(imageDir, `product-${String(id).padStart(3, '0')}.svg`), fallbackImage(id));
-    }
-    products.push({
-      id,
-      category: classifyCategory((row[categoryIndex] || '').replace(/^#/, '').trim(), title),
-      description: categoryDescription(classifyCategory((row[categoryIndex] || '').replace(/^#/, '').trim(), title)),
-      product: {
-        title,
-        coupangUrl: link,
-        imageUrl: imageUrl.startsWith('./') ? imageUrl : imageUrl
-      }
-    });
-    if (page && !page.isClosed()) await page.waitForTimeout(1200);
+for (const row of rows.slice(1)) {
+  const id = Number(row[0]);
+  const link = (row[linkIndex] || '').trim().replace(/\/+$/, '');
+  if (!id || !link || seen.has(link)) continue;
+  seen.add(link);
+
+  const previous = existing.get(id);
+  let title = (row[titleIndex] || '').trim() || previous?.product?.title || '';
+  let remoteImageUrl = (row[imageIndex] || '').trim();
+  const sheetCategory = (row[categoryIndex] || '').replace(/^#/, '').trim();
+  const sheetDescription = (row[descriptionIndex] || '').trim();
+  const jpgPath = path.join(imageDir, `product-${String(id).padStart(3, '0')}.jpg`);
+  const hasJpg = await fileExists(jpgPath);
+  const needsTitle = !title || isFallbackTitle(title, id) || isWeakTitle(title);
+  const needsImage = !hasJpg;
+
+  let didScrape = false;
+  if ((needsImage || (needsTitle && !hasJpg)) && !failed.has(id)) {
+    if (maxProducts && scrapedCount >= maxProducts) break;
+    scrapedCount += 1;
+    didScrape = true;
+    const scraped = await scrapeProduct(id, link);
+    if (scraped.title && !isBlockedTitle(scraped.title) && !isWeakTitle(scraped.title)) title = scraped.title;
+    if (scraped.imageUrl) remoteImageUrl = scraped.imageUrl;
+    else failed.add(id);
   }
-} finally {
-  if (browser) await browser.close();
+
+  if (!title || isBlockedTitle(title)) {
+    title = previous?.product?.title && !isFallbackTitle(previous.product.title, id)
+      ? previous.product.title
+      : `고양이 용품 추천 ${id}`;
+  }
+
+  let imageUrl = hasJpg
+    ? `./images/products/product-${String(id).padStart(3, '0')}.jpg`
+    : `./images/products/product-${String(id).padStart(3, '0')}.svg`;
+
+  if (needsImage && remoteImageUrl && !remoteImageUrl.startsWith('./')) {
+    const saved = await downloadImage(remoteImageUrl, jpgPath, id);
+    if (saved) imageUrl = `./images/products/product-${String(id).padStart(3, '0')}.jpg`;
+    else failed.add(id);
+  }
+
+  if (imageUrl.endsWith('.svg')) {
+    const svgPath = path.join(imageDir, `product-${String(id).padStart(3, '0')}.svg`);
+    if (!(await fileExists(svgPath))) await fs.writeFile(svgPath, fallbackImage(id));
+  }
+
+  const category = classifyCategory(sheetCategory || previous?.category || '', title);
+  const description = sheetDescription || previous?.description || categoryDescription(category);
+  products.push({
+    id,
+    category,
+    description,
+    product: {
+      title,
+      coupangUrl: link,
+      imageUrl,
+      sourceImageUrl: remoteImageUrl.startsWith('http') ? remoteImageUrl : ''
+    }
+  });
+
+  await saveOutputs(products);
+  const status = imageUrl.endsWith('.jpg') ? '사진' : '임시그림';
+  console.log(`[${products.length}] ${id} ${status} ${title}`);
+  if (didScrape) await sleep(delayMs);
 }
 
-await fs.writeFile(path.join(repo, 'data', 'products.json'), `${JSON.stringify(products, null, 2)}\n`);
-console.log(`상품 ${products.length}개를 동기화했습니다.`);
+await saveOutputs(products);
+await fs.writeFile(failedPath, `${JSON.stringify([...failed].sort((a, b) => a - b), null, 2)}\n`);
+const jpgCount = products.filter(item => item.product.imageUrl.endsWith('.jpg')).length;
+console.log(`상품 ${products.length}개 동기화 완료. 실제 사진 ${jpgCount}개, 임시 그림 ${products.length - jpgCount}개.`);
+console.log(`시트 붙여넣기 파일: ${path.relative(repo, sheetExportPath)}`);
+
+async function scrapeProduct(id, link) {
+  try {
+    const productId = await resolveProductId(link);
+    if (!productId) {
+      console.warn(`상품 ${id}: 쿠팡 상품번호를 찾지 못했습니다.`);
+      return { title: '', imageUrl: '' };
+    }
+    const html = await fetchText(`https://search.naver.com/search.naver?query=${encodeURIComponent(`${productId} 쿠팡`)}`);
+    const parsed = parseNaverResult(html, productId);
+    console.log(`상품 ${id} productId=${productId} 제목=${parsed.title || '-'} 이미지=${parsed.imageUrl ? '있음' : '없음'}`);
+    return parsed;
+  } catch (error) {
+    console.warn(`상품 ${id} 수집 실패: ${error.message}`);
+    return { title: '', imageUrl: '' };
+  }
+}
+
+async function resolveProductId(link) {
+  let url = link;
+  for (let i = 0; i < 8; i++) {
+    const response = await fetch(url, {
+      redirect: 'manual',
+      headers: requestHeaders(),
+      signal: AbortSignal.timeout(15000)
+    });
+    const location = response.headers.get('location');
+    if (!location) break;
+    url = new URL(location, url).href;
+    const productId = url.match(/\/vp\/products\/(\d+)/)?.[1] || url.match(/[?&]ctag=(\d+)/)?.[1];
+    if (productId) return productId;
+  }
+  return '';
+}
+
+function parseNaverResult(html, productId) {
+  const decoded = html
+    .replaceAll('&amp;', '&')
+    .replaceAll('&quot;', '"')
+    .replaceAll('&#39;', "'")
+    .replaceAll('&lt;', '<')
+    .replaceAll('&gt;', '>');
+
+  let imageUrl = '';
+  for (const match of decoded.matchAll(/[?&]src=(https?[^"'&]+)/g)) {
+    const src = decodeURIComponent(match[1]);
+    if (/coupangcdn\.com/i.test(src)) {
+      imageUrl = src.split('&')[0];
+      break;
+    }
+  }
+  if (!imageUrl) {
+    const encoded = decoded.match(/https%3A%2F%2Fthumbnail\.coupangcdn\.com[^"'&]+/i);
+    if (encoded) imageUrl = decodeURIComponent(encoded[0]).split('&')[0];
+  }
+  if (!imageUrl) {
+    const direct = decoded.match(/https:\/\/thumbnail\.coupangcdn\.com\/[^"'\s<>]+/i);
+    if (direct) imageUrl = decodeURIComponent(direct[0]).split('&')[0];
+  }
+
+  const chunks = decoded.split(`products/${productId}`);
+  const skip = /네이버|검색|새 창|쿠팡!|로그인|열림|더보기|블로그|카페|뉴스|Access Denied|http|쿠스피|추세|가격 데이터|총 중량|주원료|대상연령|식품 기능|도착 보장|광고|판매자|리뷰|찜하기|장바구니/i;
+  const weak = /^(고양이 용품|쇼핑|쿠팡|상품|추천|인기)$/;
+  const all = [];
+  for (const chunk of chunks.slice(1, 6)) {
+    const candidates = [...chunk.matchAll(/>([^<]{6,120})</g)]
+      .map(match => match[1].replace(/\s+/g, ' ').trim())
+      .map(text => text.replace(/할인\d[\s\S]*$/, '').replace(/내일\([^)]*\)[\s\S]*$/, '').trim())
+      .filter(text => text.length >= 10 && text.length <= 80 && /[가-힣]{2,}/.test(text) && !skip.test(text) && !weak.test(text) && !/Keep에 저장|공유하기|링크 복사/.test(text));
+    all.push(...candidates);
+  }
+  return { title: all[0] || '', imageUrl };
+}
+
+async function downloadImage(imageUrl, jpgPath, id) {
+  try {
+    const absoluteImageUrl = imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl;
+    const response = await fetch(absoluteImageUrl, {
+      headers: { ...requestHeaders(), Referer: 'https://www.coupang.com/' },
+      signal: AbortSignal.timeout(20000)
+    });
+    if (!response.ok) return false;
+    const imageBody = Buffer.from(await response.arrayBuffer());
+    if (!imageBody || imageBody.length < 2000) return false;
+    await fs.writeFile(jpgPath, imageBody);
+    return true;
+  } catch (error) {
+    console.warn(`상품 ${id} 이미지 저장 실패: ${error.message}`);
+    return false;
+  }
+}
+
+async function fetchText(url) {
+  const response = await fetch(url, {
+    headers: requestHeaders(),
+    signal: AbortSignal.timeout(15000)
+  });
+  return response.text();
+}
+
+function requestHeaders() {
+  return {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7'
+  };
+}
+
+async function saveOutputs(list) {
+  const merged = new Map(existing);
+  for (const item of list) merged.set(item.id, item);
+  const ordered = [...merged.values()].sort((a, b) => a.id - b.id);
+  const siteProducts = ordered.map(({ id, category, description, product }) => ({
+    id,
+    category,
+    description,
+    product: {
+      title: product.title,
+      coupangUrl: product.coupangUrl,
+      imageUrl: product.imageUrl
+    }
+  }));
+  await fs.writeFile(productsPath, `${JSON.stringify(siteProducts, null, 2)}\n`);
+  const csvLines = [
+    ['NO', '쿠팡 파트너스 링크', '상황 태그', '상품명', '상품 한줄설명', '상품 이미지 URL', '이미지 상태']
+      .map(csvCell).join(','),
+    ...ordered.map(item => [
+      item.id,
+      item.product.coupangUrl,
+      item.category,
+      item.product.title,
+      item.description,
+      item.product.sourceImageUrl || '',
+      item.product.imageUrl.endsWith('.jpg') ? 'GitHub 저장 완료' : '사진 수집 실패'
+    ].map(csvCell).join(','))
+  ];
+  await fs.writeFile(sheetExportPath, `\ufeff${csvLines.join('\n')}\n`);
+}
+
+async function loadExistingProducts() {
+  try {
+    const parsed = JSON.parse(await fs.readFile(productsPath, 'utf8'));
+    return new Map(parsed.map(item => [item.id, item]));
+  } catch {
+    return new Map();
+  }
+}
+
+async function loadFailedIds() {
+  try {
+    const parsed = JSON.parse(await fs.readFile(failedPath, 'utf8'));
+    return new Set(parsed);
+  } catch {
+    return new Set([7, 20, 24, 28]);
+  }
+}
+
+function isBlockedTitle(value) {
+  return /access denied|error|쿠팡이 추천하는|접근이 거부|blocked/i.test(value || '');
+}
+
+function isFallbackTitle(value, id) {
+  return value === `고양이 용품 추천 ${id}`;
+}
+
+function isWeakTitle(value) {
+  return /^(고양이 용품|쇼핑|쿠팡|상품|캣타워\/스크래쳐)$/.test(value || '')
+    || /쿠스피|가격 데이터|총 중량|주원료|도착 보장|^Keep에/.test(value || '');
+}
+
+function csvCell(value) {
+  return `"${String(value ?? '').replaceAll('"', '""')}"`;
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function firstIndex(indexer, names) {
   for (const name of names) {
@@ -172,23 +329,27 @@ async function fileExists(filePath) {
 function classifyCategory(value, title) {
   if (value) return value;
   const text = title.toLowerCase();
-  if (/간식|츄르|트릿|캔|스낵/.test(text)) return '고양이 간식';
-  if (/사료|키튼|로얄캐닌|습식|건식/.test(text)) return '고양이 사료';
-  if (/모래/.test(text)) return '고양이 모래';
-  if (/화장실|배변|탈취/.test(text)) return '위생 및 화장실 용품';
-  if (/스크래쳐|스크래치|캣타워|하우스|숨숨집/.test(text)) return '스크래처 및 캣타워';
-  if (/장난감|낚싯대|공|터널|캣닢/.test(text)) return '장난감';
-  if (/브러시|빗|샴푸|발톱|그루밍/.test(text)) return '그루밍';
+  if (/사료|키튼|로얄캐닌|습식|건식|식품/.test(text)) return '고양이 사료';
+  if (/모래|벤토나이트|실리카겔|두부/.test(text)) return '고양이 모래';
+  if (/간식|츄르|트릿|캔|스낵|비스킷|젤리/.test(text)) return '고양이 간식';
+  if (/스크래쳐|스크래처|스크래치|캣타워|하우스|숨숨집|방석|쿠션/.test(text)) {
+    return '스크래처 및 캣타워';
+  }
+  if (/화장실|배변|탈취|위생|리터락커|분변통|매트|트레이/.test(text)) {
+    return '위생 및 화장실 용품';
+  }
+  if (/장난감|낚싯대|공|터널|캣닢|볼링|인형/.test(text)) return '장난감';
+  if (/브러시|빗|샴푸|발톱|그루밍|목욕|티슈/.test(text)) return '그루밍';
   return '기타';
 }
 
 function categoryDescription(category) {
   return {
-    '고양이 간식': '맛있는 간식으로 건강한 보상 시간을 만들어 주세요.',
     '고양이 사료': '고양이의 건강한 식사를 위한 추천 사료입니다.',
     '고양이 모래': '쾌적한 배변 환경을 위한 고양이 모래입니다.',
-    '위생 및 화장실 용품': '쾌적한 위생과 배변 환경을 위한 필수 용품입니다.',
-    '스크래처 및 캣타워': '휴식과 발톱 관리를 동시에 돕는 공간입니다.',
+    '고양이 간식': '맛있는 간식으로 건강한 보상 시간을 만들어 주세요.',
+    '스크래처 및 캣타워': '휴식과 발톱 관리를 돕는 공간입니다.',
+    '위생 및 화장실 용품': '쾌적한 위생과 배변 환경을 위한 용품입니다.',
     장난감: '지루함을 덜어 주는 즐거운 놀이 용품입니다.',
     그루밍: '고양이의 위생과 털 관리를 위한 용품입니다.',
     기타: '고양이와 집사에게 유용한 생활 추천 용품입니다.'
