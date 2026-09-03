@@ -18,8 +18,13 @@ let browser;
 let page;
 try {
   const { chromium } = await import('playwright');
-  browser = await chromium.launch({ headless: process.env.HEADLESS !== 'false' });
-  page = await browser.newPage();
+  browser = await chromium.launch({
+    headless: process.env.HEADLESS !== 'false',
+    args: ['--disable-blink-features=AutomationControlled']
+  });
+  page = await browser.newPage({
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131 Safari/537.36'
+  });
 } catch (error) {
   console.warn(`Playwright를 사용할 수 없어 시트 데이터만 동기화합니다: ${error.message}`);
 }
@@ -33,6 +38,11 @@ try {
     let title = (row[titleIndex] || '').trim();
     let imageUrl = (row[imageIndex] || '').trim();
     try {
+      if (!page || page.isClosed()) {
+        const { chromium } = await import('playwright');
+        browser = await chromium.launch({ headless: process.env.HEADLESS !== 'false' });
+        page = await browser.newPage({ userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131 Safari/537.36' });
+      }
       if (page) {
         await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 30000 });
         await page.waitForTimeout(1200);
@@ -44,10 +54,21 @@ try {
           pageTitle = (await page.title()).replace(/\s*\|\s*쿠팡\s*$/, '').trim();
         }
         if (pageTitle && !/access denied|error|쿠팡이 추천하는/i.test(pageTitle)) title = pageTitle;
-        imageUrl = await page.evaluate(() => document.querySelector('meta[property="og:image"]')?.getAttribute('content') || '') || imageUrl;
+        imageUrl = await page.evaluate(() => {
+          const metaImage = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+          const twitterImage = document.querySelector('meta[name="twitter:image"]')?.getAttribute('content');
+          const productImage = [...document.images].map(image => image.currentSrc || image.src)
+            .find(src => /coupangcdn|thumbnail/i.test(src));
+          return metaImage || twitterImage || productImage || '';
+        }) || imageUrl;
       }
     } catch (error) {
       console.warn(`상품 ${id} 자동 조회 실패: ${error.message}`);
+      if (page && page.isClosed()) {
+        page = null;
+        if (browser) await browser.close().catch(() => {});
+        browser = null;
+      }
     }
     const imageFile = `product-${String(id).padStart(3, '0')}`;
     const jpgPath = path.join(imageDir, `${imageFile}.jpg`);
@@ -57,11 +78,12 @@ try {
     if (!imageUrl) imageUrl = localImage;
     if (imageUrl && !imageUrl.startsWith('./')) {
       try {
+        const absoluteImageUrl = imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl;
         const imageResponse = page
-        ? await page.request.get(imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl, {
-          headers: { Referer: 'https://www.coupang.com/' }
-        })
-        : await fetch(imageUrl);
+          ? await page.request.get(absoluteImageUrl, {
+            headers: { Referer: 'https://www.coupang.com/' }
+          })
+          : await fetch(absoluteImageUrl);
         const imageOk = typeof imageResponse.ok === 'function' ? imageResponse.ok() : imageResponse.ok;
         if (imageOk) {
         const imageBody = typeof imageResponse.body === 'function'
@@ -69,6 +91,8 @@ try {
           : Buffer.from(await imageResponse.arrayBuffer());
         await fs.writeFile(path.join(imageDir, `product-${String(id).padStart(3, '0')}.jpg`), imageBody);
         imageUrl = `./images/products/product-${String(id).padStart(3, '0')}.jpg`;
+        } else {
+        imageUrl = absoluteImageUrl;
         }
       } catch (error) {
         console.warn(`상품 ${id} 이미지 저장 실패: ${error.message}`);

@@ -18,7 +18,7 @@ jobs:
           node-version: 22
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium
-      - run: node .github/scripts/sync-coupang-products.mjs
+      - run: xvfb-run -a env HEADLESS=false node .github/scripts/sync-coupang-products.mjs
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Sync product metadata and images"
