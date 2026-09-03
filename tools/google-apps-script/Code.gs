@@ -1,13 +1,34 @@
 const SHEET_NAME = '광고용';
 const OUTPUT_SHEET_NAME = '사이트용상품';
-const REQUIRED_HEADERS = ['NO', '쿠팡파트너스 링크', '카테고리', '상품명', '상품 이미지 URL', '이미지 상태'];
+const UNUSED_SHEETS = ['한국어', '블로그용'];
+const REQUIRED_HEADERS = ['NO', '쿠팡파트너스 링크', '카테고리', '상품명', '상품 한줄설명', '상품 이미지 URL', '이미지 상태'];
+const CATEGORIES = ['고양이 사료', '고양이 모래', '고양이 간식', '스크래처 및 캣타워', '위생 및 화장실 용품', '장난감', '기타'];
+
+function doGet(event) {
+  if (event && event.parameter && event.parameter.action === 'sync') {
+    return ContentService.createTextOutput(JSON.stringify(resetAndSync()))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  return ContentService.createTextOutput('B-cat-Cpang Apps Script is ready. Use ?action=sync.');
+}
 
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('사이트 상품 관리')
-    .addItem('상품 데이터 정리', 'syncProducts')
+    .addItem('상품 데이터 정리 및 불필요 탭 삭제', 'resetAndSync')
     .addItem('매일 자동 실행 설정', 'installDailyTrigger')
     .addToUi();
+}
+
+function resetAndSync() {
+  const spreadsheet = SpreadsheetApp.getActive();
+  UNUSED_SHEETS.forEach(name => {
+    const sheet = spreadsheet.getSheetByName(name);
+    if (sheet && spreadsheet.getSheets().length > 1) spreadsheet.deleteSheet(sheet);
+  });
+  const result = syncProducts();
+  SpreadsheetApp.getActive().toast(`${result.count}개 상품을 정리했습니다.`, '사이트 상품 관리');
+  return result;
 }
 
 function syncProducts() {
@@ -36,12 +57,14 @@ function syncProducts() {
     seen.add(link);
 
     const imageUrl = (row[imageIndex] || '').trim();
-    const imageStatus = imageUrl ? checkImage(imageUrl) : '자동 수집 대기';
+    const category = classifyCategory((row[categoryIndex] || '').replace(/^#/, '').trim(), title);
+    const imageStatus = imageUrl ? checkImage(imageUrl) : 'GitHub Actions 수집 대기';
     output.push([
       row[0].trim(),
       link,
-      classifyCategory((row[categoryIndex] || '').replace(/^#/, '').trim(), title),
+      category,
       title,
+      categoryDescription(category),
       imageUrl,
       imageStatus
     ]);
@@ -54,13 +77,13 @@ function syncProducts() {
   target.setFrozenRows(1);
   target.autoResizeColumns(1, REQUIRED_HEADERS.length);
   const statusColors = output.slice(1).map(row => {
-    const color = row[5] === '정상' ? '#DCFCE7' : row[5] === '재검사 대기' ? '#FEF3C7' : row[5] === '이미지 URL 없음' ? '#FEF3C7' : '#FEE2E2';
+    const color = row[6] === '정상' ? '#DCFCE7' : row[6] === 'GitHub Actions 수집 대기' ? '#FEF3C7' : row[6] === '이미지 URL 없음' ? '#FEF3C7' : '#FEE2E2';
     return Array(REQUIRED_HEADERS.length).fill(color);
   });
   if (statusColors.length) {
     target.getRange(2, 1, statusColors.length, REQUIRED_HEADERS.length).setBackgrounds(statusColors);
   }
-  SpreadsheetApp.getActive().toast(`${output.length - 1}개 상품을 정리했습니다.`, '사이트 상품 관리');
+  return { count: output.length - 1, sheet: OUTPUT_SHEET_NAME, categories: CATEGORIES };
 }
 
 function installDailyTrigger() {
@@ -102,5 +125,18 @@ function checkImage(url) {
     if (/스크래쳐|스크래치|캣타워|하우스|숨숨집/.test(title)) return '스크래처 및 캣타워';
     if (/장난감|낚싯대|공|터널|캣닢/.test(title)) return '장난감';
     return '기타';
+  }
+
+  function categoryDescription(category) {
+    const descriptions = {
+      '고양이 사료': '고양이의 건강한 식사를 위한 추천 사료입니다.',
+      '고양이 모래': '쾌적한 배변 환경을 위한 고양이 모래입니다.',
+      '고양이 간식': '맛있는 간식으로 건강한 보상 시간을 만들어 주세요.',
+      '스크래처 및 캣타워': '휴식과 발톱 관리를 돕는 공간입니다.',
+      '위생 및 화장실 용품': '쾌적한 위생과 배변 환경을 위한 용품입니다.',
+      '장난감': '지루함을 덜어 주는 즐거운 놀이 용품입니다.',
+      기타: '고양이와 집사에게 유용한 생활 추천 용품입니다.'
+    };
+    return descriptions[category] || descriptions.기타;
   }
 }
