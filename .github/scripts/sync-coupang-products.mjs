@@ -44,12 +44,12 @@ try {
         page = await browser.newPage({ userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131 Safari/537.36' });
       }
       if (page) {
-        await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 30000 });
+        await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 15000 });
         await page.waitForTimeout(1200);
         let pageTitle = (await page.title()).replace(/\s*\|\s*쿠팡\s*$/, '').trim();
         if (/access denied/i.test(pageTitle)) {
           await page.waitForTimeout(5000);
-          await page.reload({ waitUntil: 'domcontentloaded', timeout: 30000 });
+          await page.reload({ waitUntil: 'domcontentloaded', timeout: 15000 });
           await page.waitForTimeout(1200);
           pageTitle = (await page.title()).replace(/\s*\|\s*쿠팡\s*$/, '').trim();
         }
@@ -82,6 +82,7 @@ try {
         const imageResponse = page
           ? await page.request.get(absoluteImageUrl, {
             headers: { Referer: 'https://www.coupang.com/' }
+            , timeout: 15000
           })
           : await fetch(absoluteImageUrl);
         const imageOk = typeof imageResponse.ok === 'function' ? imageResponse.ok() : imageResponse.ok;
@@ -173,21 +174,23 @@ function classifyCategory(value, title) {
   const text = title.toLowerCase();
   if (/간식|츄르|트릿|캔|스낵/.test(text)) return '고양이 간식';
   if (/사료|키튼|로얄캐닌|습식|건식/.test(text)) return '고양이 사료';
-  if (/모래|화장실|배변|탈취/.test(text)) return '화장실·모래';
-  if (/스크래쳐|스크래치|캣타워|하우스|숨숨집/.test(text)) return '스크래쳐·캣타워';
+  if (/모래/.test(text)) return '고양이 모래';
+  if (/화장실|배변|탈취/.test(text)) return '위생 및 화장실 용품';
+  if (/스크래쳐|스크래치|캣타워|하우스|숨숨집/.test(text)) return '스크래처 및 캣타워';
   if (/장난감|낚싯대|공|터널|캣닢/.test(text)) return '장난감';
   if (/브러시|빗|샴푸|발톱|그루밍/.test(text)) return '그루밍';
-  return '생활용품';
+  return '기타';
 }
 
 function categoryDescription(category) {
   return {
     '고양이 간식': '맛있는 간식으로 건강한 보상 시간을 만들어 주세요.',
     '고양이 사료': '고양이의 건강한 식사를 위한 추천 사료입니다.',
-    '화장실·모래': '쾌적한 배변 환경을 위한 필수 용품입니다.',
-    '스크래쳐·캣타워': '휴식과 발톱 관리를 동시에 돕는 공간입니다.',
+    '고양이 모래': '쾌적한 배변 환경을 위한 고양이 모래입니다.',
+    '위생 및 화장실 용품': '쾌적한 위생과 배변 환경을 위한 필수 용품입니다.',
+    '스크래처 및 캣타워': '휴식과 발톱 관리를 동시에 돕는 공간입니다.',
     장난감: '지루함을 덜어 주는 즐거운 놀이 용품입니다.',
     그루밍: '고양이의 위생과 털 관리를 위한 용품입니다.',
-    생활용품: '고양이와 집사에게 유용한 생활 추천 용품입니다.'
+    기타: '고양이와 집사에게 유용한 생활 추천 용품입니다.'
   }[category] || '고양이와 집사를 위한 추천 용품입니다.';
 }

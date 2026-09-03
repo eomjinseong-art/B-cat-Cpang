@@ -57,7 +57,7 @@
       console.error(error);
     });
     function renderCategories() {
-      const categories = ['전체', '고양이 간식', '고양이 사료', '화장실·모래', '스크래쳐·캣타워', '장난감', '그루밍', '생활용품'];
+      const categories = ['전체', '고양이 사료', '고양이 모래', '고양이 간식', '스크래처 및 캣타워', '위생 및 화장실 용품', '장난감', '기타'];
       $('categoryNav').innerHTML = categories.map(category => `<button data-category="${escapeHtml(category)}" class="shrink-0 rounded-full px-4 py-2 text-xs font-bold ${category === state.category ? 'bg-stone-900 text-white' : 'bg-white text-stone-500'}">${escapeHtml(category)}</button>`).join('');
       $('categoryNav').querySelectorAll('button').forEach(button => button.addEventListener('click', () => {
         state.category = button.dataset.category;

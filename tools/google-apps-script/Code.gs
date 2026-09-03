@@ -1,6 +1,6 @@
 const SHEET_NAME = '광고용';
 const OUTPUT_SHEET_NAME = '사이트용상품';
-const REQUIRED_HEADERS = ['NO', '쿠팡파트너스 링크', '상황 태그', '상품명', '상품 이미지 URL', '이미지 상태'];
+const REQUIRED_HEADERS = ['NO', '쿠팡파트너스 링크', '카테고리', '상품명', '상품 이미지 URL', '이미지 상태'];
 
 function onOpen() {
   SpreadsheetApp.getUi()
@@ -40,7 +40,7 @@ function syncProducts() {
     output.push([
       row[0].trim(),
       link,
-      (row[categoryIndex] || '').replace(/^#/, '').trim(),
+      classifyCategory((row[categoryIndex] || '').replace(/^#/, '').trim(), title),
       title,
       imageUrl,
       imageStatus
@@ -91,5 +91,16 @@ function checkImage(url) {
     return code >= 200 && code < 400 ? '정상' : `접속 오류(${code})`;
   } catch (error) {
     return '접속 실패';
+  }
+
+  function classifyCategory(value, title) {
+    if (value) return value;
+    if (/간식|츄르|트릿|캔|스낵/.test(title)) return '고양이 간식';
+    if (/사료|키튼|로얄캐닌|습식|건식/.test(title)) return '고양이 사료';
+    if (/모래/.test(title)) return '고양이 모래';
+    if (/화장실|배변|탈취/.test(title)) return '위생 및 화장실 용품';
+    if (/스크래쳐|스크래치|캣타워|하우스|숨숨집/.test(title)) return '스크래처 및 캣타워';
+    if (/장난감|낚싯대|공|터널|캣닢/.test(title)) return '장난감';
+    return '기타';
   }
 }
