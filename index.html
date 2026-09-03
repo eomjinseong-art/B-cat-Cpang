@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="고양이와 집사를 위한 용품 큐레이션">
+  <title>냥냥마켓 | 고양이 용품 큐레이션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-50 text-stone-800">
+  <header class="sticky top-0 z-20 border-b border-amber-100 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+      <a href="./" class="text-xl font-black text-orange-600">냥냥마켓 <span class="text-sm font-medium text-stone-400">CAT GOODS</span></a>
+      <a id="headerLink" href="#" target="_blank" rel="noopener" class="rounded-full bg-orange-500 px-3 py-2 text-xs font-bold text-white">추천 상품 보기</a>
+    </div>
+  </header>
+  <main class="mx-auto max-w-5xl px-4 pb-12">
+    <section class="py-8">
+      <p class="mb-2 text-sm font-bold text-orange-600">집사님을 위한 오늘의 큐레이션</p>
+      <h1 id="heroTitle" class="text-3xl font-black leading-tight sm:text-4xl">고양이의 하루를 더 편안하게</h1>
+      <p id="heroDescription" class="mt-3 max-w-xl text-sm leading-6 text-stone-500">검증된 고양이 용품을 한눈에 살펴보세요.</p>
+    </section>
+    <nav id="categoryNav" class="mb-5 flex gap-2 overflow-x-auto pb-2"></nav>
+    <div id="status" class="rounded-xl bg-white p-8 text-center text-sm text-stone-400">상품을 불러오는 중입니다.</div>
+    <section id="productGrid" class="hidden grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4"></section>
+  </main>
+  <div id="modal" class="fixed inset-0 z-30 hidden items-end justify-center bg-black/50 p-0 sm:items-center sm:p-4">
+    <article class="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-t-3xl bg-white p-5 sm:rounded-3xl">
+      <div class="mb-4 flex justify-between"><span id="modalCategory" class="rounded-full bg-orange-50 px-2 py-1 text-xs font-bold text-orange-600"></span><button id="closeModal" class="text-2xl text-stone-400" aria-label="닫기">&times;</button></div>
+      <img id="modalImage" class="mb-4 h-64 w-full rounded-2xl object-cover" alt="">
+      <h2 id="modalTitle" class="text-lg font-black"></h2>
+      <p id="modalDescription" class="mt-2 text-sm leading-6 text-stone-500"></p>
+      <a id="modalLink" target="_blank" rel="noopener" class="mt-6 block rounded-xl bg-orange-500 py-3 text-center text-sm font-bold text-white">쿠팡에서 상품 확인하기</a>
+    </article>
+  </div>
+  <script>
+    const state = { products: [], category: '전체' };
+    const $ = id => document.getElementById(id);
+    fetch('./data/config.json').then(response => response.json()).then(config => {
+      $('heroTitle').textContent = config.hero.title;
+      $('heroDescription').textContent = config.hero.description;
+      $('headerLink').href = config.featuredLink;
+    });
+    fetch('./data/products.json').then(response => {
+      if (!response.ok) throw new Error('상품 데이터 응답 오류');
+      return response.json();
+    }).then(products => {
+      state.products = products;
+      renderCategories();
+      renderProducts();
+    }).catch(error => {
+      $('status').textContent = '상품을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
+      console.error(error);
+    });
+    function renderCategories() {
+      const categories = ['전체', ...new Set(state.products.map(item => item.category).filter(Boolean))];
+      $('categoryNav').innerHTML = categories.map(category => `<button data-category="${escapeHtml(category)}" class="shrink-0 rounded-full px-4 py-2 text-xs font-bold ${category === state.category ? 'bg-stone-900 text-white' : 'bg-white text-stone-500'}">${escapeHtml(category)}</button>`).join('');
+      $('categoryNav').querySelectorAll('button').forEach(button => button.addEventListener('click', () => {
+        state.category = button.dataset.category;
+        renderCategories();
+        renderProducts();
+      }));
+    }
+    function renderProducts() {
+      const products = state.category === '전체' ? state.products : state.products.filter(item => item.category === state.category);
+      $('status').classList.toggle('hidden', products.length > 0);
+      $('productGrid').classList.toggle('hidden', products.length === 0);
+      $('productGrid').innerHTML = products.map(item => `<button class="overflow-hidden rounded-2xl border border-amber-100 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md" data-id="${item.id}"><img src="${escapeHtml(item.product.imageUrl)}" alt="${escapeHtml(item.product.title)}" class="h-40 w-full object-cover" loading="lazy"><div class="p-3"><span class="text-[11px] font-bold text-orange-600">#${escapeHtml(item.category || '추천')}</span><h2 class="mt-1 line-clamp-2 text-sm font-bold">${escapeHtml(item.product.title)}</h2><p class="mt-2 line-clamp-2 text-xs leading-5 text-stone-500">${escapeHtml(item.product.description || '고양이와 집사를 위한 추천 용품')}</p></div></button>`).join('');
+      $('productGrid').querySelectorAll('[data-id]').forEach(card => card.addEventListener('click', () => openModal(state.products.find(item => item.id === Number(card.dataset.id)))));
+    }
+    function openModal(item) {
+      $('modalCategory').textContent = `#${item.category || '추천'}`;
+      $('modalImage').src = item.product.imageUrl;
+      $('modalImage').alt = item.product.title;
+      $('modalTitle').textContent = item.product.title;
+      $('modalDescription').textContent = item.product.description || '고양이와 집사를 위한 추천 용품입니다.';
+      $('modalLink').href = item.product.coupangUrl;
+      $('modal').classList.replace('hidden', 'flex');
+    }
+    function closeModal() { $('modal').classList.replace('flex', 'hidden'); }
+    $('closeModal').addEventListener('click', closeModal);
+    $('modal').addEventListener('click', event => { if (event.target === $('modal')) closeModal(); });
+    function escapeHtml(value) { return String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char])); }
+  </script>
+</body>
+</html>
