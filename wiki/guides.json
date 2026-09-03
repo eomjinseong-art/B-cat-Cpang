@@ -1,0 +1,95 @@
+{
+  "blog": "https://sumsumvill.blogspot.com/",
+  "disclaimer": "이 글은 일반적인 돌봄 정보이며 수의사 진료를 대체하지 않습니다. 응급·이상 증상이 있으면 동물병원으로 가세요.",
+  "blogTopics": [
+    { "title": "입양 전 준비", "note": "데려오기 전에 확인할 것" },
+    { "title": "첫 7일", "note": "집에 온 뒤 적응" },
+    { "title": "건강 신호", "note": "병원 타이밍과 검진" },
+    { "title": "생애주기", "note": "새끼부터 노묘까지" },
+    { "title": "다묘 가정", "note": "소개와 영역 나누기" },
+    { "title": "여행과 이동", "note": "이동장·병원 가는 날" },
+    { "title": "DIY와 환경 만들기", "note": "집에서 손보는 아이디어" }
+  ],
+  "guides": [
+    {
+      "slug": "16-ileol-ttaen",
+      "title": "이럴 땐 이렇게",
+      "description": "증상과 상황별로 당장 할 일, 의미, 하지 말 일을 한눈에 찾는 실전 대응표.",
+      "wikiCategory": "빠른 찾기",
+      "readMinutes": 18,
+      "productCategories": ["위생 및 화장실 용품", "그루밍", "장난감"]
+    },
+    {
+      "slug": "08-body-language",
+      "title": "고양이 바디랭귀지 사전",
+      "description": "꼬리, 귀, 눈, 수염, 소리, 자세가 의미하는 것과 그때 사람이 해야 할 반응.",
+      "wikiCategory": "행동",
+      "readMinutes": 15,
+      "productCategories": ["장난감", "스크래처 및 캣타워"]
+    },
+    {
+      "slug": "03-saryo-yeongyang",
+      "title": "사료와 영양, 물",
+      "description": "건식·습식 고르는 법, 급여량, 절대 주면 안 되는 음식, 수분 섭취와 신장 건강.",
+      "wikiCategory": "돌봄",
+      "readMinutes": 14,
+      "productCategories": ["고양이 사료", "고양이 간식"]
+    },
+    {
+      "slug": "04-hwajangsil",
+      "title": "화장실과 모래",
+      "description": "화장실 개수, 위치, 모래 종류, 그리고 밖에다 보는 이유를 원인별로 나눕니다.",
+      "wikiCategory": "돌봄",
+      "readMinutes": 12,
+      "productCategories": ["고양이 모래", "위생 및 화장실 용품"]
+    },
+    {
+      "slug": "07-grooming",
+      "title": "그루밍, 발톱, 이빨, 목욕",
+      "description": "빗질 주기, 발톱 깎는 법, 양치, 귀 청소, 그리고 고양이는 언제 목욕해야 하는지.",
+      "wikiCategory": "돌봄",
+      "readMinutes": 11,
+      "productCategories": ["그루밍"]
+    },
+    {
+      "slug": "10-nori-hwan-gyeong",
+      "title": "놀이와 환경 풍요화",
+      "description": "실내묘가 심심하지 않게 사냥 놀이를 설계하고, 캣타워·창가·스크래처를 배치하는 법.",
+      "wikiCategory": "환경",
+      "readMinutes": 11,
+      "productCategories": ["장난감", "스크래처 및 캣타워"]
+    },
+    {
+      "slug": "09-munje-haengdong",
+      "title": "문제행동 해결",
+      "description": "가구를 긁을 때, 밤에 울 때, 발목을 물 때, 공격할 때. 혼내지 않고 원인을 고치는 방법.",
+      "wikiCategory": "행동",
+      "readMinutes": 14,
+      "productCategories": ["장난감", "스크래처 및 캣타워"]
+    },
+    {
+      "slug": "12-yongpum",
+      "title": "용품 구매 가이드",
+      "description": "고양이 용품 쇼핑몰에서 무엇을 먼저 살지, 어떤 스펙을 볼지. 불필요한 지출을 줄이는 체크리스트.",
+      "wikiCategory": "용품",
+      "readMinutes": 14,
+      "productCategories": ["위생 및 화장실 용품", "스크래처 및 캣타워", "고양이 사료"]
+    },
+    {
+      "slug": "06-eunggeup-dokseong",
+      "title": "응급처치와 독성 물질",
+      "description": "추락, 중독, 열사병, 경련 때 가정에서 할 일과 하지 말 일, 그리고 독성 식물·약품 목록.",
+      "wikiCategory": "건강",
+      "readMinutes": 13,
+      "productCategories": ["위생 및 화장실 용품"]
+    },
+    {
+      "slug": "15-sinhwa-faq",
+      "title": "오해와 진실, 자주 묻는 질문",
+      "description": "우유, 독립성, 여름 털깎기, 발정기, 강아지와의 동거 등 현장에서 반복되는 질문.",
+      "wikiCategory": "빠른 찾기",
+      "readMinutes": 9,
+      "productCategories": ["고양이 사료", "그루밍"]
+    }
+  ]
+}
