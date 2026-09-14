@@ -55,6 +55,7 @@
       <a href="./wiki/03-saryo-yeongyang.html" class="shrink-0 rounded-full bg-white px-2.5 py-1 text-xs font-bold text-stone-600 hover:text-orange-600">사료</a>
       <a href="./wiki/04-hwajangsil.html" class="shrink-0 rounded-full bg-white px-2.5 py-1 text-xs font-bold text-stone-600 hover:text-orange-600">화장실</a>
       <a href="./wiki/" class="shrink-0 text-xs font-bold text-stone-400 hover:text-orange-600">전체 →</a>
+      <a href="#condition-log" class="shrink-0 text-xs font-bold text-stone-400 hover:text-orange-600">컨디션 기록</a>
     </section>
     <nav class="sticky top-[5.5rem] z-10 -mx-4 mb-5 border-b border-amber-100 bg-amber-50/95 px-4 py-2 backdrop-blur">
       <div class="flex items-center gap-2">
@@ -64,6 +65,19 @@
     </nav>
     <div id="status" class="rounded-xl bg-white p-8 text-center text-sm text-stone-400">상품을 불러오는 중입니다.</div>
     <section id="productGrid" class="hidden grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4"></section>
+    <section id="condition-log" class="mt-10 scroll-mt-36 rounded-2xl border border-amber-100 bg-white p-5 sm:p-6">
+      <p class="mb-1 text-xs font-bold text-orange-600">집사 메모</p>
+      <h2 class="text-lg font-black leading-snug sm:text-xl">오늘 컨디션, 짧게 남겨 두세요</h2>
+      <p class="mt-2 max-w-xl text-sm leading-6 text-stone-500">밥·대변·기운처럼 매일 조금씩 달라지는 모습을 가볍게 적으면, 병원 가는 날 말로 설명하기가 한결 수월해져요. 숨숨마을과 같이 쓰는 무료 기록 도구이며, 따로 파는 물건은 없습니다.</p>
+      <a href="https://cat-condition-log.vercel.app/" target="_blank" rel="noopener" class="mt-5 inline-block rounded-xl bg-orange-500 px-4 py-3 text-sm font-bold text-white">컨디션 기록 열기</a>
+      <div class="mt-5 rounded-xl bg-amber-50 px-4 py-3">
+        <p class="text-xs font-bold text-stone-600">스마트폰 홈 화면에 두면 더 편해요</p>
+        <ul class="mt-2 space-y-1.5 text-xs leading-5 text-stone-500">
+          <li><span class="font-bold text-stone-700">아이폰 (Safari)</span> · 공유 → 홈 화면에 추가</li>
+          <li><span class="font-bold text-stone-700">안드로이드 (Chrome)</span> · 메뉴(⋮) → 홈 화면에 추가 / 앱 설치</li>
+        </ul>
+      </div>
+    </section>
   </main>
   <div id="modal" class="fixed inset-0 z-30 hidden items-end justify-center bg-black/50 p-0 sm:items-center sm:p-4">
     <article class="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-t-3xl bg-white p-5 sm:rounded-3xl">
