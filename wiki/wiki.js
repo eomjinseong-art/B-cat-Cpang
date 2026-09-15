@@ -109,4 +109,7 @@
     $('content').innerHTML = '<p><a href="./">위키 목록으로</a></p>';
     $('tocBox').classList.add('hidden');
   });
+  const visits = document.createElement('script');
+  visits.src = '../visits.js';
+  document.body.appendChild(visits);
 })();
