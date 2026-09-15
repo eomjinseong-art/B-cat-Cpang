@@ -7,6 +7,7 @@ const imageDir = path.join(repo, 'images', 'products');
 const productsPath = path.join(repo, 'data', 'products.json');
 const sheetExportPath = path.join(repo, 'data', 'sheet-update.csv');
 const maxProducts = Number(process.env.MAX_PRODUCTS || 0);
+const maxCatalog = Number(process.env.MAX_CATALOG || 400);
 const delayMs = Number(process.env.DELAY_MS || 1200);
 
 await fs.mkdir(imageDir, { recursive: true });
@@ -39,6 +40,7 @@ const seen = new Set();
 let scrapedCount = 0;
 
 for (const row of rows.slice(1)) {
+  if (products.length >= maxCatalog) break;
   const id = Number(row[0]);
   const link = (row[linkIndex] || '').trim().replace(/\/+$/, '');
   if (!id || !link || seen.has(link)) continue;
@@ -194,7 +196,7 @@ async function saveSiteProducts(list, missing, duplicates) {
     ...missing,
     ...(previousFlags.missing || []).filter(id => !list.some(item => item.id === id && item.product.imageUrl.endsWith('.jpg')))
   ])].sort((a, b) => a - b);
-  const siteProducts = list.map(({ id, category, description, product }) => ({
+  const siteProducts = list.slice(0, maxCatalog).map(({ id, category, description, product }) => ({
     id,
     category,
     description,
@@ -358,7 +360,7 @@ function requestHeaders() {
 async function saveOutputs(list) {
   const merged = new Map(existing);
   for (const item of list) merged.set(item.id, item);
-  const ordered = [...merged.values()].sort((a, b) => a.id - b.id);
+  const ordered = [...merged.values()].sort((a, b) => a.id - b.id).slice(0, maxCatalog);
   const siteProducts = ordered.map(({ id, category, description, product }) => ({
     id,
     category,

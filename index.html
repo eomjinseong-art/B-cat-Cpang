@@ -65,6 +65,7 @@
     </nav>
     <div id="status" class="rounded-xl bg-white p-8 text-center text-sm text-stone-400">상품을 불러오는 중입니다.</div>
     <section id="productGrid" class="hidden grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4"></section>
+    <nav id="pagination" class="mt-6 hidden flex flex-wrap items-center justify-center gap-1.5" aria-label="상품 페이지"></nav>
     <section id="condition-log" class="mt-10 scroll-mt-36 rounded-2xl border border-amber-100 bg-white p-5 sm:p-6">
       <p class="mb-1 text-xs font-bold text-orange-600">집사 메모</p>
       <h2 class="text-lg font-black leading-snug sm:text-xl">오늘 컨디션, 짧게 남겨 두세요</h2>
@@ -90,7 +91,9 @@
   </div>
   <script>
     const CATEGORIES = ['고양이 사료', '고양이 모래', '고양이 간식', '스크래처 및 캣타워', '위생 및 화장실 용품', '장난감', '그루밍', '기타'];
-    const state = { products: [], category: '전체' };
+    const PAGE_SIZE = 50;
+    const MAX_PRODUCTS = 400;
+    const state = { products: [], category: '전체', page: 1 };
     const $ = id => document.getElementById(id);
     fetch('./data/config.json').then(response => response.json()).then(config => {
       $('heroTitle').textContent = config.hero.title;
@@ -104,7 +107,7 @@
     }).then(products => {
       state.products = uniqueProducts(products).filter(item =>
         item.product?.imageUrl?.endsWith('.jpg') && !/^고양이 용품 추천 /.test(item.product.title || '')
-      );
+      ).slice(0, MAX_PRODUCTS);
       renderCategories();
       renderProducts();
     }).catch(error => {
@@ -140,6 +143,7 @@
     }
     function selectCategory(category) {
       state.category = category;
+      state.page = 1;
       renderCategories();
       renderProducts();
       $('productGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -156,6 +160,10 @@
     }
     function renderProducts() {
       const products = visibleProducts();
+      const totalPages = Math.max(1, Math.ceil(products.length / PAGE_SIZE));
+      if (state.page > totalPages) state.page = totalPages;
+      if (state.page < 1) state.page = 1;
+      const pageItems = products.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
       $('status').classList.toggle('hidden', products.length > 0);
       $('productGrid').classList.toggle('hidden', products.length === 0);
       $('status').textContent = products.length
@@ -163,7 +171,45 @@
         : state.category === '전체'
           ? '표시할 상품이 없습니다.'
           : `${state.category} 상품이 없습니다.`;
-      $('productGrid').innerHTML = products.map(item => `<a href="${escapeHtml(item.product.coupangUrl)}" target="_blank" rel="noopener sponsored" class="overflow-hidden rounded-2xl border border-amber-100 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"><img src="${escapeHtml(item.product.imageUrl)}" alt="${escapeHtml(item.product.title)}" class="h-40 w-full object-cover" loading="lazy"><div class="p-3"><span class="text-[11px] font-bold text-orange-600">#${escapeHtml(item.category || '추천')}</span><h2 class="mt-1 line-clamp-2 text-sm font-bold">${escapeHtml(item.product.title)}</h2><p class="mt-2 line-clamp-2 text-xs leading-5 text-stone-500">${escapeHtml(item.description || item.product.description || '고양이와 집사를 위한 추천 용품')}</p></div></a>`).join('');
+      $('productGrid').innerHTML = pageItems.map(item => `<a href="${escapeHtml(item.product.coupangUrl)}" target="_blank" rel="noopener sponsored" class="overflow-hidden rounded-2xl border border-amber-100 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"><img src="${escapeHtml(item.product.imageUrl)}" alt="${escapeHtml(item.product.title)}" class="h-40 w-full object-cover" loading="lazy"><div class="p-3"><span class="text-[11px] font-bold text-orange-600">#${escapeHtml(item.category || '추천')}</span><h2 class="mt-1 line-clamp-2 text-sm font-bold">${escapeHtml(item.product.title)}</h2><p class="mt-2 line-clamp-2 text-xs leading-5 text-stone-500">${escapeHtml(item.description || item.product.description || '고양이와 집사를 위한 추천 용품')}</p></div></a>`).join('');
+      renderPagination(products.length, totalPages);
+    }
+    function pageButton(page, label, disabled, current) {
+      const tone = current
+        ? 'bg-stone-900 text-white'
+        : disabled
+          ? 'bg-white text-stone-300'
+          : 'bg-white text-stone-500 hover:text-orange-600';
+      return `<button type="button" data-page="${page}" ${disabled ? 'disabled' : ''} ${current ? 'aria-current="page"' : ''} class="min-w-9 rounded-full px-3 py-2 text-xs font-bold ${tone}">${label}</button>`;
+    }
+    function renderPagination(totalCount, totalPages) {
+      const nav = $('pagination');
+      if (totalCount <= PAGE_SIZE) {
+        nav.classList.add('hidden');
+        nav.innerHTML = '';
+        return;
+      }
+      nav.classList.remove('hidden');
+      const buttons = [pageButton('prev', '이전', state.page <= 1)];
+      for (let page = 1; page <= totalPages; page++) {
+        buttons.push(pageButton(page, String(page), false, page === state.page));
+      }
+      buttons.push(pageButton('next', '다음', state.page >= totalPages));
+      nav.innerHTML = buttons.join('');
+      nav.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => {
+          const target = button.dataset.page;
+          const next = target === 'prev' ? state.page - 1 : target === 'next' ? state.page + 1 : Number(target);
+          goToPage(next, totalPages);
+        });
+      });
+    }
+    function goToPage(page, totalPages) {
+      const next = Math.min(totalPages, Math.max(1, page));
+      if (next === state.page) return;
+      state.page = next;
+      renderProducts();
+      $('productGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     function openModal(item) {
       $('modalCategory').textContent = `#${item.category || '추천'}`;
