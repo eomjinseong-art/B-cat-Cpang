@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { shouldOmitFromCatalog } from './catalog-filters.mjs';
 
 const repo = process.cwd();
 const sheetUrl = 'https://docs.google.com/spreadsheets/d/1hUNqA5ywL75YmRH-PwZ4K-_zSIpN75C8SFjgsQ9vtTg/gviz/tq?tqx=out:csv&sheet=%EA%B4%91%EA%B3%A0%EC%9A%A9';
@@ -76,6 +77,11 @@ for (const row of rows.slice(1)) {
       : `고양이 용품 추천 ${id}`;
   }
 
+  if (shouldOmitFromCatalog({ id, product: { title } })) {
+    console.log(`[skip] ${id} 자리표시 또는 고양이 용품이 아님: ${title}`);
+    continue;
+  }
+
   let imageUrl = hasJpg
     ? `./images/products/product-${String(id).padStart(3, '0')}.jpg`
     : `./images/products/product-${String(id).padStart(3, '0')}.svg`;
@@ -120,7 +126,12 @@ console.log(`상품 ${finalized.length}개 동기화 완료. 실제 사진 ${jpg
 console.log(`시트 붙여넣기 파일: ${path.relative(repo, sheetExportPath)}`);
 
 async function finalizeCatalog(list) {
-  const classified = list.map(item => {
+  const eligible = list.filter(item => {
+    if (!shouldOmitFromCatalog(item)) return true;
+    console.log(`[skip] ${item.id} 자리표시 또는 고양이 용품이 아님: ${item.product?.title || ''}`);
+    return false;
+  });
+  const classified = eligible.map(item => {
     const rawTitle = item.product.title;
     const category = classifyCategory('', rawTitle);
     const title = displayTitle(rawTitle, item.id, category);
@@ -141,7 +152,12 @@ async function finalizeCatalog(list) {
     await sleep(120);
   }
 
-  const { kept, duplicates } = dedupeProducts(classified);
+  const publishable = classified.filter(item => {
+    if (!shouldOmitFromCatalog(item)) return true;
+    console.log(`[skip] ${item.id} 정리 후 제외: ${item.product?.title || ''}`);
+    return false;
+  });
+  const { kept, duplicates } = dedupeProducts(publishable);
   const missing = kept
     .filter(item => !item.product.imageUrl.endsWith('.jpg'))
     .map(item => item.id);
