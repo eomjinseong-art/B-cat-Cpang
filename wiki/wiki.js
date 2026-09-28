@@ -10,12 +10,25 @@
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
   }
+  function blockedCatalogTitle(title) {
+    const value = String(title || '').trim();
+    if (/^고양이 용품 추천(?:\s+\d+)?$/.test(value)) return true;
+    if (/^추천\s*\d+$/.test(value)) return true;
+    if (/^(고양이 용품|고양이 모래|고양이 사료|고양이 간식|스크래처 및 캣타워|스크래쳐 및 캣타워|위생 및 화장실 용품|장난감|그루밍|기타) 추천$/.test(value)) return true;
+    if (/찾으시는 상품과 유사한 상품을 노출합니다|상호명 및 호스팅 서비스 제공|^에서 구매하기/.test(value)) return true;
+    const mentionsCat = /고양이|반려묘|캣닢|캣타워|냥/.test(value);
+    if (/스마트키|차키|자동차|와이퍼|에어필터|에어리얼|도어록|글로브\s*박스|휠아치|스포티지|싼타페|베라크루즈|쉐보레|캐딜락|벤츠|BMW|기아\s*K\d|오일필터|풋등|도어\s*가니쉬|도어\s*스커프|가니쉬|커넥터\s*배선|순정품|순정\s*부품|안테나\s*어셈블리/.test(value) && !mentionsCat) return true;
+    if (/스니커즈|\bPuma\b|푸마\s*스니커즈/.test(value)) return true;
+    if (/미니칫솔|무드등/.test(value) && !/고양이|반려|펫|강아지|애견|냥/.test(value)) return true;
+    if (/\(1개 단품\)/.test(value) && /[A-Z0-9]{6,}/.test(value) && !mentionsCat) return true;
+    return false;
+  }
   function uniqueProducts(list) {
     const seen = new Set();
     return list.filter(item => {
       const title = item.product?.title || '';
       const key = item.product?.productId
-        || (!/^고양이 용품 추천 /.test(title) && title)
+        || (!blockedCatalogTitle(title) && title)
         || item.product?.coupangUrl;
       if (!key || seen.has(key)) return false;
       seen.add(key);
@@ -23,7 +36,7 @@
     });
   }
   function catalogReady(item) {
-    return item.product?.imageUrl?.endsWith('.jpg') && !/^고양이 용품 추천 /.test(item.product.title || '');
+    return item.product?.imageUrl?.endsWith('.jpg') && !blockedCatalogTitle(item.product.title || '');
   }
   function imageSrc(item) {
     const url = item.product.imageUrl || '';

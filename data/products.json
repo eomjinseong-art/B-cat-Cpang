@@ -818,7 +818,7 @@
     "category": "고양이 모래",
     "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
     "product": {
-      "title": "고양이 모래 추천",
+      "title": "씨엔앨라이프 응고형 벤토나이트 고양이 모래",
       "coupangUrl": "https://link.coupang.com/a/gJQlaZ2QLI",
       "imageUrl": "./images/products/product-076.jpg",
       "productId": "7771545175"
@@ -1089,17 +1089,6 @@
     }
   },
   {
-    "id": 101,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "푸마 스니커즈 태클렛 Puma Tacklette Wns PKI40855004 Garnet Glow-Alpine Snow-Gum",
-      "coupangUrl": "https://link.coupang.com/a/g3EYstNIzY",
-      "imageUrl": "./images/products/product-101.svg",
-      "productId": "9397341346"
-    }
-  },
-  {
     "id": 102,
     "category": "스크래처 및 캣타워",
     "description": "휴식과 발톱 관리를 돕는 공간입니다.",
@@ -1122,17 +1111,6 @@
     }
   },
   {
-    "id": 104,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 104",
-      "coupangUrl": "https://link.coupang.com/a/g3HcrjXaLI",
-      "imageUrl": "./images/products/product-104.svg",
-      "productId": "9649735470"
-    }
-  },
-  {
     "id": 105,
     "category": "장난감",
     "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
@@ -1141,28 +1119,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3E6Hefy6C",
       "imageUrl": "./images/products/product-105.jpg",
       "productId": "6442029323"
-    }
-  },
-  {
-    "id": 106,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "오피러스 프리미엄 순정 스마트키 리모컨 차키 (954403F915) 2009.5-2012.5",
-      "coupangUrl": "https://link.coupang.com/a/g3E75NaH7I",
-      "imageUrl": "./images/products/product-106.svg",
-      "productId": "9489086228"
-    }
-  },
-  {
-    "id": 107,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 107",
-      "coupangUrl": "https://link.coupang.com/a/g3HbGoa8om",
-      "imageUrl": "./images/products/product-107.svg",
-      "productId": "9234502260"
     }
   },
   {
@@ -1177,28 +1133,6 @@
     }
   },
   {
-    "id": 109,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 109",
-      "coupangUrl": "https://link.coupang.com/a/g3FbQgEeXI",
-      "imageUrl": "./images/products/product-109.svg",
-      "productId": "8982952921"
-    }
-  },
-  {
-    "id": 110,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 110",
-      "coupangUrl": "https://link.coupang.com/a/g3HadwKjAW",
-      "imageUrl": "./images/products/product-110.svg",
-      "productId": "9466266499"
-    }
-  },
-  {
     "id": 111,
     "category": "장난감",
     "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
@@ -1210,17 +1144,6 @@
     }
   },
   {
-    "id": 112,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 112",
-      "coupangUrl": "https://link.coupang.com/a/g3FgUcjDki",
-      "imageUrl": "./images/products/product-112.svg",
-      "productId": "9671078793"
-    }
-  },
-  {
     "id": 113,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
@@ -1229,17 +1152,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3FiklkICq",
       "imageUrl": "./images/products/product-113.jpg",
       "productId": "9113377795"
-    }
-  },
-  {
-    "id": 114,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "87738Q5000 테이프2 도어 가니쉬 (1개 단품)",
-      "coupangUrl": "https://link.coupang.com/a/g3FkDoqKtw",
-      "imageUrl": "./images/products/product-114.svg",
-      "productId": "9649965387"
     }
   },
   {
@@ -1276,28 +1188,6 @@
     }
   },
   {
-    "id": 118,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "[중고] 기아 K7 스마트키 모듈 95480-3R100 / 954803R100",
-      "coupangUrl": "https://link.coupang.com/a/g3G9r4TBwi",
-      "imageUrl": "./images/products/product-118.svg",
-      "productId": "9657217329"
-    }
-  },
-  {
-    "id": 119,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 119",
-      "coupangUrl": "https://link.coupang.com/a/g3Fq7Wtbga",
-      "imageUrl": "./images/products/product-119.svg",
-      "productId": "7501009834"
-    }
-  },
-  {
     "id": 120,
     "category": "위생 및 화장실 용품",
     "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
@@ -1317,17 +1207,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3FugUOKiG",
       "imageUrl": "./images/products/product-121.jpg",
       "productId": "9293916093"
-    }
-  },
-  {
-    "id": 122,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "스포티지R 14년식 스마트키 셋트/ 954403W500 / 819962P300",
-      "coupangUrl": "https://link.coupang.com/a/g3G8S6NKFg",
-      "imageUrl": "./images/products/product-122.svg",
-      "productId": "9438307819"
     }
   },
   {
@@ -1364,39 +1243,6 @@
     }
   },
   {
-    "id": 126,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "858714E000GW 트림 어셈블리 프론트 도어 스커프 좌측 (1개 단품)",
-      "coupangUrl": "https://link.coupang.com/a/g3G7kqNDEa",
-      "imageUrl": "./images/products/product-126.svg",
-      "productId": "8595791399"
-    }
-  },
-  {
-    "id": 129,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "기아 K8 2022 버튼&스위치 96540L 1등급 [26010800778]",
-      "coupangUrl": "https://link.coupang.com/a/g3FDu692Yu",
-      "imageUrl": "./images/products/product-129.svg",
-      "productId": "9659825582"
-    }
-  },
-  {
-    "id": 130,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "찾으시는 상품과 유사한 상품을 노출합니다.",
-      "coupangUrl": "https://link.coupang.com/a/g3G55F3BD2",
-      "imageUrl": "./images/products/product-130.svg",
-      "productId": "9712036373"
-    }
-  },
-  {
     "id": 131,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
@@ -1405,17 +1251,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3G5oVyBKS",
       "imageUrl": "./images/products/product-131.jpg",
       "productId": "8142883200"
-    }
-  },
-  {
-    "id": 132,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "OE: 84801575 84801577 자동차 부품 와이퍼 스프레이 키틀 모터 쉐보레 타호 트래버스 에퀴노우즈 캐딜락 에스컬레이드",
-      "coupangUrl": "https://link.coupang.com/a/g3FGQbXYf6",
-      "imageUrl": "./images/products/product-132.svg",
-      "productId": "8436921617"
     }
   },
   {
@@ -1507,17 +1342,6 @@
     }
   },
   {
-    "id": 142,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "9351021000 스위치 어셈블리 글로브 박스 램프 (1개 단품)",
-      "coupangUrl": "https://link.coupang.com/a/g3GBdQMF4K",
-      "imageUrl": "./images/products/product-142.svg",
-      "productId": "9385596247"
-    }
-  },
-  {
     "id": 143,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
@@ -1529,17 +1353,6 @@
     }
   },
   {
-    "id": 144,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "95420F6400 안테나 어셈블리 스마트키",
-      "coupangUrl": "https://link.coupang.com/a/g3G2swKgVg",
-      "imageUrl": "./images/products/product-144.svg",
-      "productId": "9699403546"
-    }
-  },
-  {
     "id": 145,
     "category": "그루밍",
     "description": "고양이의 위생과 털 관리를 위한 용품입니다.",
@@ -1548,17 +1361,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3GDyywehU",
       "imageUrl": "./images/products/product-145.jpg",
       "productId": "9339712660"
-    }
-  },
-  {
-    "id": 147,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 147",
-      "coupangUrl": "https://link.coupang.com/a/g3GFoTG0bI",
-      "imageUrl": "./images/products/product-147.svg",
-      "productId": "22882892"
     }
   },
   {
@@ -1606,17 +1408,6 @@
     }
   },
   {
-    "id": 152,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 152",
-      "coupangUrl": "https://link.coupang.com/a/g3GO6riOdw",
-      "imageUrl": "./images/products/product-152.svg",
-      "productId": "9397340776"
-    }
-  },
-  {
     "id": 153,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
@@ -1625,17 +1416,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3GQmcPfDo",
       "imageUrl": "./images/products/product-153.jpg",
       "productId": "8746504038"
-    }
-  },
-  {
-    "id": 154,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "물없이 사용하는 일회용 미니칫솔 퀵클린 민트향 개별포장 치실 혀클리너 이쑤시개 분리형, 1개, 10개입",
-      "coupangUrl": "https://link.coupang.com/a/g3GRArGkEe",
-      "imageUrl": "./images/products/product-154.jpg",
-      "productId": "7069618864"
     }
   },
   {
@@ -1650,17 +1430,6 @@
     }
   },
   {
-    "id": 156,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 156",
-      "coupangUrl": "https://link.coupang.com/a/g3G1dPSvo4",
-      "imageUrl": "./images/products/product-156.svg",
-      "productId": "8365218741"
-    }
-  },
-  {
     "id": 157,
     "category": "장난감",
     "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
@@ -1672,17 +1441,6 @@
     }
   },
   {
-    "id": 158,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 158",
-      "coupangUrl": "https://link.coupang.com/a/g3GVTTd2Y0",
-      "imageUrl": "./images/products/product-158.svg",
-      "productId": "8646657822"
-    }
-  },
-  {
     "id": 159,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
@@ -1691,17 +1449,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3GXDXhPdQ",
       "imageUrl": "./images/products/product-159.jpg",
       "productId": "8986344605"
-    }
-  },
-  {
-    "id": 161,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "86819C1000 86819C1000 (1개 단품)",
-      "coupangUrl": "https://link.coupang.com/a/g3HdT1wK2C",
-      "imageUrl": "./images/products/product-161.svg",
-      "productId": "8982730810"
     }
   },
   {
@@ -1749,17 +1496,6 @@
     }
   },
   {
-    "id": 166,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 166",
-      "coupangUrl": "https://link.coupang.com/a/g3Hi7CpmZo",
-      "imageUrl": "./images/products/product-166.svg",
-      "productId": "5624131655"
-    }
-  },
-  {
     "id": 167,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
@@ -1768,28 +1504,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3HkszfJEi",
       "imageUrl": "./images/products/product-167.jpg",
       "productId": "5649729859"
-    }
-  },
-  {
-    "id": 168,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 168",
-      "coupangUrl": "https://link.coupang.com/a/g3HooWz0hg",
-      "imageUrl": "./images/products/product-168.svg",
-      "productId": "8401601347"
-    }
-  },
-  {
-    "id": 170,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "K9 풋등(883963T500 연결용) 커넥터(MG611271-7) DIY용",
-      "coupangUrl": "https://link.coupang.com/a/g3HtA9juLY",
-      "imageUrl": "./images/products/product-170.svg",
-      "productId": "9693220269"
     }
   },
   {
@@ -1837,39 +1551,6 @@
     }
   },
   {
-    "id": 176,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 176",
-      "coupangUrl": "https://link.coupang.com/a/g3HAelN72i",
-      "imageUrl": "./images/products/product-176.svg",
-      "productId": "9360776525"
-    }
-  },
-  {
-    "id": 177,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 177",
-      "coupangUrl": "https://link.coupang.com/a/g3HBFgluMu",
-      "imageUrl": "./images/products/product-177.svg",
-      "productId": "9068748264"
-    }
-  },
-  {
-    "id": 178,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 178",
-      "coupangUrl": "https://link.coupang.com/a/g3HCT7h9Wu",
-      "imageUrl": "./images/products/product-178.svg",
-      "productId": "8919042026"
-    }
-  },
-  {
     "id": 179,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
@@ -1889,17 +1570,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3HKpkvXpc",
       "imageUrl": "./images/products/product-180.jpg",
       "productId": "7906213086"
-    }
-  },
-  {
-    "id": 181,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 181",
-      "coupangUrl": "https://link.coupang.com/a/g3HJlVI7Y4",
-      "imageUrl": "./images/products/product-181.svg",
-      "productId": "9246284163"
     }
   },
   {
@@ -1947,28 +1617,6 @@
     }
   },
   {
-    "id": 188,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "DJ83-2 1봉지 30개 7951935000 휠아치 몰딩 클립 티볼리 코란도 쌍용가니쉬키",
-      "coupangUrl": "https://link.coupang.com/a/g3H1iSRTm8",
-      "imageUrl": "./images/products/product-188.svg",
-      "productId": "8531589071"
-    }
-  },
-  {
-    "id": 189,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "857463Y000NNB 플러그 (1개 단품)",
-      "coupangUrl": "https://link.coupang.com/a/g3H2S1p2SO",
-      "imageUrl": "./images/products/product-189.svg",
-      "productId": "8591492581"
-    }
-  },
-  {
     "id": 190,
     "category": "스크래처 및 캣타워",
     "description": "휴식과 발톱 관리를 돕는 공간입니다.",
@@ -1991,17 +1639,6 @@
     }
   },
   {
-    "id": 192,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 192",
-      "coupangUrl": "https://link.coupang.com/a/g3IcUaG5Zc",
-      "imageUrl": "./images/products/product-192.svg",
-      "productId": "9262066055"
-    }
-  },
-  {
     "id": 193,
     "category": "그루밍",
     "description": "고양이의 위생과 털 관리를 위한 용품입니다.",
@@ -2010,17 +1647,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3Id1gEkIm",
       "imageUrl": "./images/products/product-193.jpg",
       "productId": "8848215793"
-    }
-  },
-  {
-    "id": 195,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 195",
-      "coupangUrl": "https://link.coupang.com/a/g3IhGLRuii",
-      "imageUrl": "./images/products/product-195.svg",
-      "productId": "9048019959"
     }
   },
   {
@@ -2057,17 +1683,6 @@
     }
   },
   {
-    "id": 199,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 199",
-      "coupangUrl": "https://link.coupang.com/a/g3In2b8jaS",
-      "imageUrl": "./images/products/product-199.jpg",
-      "productId": "9208636704"
-    }
-  },
-  {
     "id": 200,
     "category": "장난감",
     "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
@@ -2090,17 +1705,6 @@
     }
   },
   {
-    "id": 206,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "96950990 / P96950990 더뉴아베오 1.4 16.09~19.03 에어필터",
-      "coupangUrl": "https://link.coupang.com/a/g3Iy1nau3U",
-      "imageUrl": "./images/products/product-206.svg",
-      "productId": "9694755198"
-    }
-  },
-  {
     "id": 207,
     "category": "장난감",
     "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
@@ -2109,39 +1713,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3IyvJEGS4",
       "imageUrl": "./images/products/product-207.jpg",
       "productId": "9495318676"
-    }
-  },
-  {
-    "id": 208,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "만필터 BMW 3(F30/F31) 328i/428i 만필터 엔진 에어필터 C24025 OE 13718507320",
-      "coupangUrl": "https://link.coupang.com/a/g3IxQ8O5T2",
-      "imageUrl": "./images/products/product-208.svg",
-      "productId": "1899728129"
-    }
-  },
-  {
-    "id": 209,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 209",
-      "coupangUrl": "https://link.coupang.com/a/g3IAfCCrG8",
-      "imageUrl": "./images/products/product-209.svg",
-      "productId": "7313586429"
-    }
-  },
-  {
-    "id": 210,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 210",
-      "coupangUrl": "https://link.coupang.com/a/g3KP4Ffd5E",
-      "imageUrl": "./images/products/product-210.svg",
-      "productId": "9706349964"
     }
   },
   {
@@ -2211,17 +1782,6 @@
     }
   },
   {
-    "id": 218,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 218",
-      "coupangUrl": "https://link.coupang.com/a/g3K1mtQqvk",
-      "imageUrl": "./images/products/product-218.svg",
-      "productId": "9611460337"
-    }
-  },
-  {
     "id": 219,
     "category": "그루밍",
     "description": "고양이의 위생과 털 관리를 위한 용품입니다.",
@@ -2277,17 +1837,6 @@
     }
   },
   {
-    "id": 226,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 226",
-      "coupangUrl": "https://link.coupang.com/a/g3La2FgDDg",
-      "imageUrl": "./images/products/product-226.svg",
-      "productId": "9704661178"
-    }
-  },
-  {
     "id": 227,
     "category": "고양이 모래",
     "description": "쾌적한 배변 환경을 위한 고양이 모래입니다.",
@@ -2296,28 +1845,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3Lb23HFDw",
       "imageUrl": "./images/products/product-227.jpg",
       "productId": "29716304"
-    }
-  },
-  {
-    "id": 228,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 228",
-      "coupangUrl": "https://link.coupang.com/a/g3LcYAVKVM",
-      "imageUrl": "./images/products/product-228.svg",
-      "productId": "8365064230"
-    }
-  },
-  {
-    "id": 230,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "커넥터 배선 96610-6720H 순정품 966106720H",
-      "coupangUrl": "https://link.coupang.com/a/g3LfwnlGDc",
-      "imageUrl": "./images/products/product-230.svg",
-      "productId": "9640666417"
     }
   },
   {
@@ -2332,17 +1859,6 @@
     }
   },
   {
-    "id": 232,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 232",
-      "coupangUrl": "https://link.coupang.com/a/g3Lh6OX92a",
-      "imageUrl": "./images/products/product-232.svg",
-      "productId": "9692452042"
-    }
-  },
-  {
     "id": 233,
     "category": "장난감",
     "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
@@ -2351,17 +1867,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3Li85wNA4",
       "imageUrl": "./images/products/product-233.jpg",
       "productId": "9639036125"
-    }
-  },
-  {
-    "id": 234,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 234",
-      "coupangUrl": "https://link.coupang.com/a/g3LkSCE6Kq",
-      "imageUrl": "./images/products/product-234.svg",
-      "productId": "9600319971"
     }
   },
   {
@@ -2384,17 +1889,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3LomatFV6",
       "imageUrl": "./images/products/product-236.jpg",
       "productId": "9492033269"
-    }
-  },
-  {
-    "id": 237,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "현대 싼타페 베라크루즈 2007-2012용 헬릭스 에어리얼 폴 안테나 962002B000 96200 2B000",
-      "coupangUrl": "https://link.coupang.com/a/g3LpK35R5E",
-      "imageUrl": "./images/products/product-237.svg",
-      "productId": "9680124826"
     }
   },
   {
@@ -2464,17 +1958,6 @@
     }
   },
   {
-    "id": 245,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "SM6 도어록크+액츄에이터(앞문 운전석, 18년5월이후) 805036341R 순정 부품",
-      "coupangUrl": "https://link.coupang.com/a/g3LzBwEhu8",
-      "imageUrl": "./images/products/product-245.svg",
-      "productId": "8600667060"
-    }
-  },
-  {
     "id": 246,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
@@ -2505,17 +1988,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3LFxYDUSi",
       "imageUrl": "./images/products/product-249.jpg",
       "productId": "9579450254"
-    }
-  },
-  {
-    "id": 250,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 250",
-      "coupangUrl": "https://link.coupang.com/a/g3LGLTEJ8S",
-      "imageUrl": "./images/products/product-250.svg",
-      "productId": "8463330599"
     }
   },
   {
@@ -2574,17 +2046,6 @@
     }
   },
   {
-    "id": 257,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "프르프브 해파리 멍등 무드등, L / 프르프브 해파리 멍등 무드등, L",
-      "coupangUrl": "https://link.coupang.com/a/g3LQUQdo1Q",
-      "imageUrl": "./images/products/product-257.jpg",
-      "productId": "7744375159"
-    }
-  },
-  {
     "id": 259,
     "category": "위생 및 화장실 용품",
     "description": "쾌적한 위생과 배변 환경을 위한 용품입니다.",
@@ -2637,17 +2098,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3L0nUEMgK",
       "imageUrl": "./images/products/product-264.jpg",
       "productId": "8799319668"
-    }
-  },
-  {
-    "id": 265,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 265",
-      "coupangUrl": "https://link.coupang.com/a/g3L1ZM4vcW",
-      "imageUrl": "./images/products/product-265.svg",
-      "productId": "9136356386"
     }
   },
   {
@@ -2761,28 +2211,6 @@
     }
   },
   {
-    "id": 279,
-    "category": "장난감",
-    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
-    "product": {
-      "title": "상호명 및 호스팅 서비스 제공 :",
-      "coupangUrl": "https://link.coupang.com/a/g3Mj0ifr4u",
-      "imageUrl": "./images/products/product-279.jpg",
-      "productId": "8312046141"
-    }
-  },
-  {
-    "id": 280,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 280",
-      "coupangUrl": "https://link.coupang.com/a/g3Mk1SvRfM",
-      "imageUrl": "./images/products/product-280.svg",
-      "productId": "8323430156"
-    }
-  },
-  {
     "id": 281,
     "category": "스크래처 및 캣타워",
     "description": "휴식과 발톱 관리를 돕는 공간입니다.",
@@ -2824,17 +2252,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3MpvgpZHU",
       "imageUrl": "./images/products/product-284.jpg",
       "productId": "8966442037"
-    }
-  },
-  {
-    "id": 285,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 285",
-      "coupangUrl": "https://link.coupang.com/a/g3MqEqXwmi",
-      "imageUrl": "./images/products/product-285.svg",
-      "productId": "9168131418"
     }
   },
   {
@@ -2893,17 +2310,6 @@
     }
   },
   {
-    "id": 291,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "수입차 벤츠 에어필터 C14114 WA9443 49214 E472L CA9680 2710940204",
-      "coupangUrl": "https://link.coupang.com/a/g3MybarOmG",
-      "imageUrl": "./images/products/product-291.svg",
-      "productId": "9427561769"
-    }
-  },
-  {
     "id": 292,
     "category": "기타",
     "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
@@ -2912,17 +2318,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3MySWLuQS",
       "imageUrl": "./images/products/product-292.jpg",
       "productId": "9331873896"
-    }
-  },
-  {
-    "id": 293,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 293",
-      "coupangUrl": "https://link.coupang.com/a/g3Mz2Es13k",
-      "imageUrl": "./images/products/product-293.svg",
-      "productId": "5800456716"
     }
   },
   {
@@ -2956,17 +2351,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3MCTCeeK4",
       "imageUrl": "./images/products/product-296.jpg",
       "productId": "8305125031"
-    }
-  },
-  {
-    "id": 297,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "에서 구매하기 ; 최저가 :",
-      "coupangUrl": "https://link.coupang.com/a/g3MDK7kEM0",
-      "imageUrl": "./images/products/product-297.jpg",
-      "productId": "8405261953"
     }
   },
   {
@@ -3004,10 +2388,10 @@
   },
   {
     "id": 301,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
+    "category": "장난감",
+    "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
     "product": {
-      "title": "고양이 용품 추천 301",
+      "title": "영재과학 강아지 고양이 간식공급 발사기 노즈워크 장난감 노랑오리 옐로우, 1개, 오리",
       "coupangUrl": "https://link.coupang.com/a/g3MI4lNOfY",
       "imageUrl": "./images/products/product-301.svg",
       "productId": "9664133151"
@@ -3025,17 +2409,6 @@
     }
   },
   {
-    "id": 303,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 303",
-      "coupangUrl": "https://link.coupang.com/a/g3MK0fslkO",
-      "imageUrl": "./images/products/product-303.svg",
-      "productId": "9568100678"
-    }
-  },
-  {
     "id": 304,
     "category": "장난감",
     "description": "지루함을 덜어 주는 즐거운 놀이 용품입니다.",
@@ -3044,28 +2417,6 @@
       "coupangUrl": "https://link.coupang.com/a/g3MMgyK3em",
       "imageUrl": "./images/products/product-304.jpg",
       "productId": "298526372"
-    }
-  },
-  {
-    "id": 306,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "고양이 용품 추천 306",
-      "coupangUrl": "https://link.coupang.com/a/g3MPOBjH9o",
-      "imageUrl": "./images/products/product-306.svg",
-      "productId": "8595572814"
-    }
-  },
-  {
-    "id": 307,
-    "category": "기타",
-    "description": "고양이와 집사에게 유용한 생활 추천 용품입니다.",
-    "product": {
-      "title": "커넥터 배선 88959-03114AS 순정품 8895903114AS",
-      "coupangUrl": "https://link.coupang.com/a/g3MQ2348xo",
-      "imageUrl": "./images/products/product-307.svg",
-      "productId": "8863957735"
     }
   },
   {
